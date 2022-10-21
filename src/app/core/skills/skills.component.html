@@ -1,0 +1,12 @@
+<mat-card class="skills-container">
+  <h1>Skills</h1>
+	<hr />
+  <app-card-list class="list" [list]="list">
+		<ng-template let-item #card>
+			<button mat-raised-button color="accent" class="skill-card">
+				<img [src]="item.svg" alt="" />
+				<p>{{item.name}}</p>
+			</button>
+		</ng-template>
+	</app-card-list>
+</mat-card>

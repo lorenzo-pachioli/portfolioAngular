@@ -1,0 +1,20 @@
+@import '../mixins';
+
+.app {
+  @include flex(flex, center, flex-start, column);
+
+  app-home {
+    @include flex(flex, center, center, column);
+    width: 100%;
+    padding-top: 70px;
+  }
+
+  app-skills {
+    @include flex(flex, center, center, column);
+    width: 100%;
+  }
+
+  app-footer {
+    width: 100%;
+  }
+}

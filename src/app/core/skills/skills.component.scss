@@ -1,0 +1,47 @@
+@import '../../../mixins';
+
+.skills-container {
+  @include flex(flex, center, center, column);
+  width: 90%;
+  border: 2px solid var(--color5);
+  padding: 40px;
+  box-sizing: border-box;
+  background-color: transparent;
+  margin-bottom: 5vw;
+
+  h1 {
+    font-size: 50px;
+    color: var(--color1);
+    margin: 0;
+  }
+
+  hr {
+    width: 70%;
+    height: 2px;
+    background-color: var(--color5);
+    border: none;
+    margin: 40px;
+  }
+}
+
+.skill-card {
+  @include flex(flex, center, center, column);
+  width: 90px;
+  height: 90px;
+  padding: 10px;
+  gap: 10px;
+
+  img {
+    height: 40px;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.list {
+  @include flex(flex, center, center, row);
+  width: 70%;
+  height: 100%;
+}

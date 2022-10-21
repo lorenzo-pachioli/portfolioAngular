@@ -1,0 +1,18 @@
+@mixin flex($display, $align, $justify: initial, $direction: initial) {
+    display: $display;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin width-responsive {
+    width: min(100%, 612px);
+}
+
+@mixin width-root-responsive {
+    width: min(95vw, 612px);
+}
+
+@mixin width-login {
+    width: min((100% - 40px), 512px);
+}

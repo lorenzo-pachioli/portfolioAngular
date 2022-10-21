@@ -1,0 +1,27 @@
+.toolbar {
+  width: 100vw;
+
+  .mat-toolbar {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    backdrop-filter: blur(12px);
+    z-index: 1;
+  }
+
+  .header-molecule {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}
