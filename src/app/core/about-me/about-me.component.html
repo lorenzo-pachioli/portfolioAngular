@@ -1,0 +1,26 @@
+<div class="about-container">
+  <h1>About me</h1>
+  <hr />
+  <div class="about-content">
+    <mat-button-toggle-group class="about-menu" #group="matButtonToggleGroup" value="'today'">
+      <mat-button-toggle value="'today'" (click)="setInfo('today')">
+        <span>Today</span>
+      </mat-button-toggle>
+      <mat-button-toggle value="'acamica'" (click)="setInfo('acamica')">
+        <span>Acamica</span>
+      </mat-button-toggle>
+      <mat-button-toggle value="'utnba'" (click)="setInfo('utnba')">
+        <span>UTNBA</span>
+      </mat-button-toggle>
+      <mat-button-toggle value="'before'" (click)="setInfo('before')">
+        <span>Before coding</span>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+    <diV class="about-info" [ngSwitch]="info">
+      <p *ngSwitchCase="'acamica'">{{list.acamica.story}}</p>
+      <p *ngSwitchCase="'utnba'">{{list.utnba.story}}</p>
+      <p *ngSwitchCase="'before'">{{list.before.story}}</p>
+      <p *ngSwitchDefault>{{list.today.story}}</p>
+    </diV>
+  </div>
+</div>

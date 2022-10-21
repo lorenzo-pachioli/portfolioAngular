@@ -7,6 +7,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRippleModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [],
@@ -18,7 +19,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatMenuModule,
     MatProgressSpinnerModule,
     MatRippleModule,
-    MatButtonModule
+    MatButtonModule,
+    MatButtonToggleModule
   ],
   exports: [
     MatToolbarModule,
@@ -27,7 +29,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatMenuModule,
     MatProgressSpinnerModule,
     MatRippleModule,
-    MatButtonModule
+    MatButtonModule,
+    MatButtonToggleModule
   ]
 })
 export class MaterialModule { }
