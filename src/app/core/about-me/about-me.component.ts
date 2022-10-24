@@ -18,4 +18,11 @@ export class AboutMeComponent implements OnInit {
   setInfo(currentInfo: string): void {
     this.info = currentInfo;
   }
+
+  setButtonColor(value: string): any {
+    if (this.info === value) {
+      return { 'background-color': 'var(--color3)' }
+    }
+    return { 'background-color': 'var(--color5)' }
+  }
 }
