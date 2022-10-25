@@ -2,15 +2,8 @@
   <h1>Portfolio</h1>
   <hr />
   <div class="portfolio-content">
-    <mat-grid-list cols="4" rowHeight="150px" gutterSize="20px">
-      <mat-grid-tile
-          *ngFor="let tile of tiles"
-          [colspan]="tile.cols"
-          [rowspan]="tile.rows"
-          [style.background]="tile.color">
-        {{tile.text}}
-      </mat-grid-tile>
-    </mat-grid-list>
+    <app-project-info [(project)]="project" *ngIf="project; else projectCard"></app-project-info>
+    <ng-template #projectCard><app-portfolio-grid (projectChange)="setProject($event)"></app-portfolio-grid></ng-template>
   </div>
 </div>
 

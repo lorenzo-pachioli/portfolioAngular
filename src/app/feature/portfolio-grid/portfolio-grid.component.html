@@ -1,0 +1,15 @@
+<div class="portfolio-grid-container">
+  <mat-grid-list cols="4" rowHeight="300px" gutterSize="20px">
+    <mat-grid-tile
+        *ngFor="let tile of projectsList"
+        [colspan]="tile.cols"
+        [rowspan]="tile.rows"
+        [style.background]="tile.color"
+        (click)="chooseProject(tile)">
+      <img class="screenshot" [src]="tile.image" alt="" *ngIf="tile.image; else tileText" />
+      <ng-template #tileText><div class="no-img">{{tile.title}}</div></ng-template>
+      <h2>{{tile.title}}</h2>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+

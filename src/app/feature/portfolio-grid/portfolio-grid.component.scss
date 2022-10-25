@@ -1,0 +1,55 @@
+@import '../../../mixins';
+
+.portfolio-grid-container {
+  @include flex(flex, center, center, row);
+  width: 100%;
+
+  mat-grid-list {
+    width: 100%;
+    height: 100%;
+  }
+
+  mat-grid-tile {
+    @include flex(flex, center, center);
+    border-radius: 2px;
+    font-size: 30px;
+
+    h2 {
+      display: none;
+      color: white;
+      font-size: 30px;
+      z-index: 1;
+      position: absolute;
+    }
+
+    .no-img {
+      @include flex(flex, center, center);
+      width: 100%;
+      height: 100%;
+      background-color: var(--color3);
+      color: white;
+    }
+  }
+
+  mat-grid-tile:hover {
+
+    h2 {
+      display: block;
+    }
+
+    .screenshot {
+      filter: opacity(10%);
+    }
+
+    .no-img {
+      filter: opacity(10%);
+    }
+
+  }
+
+  .screenshot {
+    width: 100%;
+    height: 100%;
+  }
+
+}

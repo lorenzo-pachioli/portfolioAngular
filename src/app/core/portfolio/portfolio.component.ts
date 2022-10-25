@@ -1,11 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-}
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { IProject } from '../../shared/interfaces/IProject';
 
 @Component({
   selector: 'app-portfolio',
@@ -14,18 +8,17 @@ export interface Tile {
 })
 export class PortfolioComponent implements OnInit {
 
-  tiles: Tile[] = [
-    { text: 'One', cols: 2, rows: 1, color: 'lightblue' },
-    { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
-    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
-    { text: 'Four', cols: 2, rows: 1, color: '#DDBDF1' },
-    { text: 'Five', cols: 1, rows: 2, color: 'lightblue' },
-    { text: 'Six', cols: 1, rows: 1, color: 'lightgreen' },
-    { text: 'Seven', cols: 2, rows: 1, color: 'lightpink' },
-  ];
+  @Input() project!: IProject;
+  @Output() projectChange: EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setProject(event: IProject): void {
+    console.log(event);
+    this.project = event;
   }
 
 }

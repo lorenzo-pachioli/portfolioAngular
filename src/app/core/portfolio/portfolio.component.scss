@@ -3,7 +3,6 @@
 .portfolio-container {
   @include flex(flex, center, flex-start, column);
   width: 90%;
-  height: 80vh;
   gap: 40px;
   margin-bottom: 10vw;
 
@@ -25,14 +24,13 @@
 .portfolio-content {
   @include flex(flex, center, center, row);
   width: 100%;
-  height: 60vh;
 
-  mat-grid-list {
-    width: 90%;
+  app-portfolio-grid {
+    width: 100%;
     height: 100%;
   }
 
-  mat-grid-tile {
-    border-radius: 2px;
+  app-project-info {
+    width: 100%;
   }
 }

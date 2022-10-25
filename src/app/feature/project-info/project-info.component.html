@@ -1,0 +1,13 @@
+<mat-card class="project-info-container">
+  <div class="image-container">
+    <img [src]="project.image" alt="" />
+  </div>
+  <mat-card-title>{{project.title}}</mat-card-title>
+  <mat-card-content class="description">{{project.description}}</mat-card-content>
+  <mat-card-content class="links">
+    <a [href]="project.github"><button mat-raised-button color="primary">Github</button></a>
+    <a [href]="project.deployed"><button mat-raised-button color="primary">Deployed</button></a>
+    <button mat-raised-button color="primary" (click)="back()">Back</button>
+  </mat-card-content>
+</mat-card>
+
