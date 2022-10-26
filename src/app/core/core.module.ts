@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     SkillsComponent,
     FooterComponent,
     AboutMeComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     SkillsComponent,
     FooterComponent,
     AboutMeComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    ContactComponent
   ]
 })
 export class CoreModule { }

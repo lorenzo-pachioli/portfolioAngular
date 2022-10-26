@@ -24,6 +24,11 @@
     width: 100%;
   }
 
+  app-contact {
+    @include flex(flex, center, center, column);
+    width: 100%;
+  }
+
   app-footer {
     width: 100%;
   }
