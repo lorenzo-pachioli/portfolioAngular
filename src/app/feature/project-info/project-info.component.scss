@@ -11,7 +11,7 @@
 
   .image-container {
     @include flex(flex, center, center);
-    width: 90%;
+    max-height: 50%;
     padding: 20px;
     border-radius: 2px;
   }
@@ -23,15 +23,16 @@
 
   mat-card-title {
     width: 100%;
+    height: fit-content;
     text-align: center;
-    font-size: 40px;
-    color: var(--color5);
+    font-size: 60px;
+    color: var(--color1);
   }
 
   .description {
     width: 100%;
     text-align: center;
-    color: var(--color1);
+    color: var(--color2);
   }
 
   .links {
