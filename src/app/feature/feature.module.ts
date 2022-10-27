@@ -5,23 +5,27 @@ import { PortfolioGridComponent } from './portfolio-grid/portfolio-grid.componen
 import { ProjectInfoComponent } from './project-info/project-info.component';
 import { MapComponent } from './map/map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-
+import { ContactCardComponent } from './contact-card/contact-card.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     PortfolioGridComponent,
     ProjectInfoComponent,
-    MapComponent
+    MapComponent,
+    ContactCardComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
-    LeafletModule
+    LeafletModule,
+    ReactiveFormsModule
   ],
   exports: [
     PortfolioGridComponent,
     ProjectInfoComponent,
-    MapComponent
+    MapComponent,
+    ContactCardComponent
   ]
 })
 export class FeatureModule { }

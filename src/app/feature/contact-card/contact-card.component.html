@@ -1,0 +1,43 @@
+<mat-card class="contact-card-container">
+  <mat-card-header>
+    <p>* Required values</p>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p class="title">If you liked my profile and want to get in touch, send me a message:</p>
+  </mat-card-content>
+  <form class="form" novalidate [formGroup]="newEmail" [target]="newEmail" (ngSubmit)="sendEmail($event.target)">
+    
+    <p class="label">Name</p>
+    <mat-form-field appearance="fill">
+      <mat-label>name</mat-label>
+      <input matInput class="input" color="primary" [formControl]="name" required name="name">
+      <mat-error *ngIf="name.invalid">Not a valid name</mat-error>
+    </mat-form-field>
+  
+    <p class="label">Email</p>
+    <mat-form-field appearance="fill" >
+      <mat-label>email</mat-label>
+      <input matInput type="email" [formControl]="email" required name="email">
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <p class="label">Message</p>
+    <mat-form-field appearance="fill" >
+      <mat-label>Write here your message</mat-label>
+      <input matInput #msg maxlength="256" [formControl]="message" name="message">
+      <mat-hint align="end">{{msg.value.length}} / 256</mat-hint>
+    </mat-form-field>
+
+    <div class="buttons spinner" mat-dialog-actions>
+      <button mat-raised-button color="primary" [disabled]="!newEmail.valid" type="submit">
+        <mat-spinner [diameter]="30" *ngIf="loading; else create" ></mat-spinner>
+        <ng-template #create ><p>Send</p></ng-template>
+      </button>
+    </div>
+  </form>
+  <mat-card-footer>
+    <mat-hint *ngIf="success" align="end" class="success">Email sent successfully</mat-hint>
+    <mat-error *ngIf="error" align="end" color="warn">Something went wrong, try again later.</mat-error>
+  </mat-card-footer>
+</mat-card>
