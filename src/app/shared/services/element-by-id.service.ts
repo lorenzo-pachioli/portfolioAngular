@@ -1,11 +1,25 @@
 import { ElementRef, Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+interface IVisible {
+  home?: boolean,
+  skills?: boolean,
+  portfolio?: boolean,
+  about?: boolean,
+  contact?: boolean
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class ElementByIdService {
 
-
+  visible: BehaviorSubject<any> = new BehaviorSubject({
+    home: false,
+    skills: false,
+    portfolio: false,
+    about: false,
+    contact: false
+  });
   home!: ElementRef;
   skills!: ElementRef;
   portfolio!: ElementRef;

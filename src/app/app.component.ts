@@ -30,4 +30,25 @@ export class AppComponent {
     this.element.setAbout(this.aboutRef);
     this.element.setContact(this.contactRef);
   }
+
+
+  onFocus(component: string, visible: boolean): void {
+    /* console.log(component, visible); */
+    if (component === 'home') {
+      this.element.visible.next({ ...this.element.visible.value, home: visible });
+    }
+    if (component === 'skills') {
+      this.element.visible.next({ ...this.element.visible.value, skills: visible });
+    }
+    if (component === 'portfolio') {
+      this.element.visible.next({ ...this.element.visible.value, portfolio: visible });
+    }
+    if (component === 'about') {
+      this.element.visible.next({ ...this.element.visible.value, about: visible });
+    }
+    if (component === 'contact') {
+      this.element.visible.next({ ...this.element.visible.value, contact: visible });
+    }
+
+  }
 }

@@ -1,10 +1,10 @@
-<div class="app">
+<div class="app" >
   <app-header></app-header>
-  <app-home></app-home>
-  <app-skills></app-skills>
-  <app-portfolio></app-portfolio>
-  <app-about-me></app-about-me>
-  <app-contact></app-contact>
+  <app-home appIsVisible (visibilityChange)="onFocus('home', $event)"></app-home>
+  <app-skills appIsVisible (visibilityChange)="onFocus('skills', $event)"></app-skills>
+  <app-portfolio appIsVisible (visibilityChange)="onFocus('portfolio', $event)"></app-portfolio>
+  <app-about-me appIsVisible (visibilityChange)="onFocus('about', $event)"></app-about-me>
+  <app-contact appIsVisible (visibilityChange)="onFocus('contact', $event)"></app-contact>
   <app-footer></app-footer>
 </div>
 

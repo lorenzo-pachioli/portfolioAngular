@@ -8,8 +8,18 @@ import { ElementByIdService } from 'src/app/shared/services/element-by-id.servic
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public element: ElementByIdService) {
+  visible = {
+    home: false,
+    skills: false,
+    portfolio: false,
+    about: false,
+    contact: false
+  }
 
+  constructor(public element: ElementByIdService) {
+    this.element.visible.subscribe(currentVisible => {
+      this.visible = currentVisible;
+    })
   }
 
   ngOnInit(): void {
@@ -28,11 +38,10 @@ export class HeaderComponent implements OnInit {
       portfolio.nativeElement.scrollIntoView({ behavior: "smooth" });
     }
     if (el === 'about') {
-      this.element.about.nativeElement.scrollIntoView({ behavior: "smooth" });
+      this.element.about.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
     }
     if (el === 'contact') {
-      this.element.contact.nativeElement.scrollIntoView({ behavior: "smooth" });
+      this.element.contact.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   }
-
 }

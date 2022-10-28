@@ -6,6 +6,7 @@
   app-home {
     @include flex(flex, center, center, column);
     width: 100%;
+    min-height: 110vh;
     padding-top: 70px;
     background: rgb(26, 25, 29);
     background: linear-gradient(0deg, rgba(26, 25, 29, 1) 20%, rgba(88, 23, 45, 0.5) 100%);
@@ -14,21 +15,26 @@
   app-skills {
     @include flex(flex, center, center, column);
     width: 100%;
+    min-height: 110vh;
   }
 
   app-portfolio {
     @include flex(flex, center, center, column);
     width: 100%;
+    min-height: 110vh;
+    margin-top: 10vh;
   }
 
   app-about-me {
     @include flex(flex, center, center, column);
     width: 100%;
+    min-height: 110vh;
   }
 
   app-contact {
     @include flex(flex, center, center, column);
     width: 100%;
+    min-height: 110vh;
     background: rgb(26, 25, 29);
     background: linear-gradient(180deg, rgba(26, 25, 29, 1) 0%, rgba(88, 23, 45, 0.5) 100%);
   }

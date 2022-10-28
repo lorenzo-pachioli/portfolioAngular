@@ -19,8 +19,7 @@ export class HomeComponent implements OnInit {
       this.element.skills.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
     }
     if (el === 'contact') {
-      this.element.contact.nativeElement.scrollIntoView({ behavior: "smooth" });
+      this.element.contact.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   }
-
 }

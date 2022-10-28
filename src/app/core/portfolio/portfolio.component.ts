@@ -16,8 +16,6 @@ export class PortfolioComponent implements OnInit {
   }
 
   setProject(event: IProject): void {
-    console.log(event);
     this.project = event;
   }
-
 }
