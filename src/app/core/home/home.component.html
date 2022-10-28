@@ -1,25 +1,23 @@
 <mat-card class='home-container'>
   <h1>Lorenzo Pachioli</h1>
   <h2 color="accent">Full Stack Web Developer</h2>
-  <button mat-raised-button color="primary" class="contact-btn">
+  <button mat-raised-button color="primary" class="contact-btn" (click)="scroll('contact')">
     Contact me
   </button>
 </mat-card>
 
 <mat-card class='summerice'>
-    <p> &emsp;I'm starting this new path of becoming a front-end software debeloper
+    <p> I'm starting this new path of becoming a front-end software debeloper
         and aiming for a place that allows me to put in practice the 
         knowledge acquired studying and leadd me to keep growing and
-        gaining new skills. </p>
-    <p> &emsp;I have not formal experince working on software development yet, but i'm looking
-        foreward to start making it. In Portfolio you can find some proyects that shows my 
-        capabilities.
-    </p>
+        gaining new skills.I have not formal experince working on software development yet, but i'm looking
+        foreward to start making it. In the portfolio area you can find some proyects that shows my 
+        capabilities.</p>
 </mat-card>
 
 
 <div class="continue">
-  <button mat-button >
+  <button mat-button (click)="scroll('skills')">
     <mat-icon color="primary">arrow_downward</mat-icon>
   </button>
 </div>

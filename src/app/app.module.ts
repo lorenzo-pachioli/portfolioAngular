@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
+import { ElementByIdService } from './shared/services/element-by-id.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { CoreModule } from './core/core.module';
     MaterialModule,
     CoreModule
   ],
-  providers: [],
+  providers: [
+    ElementByIdService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

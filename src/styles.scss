@@ -63,4 +63,8 @@ body {
   padding: 0;
   font-family: 'Roboto Flex', sans-serif;
   box-sizing: border-box;
+
+  button:hover {
+    filter: opacity(50%);
+  }
 }

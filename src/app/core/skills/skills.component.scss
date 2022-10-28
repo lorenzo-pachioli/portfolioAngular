@@ -7,7 +7,7 @@
   padding: 40px;
   box-sizing: border-box;
   background-color: transparent;
-  margin-bottom: 10vw;
+  margin-top: 5vw;
 
   h1 {
     font-size: 50px;
@@ -30,6 +30,7 @@
   height: 90px;
   padding: 10px;
   gap: 10px;
+  transition: all 0.2s ease-in-out;
 
   img {
     height: 40px;
@@ -38,6 +39,10 @@
   p {
     margin: 0;
   }
+}
+
+.skill-card:hover {
+  transform: translateY(20px);
 }
 
 .list {

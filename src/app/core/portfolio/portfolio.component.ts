@@ -10,7 +10,6 @@ export class PortfolioComponent implements OnInit {
 
   @Input() project!: IProject;
   @Output() projectChange: EventEmitter<any> = new EventEmitter();
-
   constructor() { }
 
   ngOnInit(): void {
