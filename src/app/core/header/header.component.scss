@@ -17,14 +17,23 @@
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
+
+    button {
+      background-color: transparent;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+    }
   }
 
-  button {
-    background-color: transparent;
-    border: none;
-    border-radius: 0;
-    cursor: pointer;
+  .menu-mobile {
+    display: none;
+
+    button {
+      display: block;
+    }
   }
+
 
   .dot {
     color: var(--color5);
@@ -32,4 +41,21 @@
     font-weight: 600;
   }
 
+}
+
+@media screen and (max-width: 900px) {
+  .toolbar {
+    .desktop-menu {
+      display: none;
+    }
+
+    .menu-mobile {
+      display: block;
+
+      button {
+        display: block;
+      }
+    }
+
+  }
 }

@@ -51,3 +51,44 @@
   width: 70%;
   height: 100%;
 }
+
+@media screen and (max-width: 900px) {
+  .skills-container {
+    @include flex(flex, center, center, column);
+    width: 95%;
+    min-height: 80vh;
+    padding: 20px;
+
+    h1 {
+      font-size: 50px;
+      color: var(--color1);
+      margin: 0;
+    }
+
+    hr {
+      width: 70%;
+      margin: 20px;
+    }
+  }
+
+  .skill-card {
+    @include flex(flex, center, center, column);
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    gap: 5px;
+
+    img {
+      height: 40px;
+    }
+  }
+
+  .skill-card:hover {
+    transform: translateY(0px);
+  }
+
+  .list {
+    width: 95%;
+    height: 100%;
+  }
+}

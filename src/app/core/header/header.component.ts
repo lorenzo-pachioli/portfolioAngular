@@ -28,20 +28,29 @@ export class HeaderComponent implements OnInit {
   scroll(el: any) {
 
     if (el === 'home') {
-      this.element.home.nativeElement.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        this.element.home.nativeElement.scrollIntoView({ behavior: "smooth" });
+      }, 1);
     }
     if (el === 'skills') {
-      this.element.skills.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
+      setTimeout(() => {
+        this.element.skills.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 1);
     }
     if (el === 'portfolio') {
-      const portfolio = this.element.portfolio;
-      portfolio.nativeElement.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        this.element.portfolio.nativeElement.scrollIntoView({ behavior: "smooth" });
+      }, 1);
     }
     if (el === 'about') {
-      this.element.about.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
+      setTimeout(() => {
+        this.element.about.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 1);
     }
     if (el === 'contact') {
-      this.element.contact.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
+      setTimeout(() => {
+        this.element.contact.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 1);
     }
   }
 }
