@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactComponent } from './contact/contact.component';
+import { SocialSideNavComponent } from './social-side-nav/social-side-nav.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ContactComponent } from './contact/contact.component';
     FooterComponent,
     AboutMeComponent,
     PortfolioComponent,
-    ContactComponent
+    ContactComponent,
+    SocialSideNavComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +37,8 @@ import { ContactComponent } from './contact/contact.component';
     FooterComponent,
     AboutMeComponent,
     PortfolioComponent,
-    ContactComponent
+    ContactComponent,
+    SocialSideNavComponent
   ]
 })
 export class CoreModule { }

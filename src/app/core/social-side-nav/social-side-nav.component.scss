@@ -1,0 +1,26 @@
+@import '../../../mixins';
+
+.socialSideNav-container {
+  @include flex(flex, center, space-evenly, column);
+  width: 40px;
+  height: 150px;
+  background-color: var(--color5);
+  position: fixed;
+  left: 0;
+  top: 70%;
+  border-radius: 0 3px 3px 0;
+
+  img {
+    height: 30px;
+
+  }
+
+  img:hover {
+    height: 32px;
+  }
+
+  mat-icon {
+    @include flex(flex, center, center);
+    font-weight: 600;
+  }
+}
