@@ -1,4 +1,5 @@
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
+import { ElementByIdService } from 'src/app/shared/services/element-by-id.service';
 import { IProject } from '../../shared/interfaces/IProject';
 import { projectsList } from './projectsList';
 
@@ -22,7 +23,7 @@ export class PortfolioGridComponent implements OnInit {
     this.innerWidth = window.innerWidth;
     this.mobileGrid(this.innerWidth);
   }
-  constructor() { }
+  constructor(public element: ElementByIdService) { }
 
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;
@@ -31,6 +32,9 @@ export class PortfolioGridComponent implements OnInit {
 
   chooseProject(project: IProject): void {
     this.projectChange.emit(project);
+    setTimeout(() => {
+      this.element.portfolio.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 1);
   }
 
   mobileGrid(width: number) {
