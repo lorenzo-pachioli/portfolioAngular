@@ -56,3 +56,58 @@
   }
 
 }
+
+@media screen and (max-width: 900px) {
+  .project-info-container {
+    @include flex(flex, center, space-between, column);
+    width: 100%;
+    gap: 20px;
+
+    .image-container {
+      @include flex(flex, center, center);
+      max-height: 50%;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 80vh;
+    }
+
+    mat-card-title {
+      height: fit-content;
+      padding: 20px;
+      font-size: 40px;
+      color: var(--color1);
+      writing-mode: horizontal-tb;
+      border-right: none;
+      border-bottom: 2px solid var(--color5);
+    }
+
+    mat-card-content {
+      width: 100%;
+      @include flex(flex, center, center, column);
+    }
+
+    .description {
+      @include flex(flex, center, center);
+      box-sizing: border-box;
+      width: 100%;
+      height: fit-content;
+      max-width: none;
+      margin-bottom: 20px;
+      padding: 16px;
+      font-size: 20px;
+    }
+  }
+
+  .links {
+    @include flex(flex, center, center);
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    button {
+      width: 100px;
+    }
+  }
+}

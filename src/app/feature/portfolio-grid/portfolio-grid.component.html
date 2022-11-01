@@ -1,5 +1,5 @@
 <div class="portfolio-grid-container">
-  <mat-grid-list cols="4" rowHeight="300px" gutterSize="20px">
+  <mat-grid-list [cols]="gridSize.col" [rowHeight]="gridSize.rowHeight" [gutterSize]="gridSize.gutterSize">
     <mat-grid-tile
         *ngFor="let tile of projectsList"
         [colspan]="tile.cols"
