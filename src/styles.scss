@@ -45,11 +45,36 @@ html,
 body {
   height: 100%;
   background-color: $black;
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ff4081;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #B6B3B1;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #333333;
+    border: 0px none #ff4081;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
 }
 
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+
 }
 
 :root {

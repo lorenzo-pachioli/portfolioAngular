@@ -26,12 +26,8 @@
     }
   }
 
-  .menu-mobile {
+  app-mobile-menu {
     display: none;
-
-    button {
-      display: block;
-    }
   }
 
 
@@ -45,17 +41,12 @@
 
 @media screen and (max-width: 900px) {
   .toolbar {
-    .desktop-menu {
+    app-desktop-menu {
       display: none;
     }
 
-    .menu-mobile {
+    app-mobile-menu {
       display: block;
-
-
-      button {
-        display: block;
-      }
     }
   }
 }

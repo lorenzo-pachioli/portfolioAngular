@@ -1,0 +1,23 @@
+<div class="header-molecule desktop-menu">
+  <span>|</span>
+  <button mat-button color="primary" selected (click)="scroll('home')" [ngStyle]="{'border-bottom': this.visible.home ? '2px solid var(--color5)':''}">
+    <span>Home</span>
+  </button>
+  <span>|</span>
+  <button mat-button color="primary" (click)="scroll('skills')" [ngStyle]="{'border-bottom': this.visible.skills ? '2px solid var(--color5)':''}">
+    <span>Skills</span>
+  </button>
+  <span>|</span>
+  <button mat-button color="primary" (click)="scroll('portfolio')" [ngStyle]="{'border-bottom': this.visible.portfolio ? '2px solid var(--color5)':''}">
+    <span>Portfolio</span>
+  </button>
+  <span>|</span>
+  <button mat-button color="primary" (click)="scroll('about')" [ngStyle]="{'border-bottom': this.visible.about ? '2px solid var(--color5)':''}">
+    <span>About me</span>
+  </button>
+  <span>|</span>
+  <button mat-button color="primary" (click)="scroll('contact')" [ngStyle]="{'border-bottom': this.visible.contact ? '2px solid var(--color5)':''}">
+    <span>Contact</span>
+  </button>
+  <span>|</span>
+</div>

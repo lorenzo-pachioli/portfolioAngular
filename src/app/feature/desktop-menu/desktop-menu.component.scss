@@ -1,0 +1,14 @@
+.header-molecule {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+
+  button {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+  }
+}

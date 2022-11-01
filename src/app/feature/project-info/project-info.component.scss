@@ -31,6 +31,10 @@
     border-right: 2px solid var(--color5);
   }
 
+  mat-card-content {
+    @include flex(flex, center, center, column);
+  }
+
   .description {
     @include flex(flex, center, center);
     box-sizing: border-box;
@@ -49,6 +53,7 @@
   .links {
     @include flex(flex, center, center);
     gap: 20px;
+    flex-wrap: wrap;
 
     button {
       width: 120px;

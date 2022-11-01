@@ -1,0 +1,20 @@
+<button mat-icon-button class="menu-mobile" [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu" class="menu-mobile">
+  <button mat-menu-item color="primary" selected (click)="scroll('home')" [ngStyle]="{'background-color': this.visible.home ? 'var(--color5)':''}">
+    <span>Home</span>
+  </button>
+  <button mat-menu-item color="primary" (click)="scroll('skills')" [ngStyle]="{'background-color': this.visible.skills ? 'var(--color5)':''}">
+    <span>Skills</span>
+  </button>
+  <button mat-menu-item color="primary" (click)="scroll('portfolio')" [ngStyle]="{'background-color': this.visible.portfolio ? 'var(--color5)':''}">
+    <span>Portfolio</span>
+  </button>
+  <button mat-menu-item color="primary" (click)="scroll('about')" [ngStyle]="{'background-color': this.visible.about ? 'var(--color5)':''}">
+    <span>About me</span>
+  </button>
+  <button mat-menu-item color="primary" (click)="scroll('contact')" [ngStyle]="{'background-color': this.visible.contact ? 'var(--color5)':''}">
+    <span>Contact</span>
+  </button>
+</mat-menu>

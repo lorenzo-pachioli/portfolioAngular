@@ -7,13 +7,17 @@ import { MapComponent } from './map/map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { ContactCardComponent } from './contact-card/contact-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DesktopMenuComponent } from './desktop-menu/desktop-menu.component';
+import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 
 @NgModule({
   declarations: [
     PortfolioGridComponent,
     ProjectInfoComponent,
     MapComponent,
-    ContactCardComponent
+    ContactCardComponent,
+    DesktopMenuComponent,
+    MobileMenuComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +29,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     PortfolioGridComponent,
     ProjectInfoComponent,
     MapComponent,
-    ContactCardComponent
+    ContactCardComponent,
+    DesktopMenuComponent,
+    MobileMenuComponent
   ]
 })
 export class FeatureModule { }
