@@ -36,9 +36,11 @@ export class ContactCardComponent implements OnInit {
   sendEmail(event: HTMLFormElement): void {
 
     if (this.newEmail.valid) {
+      this.loading = true;
       emailjs.sendForm('service_4ubx0g1', 'template_fo9favj', event, 'bjMDoIOJD-HmviB57')
         .then((result) => {
           if (result.status === 200) {
+            this.loading = false;
             this.success = true;
             this.newEmail.reset();
             setTimeout(() => {
@@ -47,6 +49,7 @@ export class ContactCardComponent implements OnInit {
           }
         }, (error) => {
           console.error(error);
+          this.loading = false;
           this.error = true;
           setTimeout(() => {
             this.error = false;
