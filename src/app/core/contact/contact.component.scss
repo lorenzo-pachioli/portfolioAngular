@@ -3,6 +3,7 @@
 .contact-container {
   @include flex(flex, center, flex-start, column);
   width: 90%;
+  min-height: 600px;
   gap: 40px;
   margin-top: 15vh;
   margin-bottom: 40px;

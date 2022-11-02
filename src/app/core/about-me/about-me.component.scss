@@ -3,7 +3,8 @@
 .about-container {
   @include flex(flex, center, flex-start, column);
   width: 90%;
-  height: 60vh;
+  height: fit-content;
+  min-height: 60vh;
   gap: 40px;
   margin: 15vh 0;
 
@@ -26,14 +27,15 @@
   @include flex(flex, center, center, row);
   width: 100%;
   height: 50vh;
+  min-height: 350px;
 }
 
 .about-menu {
   @include flex(flex, center, space-evenly, column);
   width: 30%;
-  height: 100%;
   border: none;
   box-sizing: border-box;
+  gap: 10px;
 
   .mat-button-toggle {
     width: 60%;
@@ -64,7 +66,6 @@
   .about-container {
     @include flex(flex, center, flex-start, column);
     width: 95%;
-    height: 60vh;
     gap: 20px;
 
   }

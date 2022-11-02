@@ -17,8 +17,9 @@
   background-size: cover;
   width: 90%;
   height: 50vh;
+  min-height: 400px;
   gap: 20px;
-  margin-bottom: 2vh;
+  margin-bottom: 10px;
 
   img {
     width: 20vh;
@@ -71,7 +72,6 @@
 
 .continue {
   width: 100%;
-  height: 15vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -112,8 +112,6 @@
   .home-container {
     width: 95%;
     height: 50vh;
-    gap: 20px;
-    margin-bottom: 2vh;
 
     img {
       width: 20vh;
