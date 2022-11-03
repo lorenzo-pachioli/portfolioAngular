@@ -10,11 +10,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url(../../../assets/img/drone-noche-mar-del-plata.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   width: 90%;
   height: 50vh;
   min-height: 400px;
@@ -22,24 +17,29 @@
   margin-bottom: 10px;
 
   img {
-    width: 20vh;
-    height: 20vh;
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    object-fit: cover;
   }
 
   h1 {
     font-size: 100px;
     text-align: center;
+    z-index: 2;
   }
 
   h2 {
     font-size: 30px;
     text-align: center;
     color: var(--color2);
+    z-index: 2;
   }
 
   button:hover {
     filter: brightness(80%);
+    z-index: 2;
   }
 
 }
@@ -48,6 +48,7 @@
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
+  z-index: 2;
 
 }
 
@@ -112,12 +113,6 @@
   .home-container {
     width: 95%;
     height: 50vh;
-
-    img {
-      width: 20vh;
-      height: 20vh;
-      border-radius: 50%;
-    }
 
     h1 {
       font-size: 70px;

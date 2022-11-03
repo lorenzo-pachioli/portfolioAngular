@@ -94,3 +94,11 @@ body {
     filter: opacity(50%);
   }
 }
+
+@media screen and (max-width: 900px) {
+  :root {
+    button:hover {
+      filter: none;
+    }
+  }
+}
