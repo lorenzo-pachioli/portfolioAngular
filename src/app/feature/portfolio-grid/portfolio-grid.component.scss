@@ -14,7 +14,6 @@
     border-radius: 2px;
     font-size: 30px;
     overflow: hidden;
-    cursor: pointer;
 
 
     h2 {
@@ -23,6 +22,11 @@
       z-index: 1;
       position: absolute;
       text-align: center;
+      cursor: pointer;
+    }
+
+    h2:hover {
+      color: var(--color2);
     }
 
     .screenshot {
