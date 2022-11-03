@@ -13,14 +13,22 @@
     @include flex(flex, center, center);
     border-radius: 2px;
     font-size: 30px;
+    overflow: hidden;
+    cursor: pointer;
 
     h2 {
-      display: none;
       color: white;
       font-size: 30px;
       z-index: 1;
       position: absolute;
       text-align: center;
+    }
+
+    .screenshot {
+      z-index: 2;
+      transform: translateY(1);
+      transform-origin: top;
+      transition: all 0.7s ease-in-out;
     }
 
     .no-img {
@@ -34,16 +42,8 @@
 
   mat-grid-tile:hover {
 
-    h2 {
-      display: block;
-    }
-
     .screenshot {
-      filter: opacity(10%);
-    }
-
-    .no-img {
-      filter: opacity(10%);
+      transform: translateY(100%);
     }
 
   }

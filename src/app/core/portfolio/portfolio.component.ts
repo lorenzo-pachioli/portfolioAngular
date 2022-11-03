@@ -8,6 +8,8 @@ import { IProject } from '../../shared/interfaces/IProject';
 })
 export class PortfolioComponent implements OnInit {
 
+  @Input() showProject = false;
+  @Output() showProjectChange: EventEmitter<boolean> = new EventEmitter();
   @Input() project!: IProject;
   @Output() projectChange: EventEmitter<any> = new EventEmitter();
   constructor() { }
@@ -17,5 +19,9 @@ export class PortfolioComponent implements OnInit {
 
   setProject(event: IProject): void {
     this.project = event;
+  }
+
+  changeShowProject(): void {
+    this.showProject = !this.showProject;
   }
 }

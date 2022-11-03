@@ -9,6 +9,8 @@ import { IProject } from '../../shared/interfaces/IProject';
 })
 export class ProjectInfoComponent implements OnInit {
 
+  @Input() showProject = false;
+  @Output() showProjectChange: EventEmitter<boolean> = new EventEmitter();
   @Input() project!: IProject;
   @Output() projectChange: EventEmitter<any> = new EventEmitter();
 
@@ -18,7 +20,10 @@ export class ProjectInfoComponent implements OnInit {
   }
 
   back(): void {
-    this.projectChange.emit();
+    this.showProjectChange.emit(false);
+    setTimeout(() => {
+      this.projectChange.emit();
+    }, 1200);
     this.element.portfolio.nativeElement.scrollIntoView({ behavior: "smooth" });
   }
 

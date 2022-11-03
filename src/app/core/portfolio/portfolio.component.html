@@ -2,8 +2,8 @@
   <h1 id="portfolio">Portfolio</h1>
   <hr />
   <div class="portfolio-content">
-    <app-project-info [(project)]="project" *ngIf="project; else projectCard"></app-project-info>
-    <ng-template #projectCard><app-portfolio-grid (projectChange)="setProject($event)"></app-portfolio-grid></ng-template>
+    <app-project-info [(project)]="project" [(showProject)]="showProject" [ngStyle]="{'transform': showProject ? 'translate(50%)':'translate(-100%)'}" ></app-project-info>
+    <app-portfolio-grid [(project)]="project" [(showProject)]="showProject" [ngStyle]="{'transform': !showProject ? 'translate(-50%)':'translate(100%)', 'height': !showProject ? '100%':'0px'}"></app-portfolio-grid>
   </div>
 </div>
 

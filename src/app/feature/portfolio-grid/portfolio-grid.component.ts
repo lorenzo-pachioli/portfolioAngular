@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output, Input } from '@angular/core';
 import { ElementByIdService } from 'src/app/shared/services/element-by-id.service';
 import { IProject } from '../../shared/interfaces/IProject';
 import { projectsList } from './projectsList';
@@ -17,6 +17,9 @@ export class PortfolioGridComponent implements OnInit {
     gutterSize: '20px'
   }
   projectsList = projectsList;
+  @Input() showProject = false;
+  @Output() showProjectChange: EventEmitter<boolean> = new EventEmitter();
+  @Input() project!: IProject;
   @Output() projectChange: EventEmitter<any> = new EventEmitter();
   @HostListener('window:resize', ['$event'])
   onResize() {
@@ -31,6 +34,7 @@ export class PortfolioGridComponent implements OnInit {
   }
 
   chooseProject(project: IProject): void {
+    this.showProjectChange.emit(true);
     this.projectChange.emit(project);
     setTimeout(() => {
       this.element.portfolio.nativeElement.scrollIntoView({ behavior: "smooth" });
