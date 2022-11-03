@@ -2,15 +2,31 @@
 
 .socialSideNav-container {
   @include flex(flex, center, space-evenly, column);
-  width: 40px;
-  height: 150px;
-  background-color: var(--color5);
   position: fixed;
   left: 0;
   bottom: 25%;
-  border-radius: 0 3px 3px 0;
   z-index: 100;
+  gap: 2px;
 
+  button {
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+  }
+
+  div {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all 0.7s ease-in-out;
+  }
+}
+
+.socialSideNav-molecule {
+  @include flex(flex, center, space-evenly, column);
+  width: 40px;
+  height: 150px;
+  background-color: var(--color5);
+  border-radius: 0 3px 3px 0;
 
   img {
     height: 30px;
@@ -24,5 +40,6 @@
   mat-icon {
     @include flex(flex, center, center);
     font-weight: 600;
+    transition: all 0.7s ease-in-out;
   }
 }

@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SocialSideNavComponent implements OnInit {
 
+  menuOpen = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeMenuState(): void {
+    this.menuOpen = !this.menuOpen;
   }
 
 }
