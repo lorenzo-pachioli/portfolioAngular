@@ -6,7 +6,7 @@
   <mat-card-content>
     <p class="title">If you liked my profile and want to get in touch, send me a message:</p>
   </mat-card-content>
-  <form class="form" novalidate [formGroup]="newEmail" [target]="newEmail" (ngSubmit)="sendEmail($event.target)">
+  <form class="form" novalidate [formGroup]="newEmail" [target]="newEmail" #formDirective="ngForm" (ngSubmit)="sendEmail($event.target, formDirective)">
     
     <p class="label">Name</p>
     <mat-form-field appearance="fill">
@@ -30,9 +30,9 @@
     </mat-form-field>
 
     <div class="buttons spinner" mat-dialog-actions>
-      <button mat-raised-button color="primary" [disabled]="!newEmail.valid" type="submit">
-        <mat-spinner [diameter]="30" *ngIf="loading; else create" ></mat-spinner>
-        <ng-template #create ><p>Send</p></ng-template>
+      <button mat-raised-button color="primary" [disabled]="!newEmail.valid" type="submit" >
+        <mat-spinner [diameter]="30" *ngIf="loading; else send" ></mat-spinner>
+        <ng-template #send ><p>Send</p></ng-template>
       </button>
     </div>
   </form>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 
 @Component({
@@ -33,7 +33,7 @@ export class ContactCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  sendEmail(event: HTMLFormElement): void {
+  sendEmail(event: HTMLFormElement, formDirective: FormGroupDirective): any {
 
     if (this.newEmail.valid) {
       this.loading = true;
@@ -42,6 +42,7 @@ export class ContactCardComponent implements OnInit {
           if (result.status === 200) {
             this.loading = false;
             this.success = true;
+            formDirective.resetForm();
             this.newEmail.reset();
             setTimeout(() => {
               this.success = false;
@@ -62,8 +63,6 @@ export class ContactCardComponent implements OnInit {
     if (this.email.hasError('required')) {
       return 'You must enter a value';
     }
-
     return this.email.errors ? 'Not a valid email' : '';
   }
-
 }
