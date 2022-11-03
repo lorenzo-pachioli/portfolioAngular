@@ -33,7 +33,6 @@ export class AppComponent {
 
 
   onFocus(component: string, visible: boolean): void {
-    /* console.log(component, visible); */
     if (component === 'home') {
       this.element.visible.next({ ...this.element.visible.value, home: visible });
     }

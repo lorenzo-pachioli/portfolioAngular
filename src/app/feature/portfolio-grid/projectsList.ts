@@ -22,11 +22,21 @@ export const projectsList: IProject[] = [
     deployed: 'https://sprint-proyect-giphy.netlify.app'
   },
   {
-    title: 'Reserva de hoteles',
+    title: 'Portfolio',
     cols: 1,
+    rows: 2,
+    color: 'var(--color3)',
+    image: '../../../assets/img/portfolio.png',
+    description: 'Its the web page you are currently visiting. Check out the code in Github to see how it works!',
+    github: 'https://github.com/lorenzo-pachioli/portfolioAngular',
+    deployed: 'https://lorenzo-pachioli.netlify.app/'
+  },
+  {
+    title: 'Reserva de hoteles',
+    cols: 2,
     rows: 1,
     color: 'var(--color4)',
-    image: '../../../assets/img/reservaDeHoteles.png',
+    image: '../../../assets/img/reservaHoteles.png',
     description: 'Its a booking page that works with a local list of lodgings and search options to filter the list showing the results remaining below. It was created using only Html, CSS and Javasript as a evaluated project for the second sprint of the Acamica course.',
     github: 'https://github.com/lorenzo-pachioli/reserva-de-alojamientos',
     deployed: 'https://reserva-de-alojamientos.netlify.app'
@@ -54,7 +64,7 @@ export const projectsList: IProject[] = [
   {
     title: 'Api chat',
     cols: 1,
-    rows: 1,
+    rows: 2,
     color: 'var(--color4)',
     image: '../../../assets/img/apiChat.png',
     description: "It's the server aplication for Chat-app made in Node with Socket.io and MongoDB.",
@@ -71,4 +81,5 @@ export const projectsList: IProject[] = [
     github: 'https://github.com/lorenzo-pachioli/Chat-app',
     deployed: 'https://pachioli-chat-app.netlify.app'
   },
+
 ];

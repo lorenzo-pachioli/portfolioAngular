@@ -42,16 +42,22 @@ export class PortfolioGridComponent implements OnInit {
   }
 
   mobileGrid(width: number) {
-    if (width <= 700) {
+    if (width <= 500) {
       this.gridSize = {
         col: 2,
         rowHeight: '200px',
         gutterSize: '10px'
       }
-    } else if (width <= 900) {
+    } else if (width <= 700) {
       this.gridSize = {
-        col: 3,
-        rowHeight: '250px',
+        col: 2,
+        rowHeight: '300px',
+        gutterSize: '10px'
+      }
+    } else if (width <= 1000) {
+      this.gridSize = {
+        col: 4,
+        rowHeight: '200px',
         gutterSize: '20px'
       }
     } else {

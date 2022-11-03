@@ -16,6 +16,7 @@
     overflow: hidden;
     cursor: pointer;
 
+
     h2 {
       color: white;
       font-size: 30px;
@@ -29,6 +30,7 @@
       transform: translateY(1);
       transform-origin: top;
       transition: all 0.7s ease-in-out;
+      object-fit: cover;
     }
 
     .no-img {

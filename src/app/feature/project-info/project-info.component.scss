@@ -13,6 +13,7 @@
     @include flex(flex, center, center);
     max-height: 50%;
     border-radius: 2px;
+    object-fit: cover;
   }
 
   img {
