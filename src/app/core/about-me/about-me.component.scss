@@ -33,14 +33,20 @@
 .about-menu {
   @include flex(flex, center, space-evenly, column);
   width: 30%;
+  height: 100%;
   border: none;
   box-sizing: border-box;
   gap: 10px;
 
   .mat-button-toggle {
+    @include flex(flex, center, center);
     width: 60%;
+    height: 15%;
     border-radius: 5px;
     background-color: var(--color5);
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
   }
 
   .mat-button-toggle:active {
@@ -59,6 +65,8 @@
 
   p {
     color: var(--color2);
+    font-size: 20px;
+    line-height: 25px;
   }
 }
 
@@ -74,6 +82,28 @@
 
     .mat-button-toggle {
       width: 90%;
+      font-size: 17px;
+      line-height: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-menu {
+
+    .mat-button-toggle {
+      font-size: 15px;
+      line-height: 18px;
+    }
+  }
+
+  .about-info {
+    padding: 15px;
+
+    p {
+      color: var(--color2);
+      font-size: 15px;
+      line-height: 20px;
     }
   }
 }

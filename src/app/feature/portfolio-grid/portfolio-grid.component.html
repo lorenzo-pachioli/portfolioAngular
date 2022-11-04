@@ -8,7 +8,10 @@
         >
       <img class="screenshot" [src]="tile.image" alt="" *ngIf="tile.image; else tileText" />
       <ng-template #tileText><div class="no-img">{{tile.title}}</div></ng-template>
-      <h2 (click)="chooseProject(tile)">{{tile.title}}</h2>
+      <div class="tile-title">
+        <h2 (click)="chooseProject(tile)">{{tile.title}}</h2>
+        <hr [ngStyle]="{'background-color': tile.hrColor}" />
+      </div>
     </mat-grid-tile>
   </mat-grid-list>
 </div>

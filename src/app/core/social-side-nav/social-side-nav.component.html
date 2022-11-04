@@ -2,10 +2,12 @@
   <button class="socialSideNav-molecule" (click)="changeMenuState()">
     <mat-icon color="accent" [ngStyle]="{'transform': menuOpen ? 'rotate(180deg)':'rotate(0)'}" >keyboard_arrow_right</mat-icon>
   </button>
-  <div class="socialSideNav-molecule"  [ngStyle]="{'transform': menuOpen ? 'scaleX(1)':'scaleX(0)'}">
-    <a href="https://www.linkedin.com/in/lorenzo-pachioli/" target="_blank" rel="noopener noreferrer"><img src="../../../assets/svg/linkedin.svg" alt="" /></a>
-    <a href="https://github.com/lorenzo-pachioli" target="_blank" rel="noopener noreferrer"><img src="../../../assets/svg/github.svg" alt="" /></a>
-    <a href="https://drive.google.com/file/d/1RS8uCEFebL5tl86_NN2yZXke5pC8FgcF/view?usp=sharing" target="_blank" rel="noopener noreferrer"><mat-icon color="accent">attach_file</mat-icon></a>
+  <div class="socialSideNav-molecule-container">
+    <div class="socialSideNav-molecule menu"  [ngStyle]="{'transform': menuOpen ? 'translateX(0%)':'translateX(-100%)'}">
+      <a href="https://www.linkedin.com/in/lorenzo-pachioli/" target="_blank" rel="noopener noreferrer"><img src="../../../assets/svg/linkedin.svg" alt="" /></a>
+      <a href="https://github.com/lorenzo-pachioli" target="_blank" rel="noopener noreferrer"><img src="../../../assets/svg/github.svg" alt="" /></a>
+      <a href="https://drive.google.com/file/d/1RS8uCEFebL5tl86_NN2yZXke5pC8FgcF/view?usp=sharing" target="_blank" rel="noopener noreferrer"><mat-icon color="accent">attach_file</mat-icon></a>
+    </div>
   </div>
 </div>
 
