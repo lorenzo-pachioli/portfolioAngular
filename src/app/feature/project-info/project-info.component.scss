@@ -27,6 +27,7 @@
     padding: 30px;
     text-align: center;
     font-size: 60px;
+    line-height: 60px;
     color: var(--color1);
     writing-mode: vertical-lr;
     border-right: 2px solid var(--color5);
@@ -70,6 +71,7 @@
     mat-card-title {
       padding: 20px;
       font-size: 40px;
+      line-height: 40px;
       writing-mode: horizontal-tb;
       border-right: none;
       border-bottom: 2px solid var(--color5);

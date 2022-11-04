@@ -44,15 +44,26 @@
     height: 15%;
     border-radius: 5px;
     background-color: var(--color5);
-    font-size: 20px;
-    line-height: 25px;
-    text-align: center;
   }
 
   .mat-button-toggle:active {
     background-color: var(--color3);
   }
 
+}
+
+.about-menu::ng-deep span.mat-button-toggle-label-content {
+  padding: 0;
+  width: 100%;
+
+  p {
+    max-width: 100%;
+    margin: 0;
+    text-align: center;
+    white-space: normal;
+    font-size: 20px;
+    line-height: 25px;
+  }
 }
 
 .about-info {
@@ -106,4 +117,13 @@
       line-height: 20px;
     }
   }
+
+
+  .about-menu::ng-deep span.mat-button-toggle-label-content {
+    p {
+      font-size: 15px;
+      line-height: 20px;
+    }
+  }
+
 }

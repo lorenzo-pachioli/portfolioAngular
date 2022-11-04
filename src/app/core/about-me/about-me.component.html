@@ -4,22 +4,22 @@
   <div class="about-content">
     <mat-button-toggle-group class="about-menu" #group="matButtonToggleGroup" aria-selected="'today'">
       <mat-button-toggle value="'today'" [ngStyle]="setButtonColor('today')" (click)="setInfo('today')">
-        <span>Today</span>
+        <p>Today</p>
       </mat-button-toggle>
       <mat-button-toggle value="'lamansys'" [ngStyle]="setButtonColor('lamansys')" (click)="setInfo('lamansys')">
-        <span>Lamansys</span>
+        <p>Lamansys</p>
       </mat-button-toggle>
       <mat-button-toggle value="'udemy'" [ngStyle]="setButtonColor('udemy')" (click)="setInfo('udemy')">
-        <span>Udemy</span>
+        <p>Udemy</p>
       </mat-button-toggle>
       <mat-button-toggle value="'acamica'" [ngStyle]="setButtonColor('acamica')" (click)="setInfo('acamica')">
-        <span>Acamica</span>
+        <p>Acamica</p>
       </mat-button-toggle>
       <mat-button-toggle value="'utnba'" [ngStyle]="setButtonColor('utnba')" (click)="setInfo('utnba')">
-        <span>UTNBA</span>
+        <p>UTNBA</p>
       </mat-button-toggle>
       <mat-button-toggle value="'before'" [ngStyle]="setButtonColor('before')" (click)="setInfo('before')">
-        <span>Before coding</span>
+        <p>Before coding</p>
       </mat-button-toggle>
     </mat-button-toggle-group>
     <diV class="about-info" [ngSwitch]="info">
