@@ -2,6 +2,7 @@
 
 .app {
   @include flex(flex, center, flex-start, column);
+  min-width: 300px;
 
   app-home {
     @include flex(flex, center, center, column);

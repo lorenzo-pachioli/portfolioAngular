@@ -3,8 +3,10 @@
 .contact-card-container {
   @include flex(flex, flex-start, flex-start, column);
   width: 300px;
+  max-width: 100%;
   background-color: var(--color4);
   padding-top: 0;
+  box-sizing: border-box;
 }
 
 .title {
