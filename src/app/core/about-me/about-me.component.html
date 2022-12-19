@@ -6,6 +6,9 @@
       <mat-button-toggle value="'today'" [ngStyle]="setButtonColor('today')" (click)="setInfo('today')">
         <p>Today</p>
       </mat-button-toggle>
+      <mat-button-toggle value="'alkemy'" [ngStyle]="setButtonColor('alkemy')" (click)="setInfo('alkemy')">
+        <p>Alkemy</p>
+      </mat-button-toggle>
       <mat-button-toggle value="'lamansys'" [ngStyle]="setButtonColor('lamansys')" (click)="setInfo('lamansys')">
         <p>Lamansys</p>
       </mat-button-toggle>
@@ -23,6 +26,7 @@
       </mat-button-toggle>
     </mat-button-toggle-group>
     <diV class="about-info" [ngSwitch]="info">
+      <p *ngSwitchCase="'alkemy'">{{list.alkemy.story}}</p>
       <p *ngSwitchCase="'lamansys'">{{list.lamansys.story}}</p>
       <p *ngSwitchCase="'udemy'">{{list.udemy.story}}</p>
       <p *ngSwitchCase="'acamica'">{{list.acamica.story}}</p>

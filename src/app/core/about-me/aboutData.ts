@@ -5,6 +5,7 @@ interface obj {
 
 type list = {
     today: obj,
+    alkemy: obj,
     lamansys: obj,
     udemy: obj,
     acamica: obj,
@@ -16,6 +17,10 @@ export const history: list = {
     today: {
         name: "Today",
         story: "Now I'm looking for my first job as a front-end developer and studying on my own with the documentation and the info available on the internet. Being self taught I continue on expanding no only my technical knowledge, but also my capability to learn and solve coding problems while improving the code quality."
+    },
+    alkemy: {
+        name: "Alkemy",
+        story: "A 15 day Angular group project accomplishing the requests proposed by Alkemy and created applying scrum and git flow methodologies."
     },
     lamansys: {
         name: "Lamansys",
@@ -38,3 +43,5 @@ export const history: list = {
         story: "I finished school on an art oriented highschool and move out to Buenos Aires to study a three year career. After I graduated as a superior mechanical technician, I pass through two short time jobs to finally end up in a commercial naval mechanics shop. I worked there until march 2022 when I resign to fully dedicate to get a job in the IT world as a front-end developer."
     }
 }
+
+export const buttonsHistory = ['Today', 'Alkemy', 'Lamansys', 'Udemy', 'Acamica', 'UTNBA', 'Before coding']
