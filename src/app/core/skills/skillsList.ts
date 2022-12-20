@@ -16,6 +16,8 @@ const mongodb = '../../../assets/svg/mongodb-icon-1.svg';
 const gitlab = '../../../assets/svg/gitlab.svg';
 const jira = '../../../assets/svg/jira-3.svg';
 const taiga = '../../../assets/svg/taiga-2.svg';
+const ngrx = '../../../assets/svg/ngrx.svg';
+const jest = '../../../assets/svg/jest.svg';
 
 interface obj {
     svg: string
@@ -50,6 +52,9 @@ export const skillsList: list = [
         svg: redux,
         name: 'Redux'
     }, {
+        svg: ngrx,
+        name: 'NGRX'
+    }, {
         svg: socketIO,
         name: 'Socket.io'
     }, {
@@ -64,6 +69,9 @@ export const skillsList: list = [
     }, {
         svg: mongodb,
         name: 'MongoDB'
+    }, {
+        svg: jest,
+        name: 'Jest'
     }, {
         svg: git,
         name: 'Git'
