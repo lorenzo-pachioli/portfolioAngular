@@ -13,15 +13,15 @@ export const projectsList: IProject[] = [
     deployed: 'https://devsunited-pachioli.netlify.app'
   },
   {
-    title: 'Gify',
+    title: 'Api-brainstorming',
     cols: 1,
     rows: 2,
     color: 'var(--color5)',
     hrColor: 'var(--color4)',
-    image: '../../../assets/img/gify.jpeg',
-    description: 'Its a static SPA that conects to the API of Giphy (https://giphy.com/) and alows the user to search gifs throw a simple searcher.It was created as a evaluated project for the third sprint of the Acamica course.',
-    github: 'https://github.com/lorenzo-pachioli/Sprint_proyect_Giphy',
-    deployed: 'https://sprint-proyect-giphy.netlify.app'
+    image: '../../../assets/img/api-brainstorming.png',
+    description: "It's the server aplication for Brainstorming made in Node with Express and MongoDB.",
+    github: 'https://github.com/lorenzo-pachioli/api-brainstorming',
+    deployed: ''
   },
   {
     title: 'Portfolio',
@@ -35,15 +35,15 @@ export const projectsList: IProject[] = [
     deployed: 'https://lorenzo-pachioli.netlify.app/'
   },
   {
-    title: 'Reserva de hoteles',
+    title: 'Gify',
     cols: 2,
     rows: 1,
     color: 'var(--color4)',
     hrColor: 'var(--color5)',
-    image: '../../../assets/img/reservaHoteles.png',
-    description: 'Its a booking page that works with a local list of lodgings and search options to filter the list showing the results remaining below. It was created using only Html, CSS and Javasript as a evaluated project for the second sprint of the Acamica course.',
-    github: 'https://github.com/lorenzo-pachioli/reserva-de-alojamientos',
-    deployed: 'https://reserva-de-alojamientos.netlify.app'
+    image: '../../../assets/img/giphy.png',
+    description: 'Its a static SPA that conects to the API of Giphy (https://giphy.com/) and alows the user to search gifs throw a simple searcher.It was created as a evaluated project for the third sprint of the Acamica course.',
+    github: 'https://github.com/lorenzo-pachioli/Sprint_proyect_Giphy',
+    deployed: 'https://sprint-proyect-giphy.netlify.app'
   },
   {
     title: 'Brainstorming',
@@ -74,7 +74,7 @@ export const projectsList: IProject[] = [
     color: 'var(--color4)',
     hrColor: 'var(--color5)',
     image: '../../../assets/img/apiChat.png',
-    description: "It's the server aplication for Chat-app made in Node with Socket.io and MongoDB.",
+    description: "It's the server aplication for Chat-app made in Node with Socket.io, Express and MongoDB.",
     github: 'https://github.com/lorenzo-pachioli/Api-chat',
     deployed: ''
   },

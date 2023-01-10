@@ -12,7 +12,7 @@
     <div class="links">
       <button mat-raised-button color="primary" (click)="back()">Back</button>
       <a [href]="project.github" target="_blank" rel="noopener noreferrer"><button mat-raised-button color="primary">Github</button></a>
-      <a [href]="project.deployed" target="_blank" rel="noopener noreferrer"><button mat-raised-button color="primary">Deployed</button></a>
+      <a [href]="project.deployed" target="_blank" rel="noopener noreferrer" *ngIf="project.deployed.length > 0"><button mat-raised-button color="primary">Deployed</button></a>
     </div>
   </mat-card-content>
 </mat-card>
