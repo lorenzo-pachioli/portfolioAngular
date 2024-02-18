@@ -57,15 +57,15 @@ export const projectsList: IProject[] = [
     deployed: 'https://frontend-bootcamp-pachioli.netlify.app'
   },
   {
-    title: 'Redux practice',
+    title: 'RM seervicios navales',
     cols: 1,
     rows: 2,
     color: 'var(--color4)',
     hrColor: 'var(--color5)',
-    image: '../../../assets/img/reduxPractice.png',
-    description: 'This page is a task organizer app and it was created using React and Redux, following the tutorial of the Redux documentation.',
-    github: 'https://github.com/lorenzo-pachioli/practiceRedux',
-    deployed: 'https://redux-practice-pachioli.netlify.app'
+    image: '../../../assets/img/rm-servicios-navales.png',
+    description: "It's a landing page created for a client dedicated to commercial ship's mechanics",
+    github: 'https://github.com/lorenzo-pachioli/RMservicios-navales',
+    deployed: 'https://rm-servicios-navales.netlify.app/'
   },
   {
     title: 'Api chat',
