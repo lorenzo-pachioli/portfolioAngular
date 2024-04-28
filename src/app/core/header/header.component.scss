@@ -1,6 +1,10 @@
 .toolbar {
   width: 100vw;
 
+  mat-icon {
+    text-shadow: 0 0 0.07em var(--color2), 0 0 0.4em var(--color5);
+  }
+
   mat-toolbar {
     position: fixed;
     box-sizing: border-box;

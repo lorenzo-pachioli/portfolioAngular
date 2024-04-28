@@ -93,6 +93,17 @@ body {
   button:hover {
     filter: opacity(50%);
   }
+
+  hr {
+    width: 70%;
+    height: 1px;
+    background-color: var(--color5);
+    border: 0.5px solid var(--color5);
+    margin: 40px;
+    box-shadow:
+      0 0 0.5em 0 var(--color5),
+      0 0 0.1em var(--color2);
+  }
 }
 
 @media screen and (max-width: 900px) {
