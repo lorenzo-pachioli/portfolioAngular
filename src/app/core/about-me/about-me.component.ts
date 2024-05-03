@@ -22,8 +22,8 @@ export class AboutMeComponent implements OnInit {
 
   setButtonColor(value: string): any {
     if (this.info === value) {
-      return { 'background-color': 'var(--color3)' }
+      return { 'text-shadow': '0 0 0.10em var(--color2), 0 0 0.5em var(--color5)' }
     }
-    return { 'background-color': 'var(--color5)' }
+    return { 'color': 'var(--color3)' }
   }
 }

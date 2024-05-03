@@ -3,26 +3,26 @@
   <hr />
   <div class="about-content">
     <mat-button-toggle-group class="about-menu" #group="matButtonToggleGroup" aria-selected="'today'">
-      <mat-button-toggle value="'today'" [ngStyle]="setButtonColor('today')" (click)="setInfo('today')">
-        <p>Today</p>
+      <mat-button-toggle value="'today'"  (click)="setInfo('today')">
+        <p [ngStyle]="setButtonColor('today')">Today</p>
       </mat-button-toggle>
-      <mat-button-toggle value="'alkemy'" [ngStyle]="setButtonColor('alkemy')" (click)="setInfo('alkemy')">
-        <p>Alkemy</p>
+      <mat-button-toggle value="'alkemy'" (click)="setInfo('alkemy')">
+        <p [ngStyle]="setButtonColor('alkemy')">Alkemy</p>
       </mat-button-toggle>
-      <mat-button-toggle value="'lamansys'" [ngStyle]="setButtonColor('lamansys')" (click)="setInfo('lamansys')">
-        <p>Lamansys</p>
+      <mat-button-toggle value="'lamansys'" (click)="setInfo('lamansys')">
+        <p [ngStyle]="setButtonColor('lamansys')">Lamansys</p>
       </mat-button-toggle>
-      <mat-button-toggle value="'udemy'" [ngStyle]="setButtonColor('udemy')" (click)="setInfo('udemy')">
-        <p>Udemy</p>
+      <mat-button-toggle value="'udemy'"  (click)="setInfo('udemy')">
+        <p [ngStyle]="setButtonColor('udemy')">Udemy</p>
       </mat-button-toggle>
-      <mat-button-toggle value="'acamica'" [ngStyle]="setButtonColor('acamica')" (click)="setInfo('acamica')">
-        <p>Acamica</p>
+      <mat-button-toggle value="'acamica'" (click)="setInfo('acamica')">
+        <p [ngStyle]="setButtonColor('acamica')" >Acamica</p>
       </mat-button-toggle>
-      <mat-button-toggle value="'utnba'" [ngStyle]="setButtonColor('utnba')" (click)="setInfo('utnba')">
-        <p>UTNBA</p>
+      <mat-button-toggle value="'utnba'" (click)="setInfo('utnba')">
+        <p [ngStyle]="setButtonColor('utnba')">UTNBA</p>
       </mat-button-toggle>
-      <mat-button-toggle value="'before'" [ngStyle]="setButtonColor('before')" (click)="setInfo('before')">
-        <p>Before coding</p>
+      <mat-button-toggle value="'before'" (click)="setInfo('before')">
+        <p [ngStyle]="setButtonColor('before')">Before coding</p>
       </mat-button-toggle>
     </mat-button-toggle-group>
     <diV class="about-info" [ngSwitch]="info">

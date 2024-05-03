@@ -93,17 +93,18 @@
     inset 0 0 0.1em var(--color2),
     0 0 0.5em 0 var(--color5),
     0 0 0.1em var(--color2);
-  color: var(--color5);
-  text-shadow: 0 0 0.05em var(--color2), 0 0 0.3em var(--color5);
+  color: var(--color3);
 }
 
 .contact-btn:hover {
   filter: brightness(100%);
   box-shadow:
-    inset 0 0 0.5em 0 var(--color5),
-    inset 0 0 0.1em var(--color2),
+    inset 0 0 0.7em 0 var(--color5),
+    inset 0 0 0.2em var(--color2),
     0 0 0.7em 0 var(--color5),
-    0 0 0.1em var(--color2);
+    0 0 0.2em var(--color2);
+  color: var(--color5);
+  text-shadow: 0 0 0.05em var(--color2), 0 0 0.3em var(--color5);
 }
 
 .continue {
