@@ -45,6 +45,12 @@
         0 0 0.7em 0 var(--color5),
         0 0 0.1em var(--color2);
     }
+
+    img:hover {
+      box-shadow:
+        0 0 0.9em 0 var(--color5),
+        0 0 0.1em var(--color2);
+    }
   }
 
 
@@ -211,6 +217,4 @@
     tab-size: 4px;
     text-align: center;
   }
-
-  .contact-btn {}
 }
