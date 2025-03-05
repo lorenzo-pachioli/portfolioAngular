@@ -57,7 +57,7 @@ export const projectsList: IProject[] = [
     deployed: 'https://frontend-bootcamp-pachioli.netlify.app'
   },
   {
-    title: 'RM seervicios navales',
+    title: 'RM servicios navales',
     cols: 1,
     rows: 2,
     color: 'var(--color4)',
