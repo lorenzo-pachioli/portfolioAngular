@@ -30,10 +30,12 @@
   border: none;
   box-sizing: border-box;
   gap: 10px;
+  overflow-y: scroll;
 
   .mat-button-toggle {
     @include flex(flex, center, center);
     width: 60%;
+    min-height: 40px;
     height: 15%;
     border-radius: 5px;
     background-color: transparent;
