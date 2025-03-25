@@ -1,22 +1,22 @@
 <div class="header-molecule desktop-menu">
   <span>|</span>
-  <button mat-button color="primary" selected (click)="scroll('home')" [ngStyle]="{'border-bottom': this.visible.home ? '2px solid var(--color5)':''}">
+  <button mat-button color="primary" selected (click)="scroll('home')" [ngStyle]="this.border(this.visible.home)">
     <span>Home</span>
   </button>
   <span>|</span>
-  <button mat-button color="primary" (click)="scroll('skills')" [ngStyle]="{'border-bottom': this.visible.skills ? '2px solid var(--color5)':''}">
+  <button mat-button color="primary" (click)="scroll('skills')" [ngStyle]="this.border(this.visible.skills)">
     <span>Skills</span>
   </button>
   <span>|</span>
-  <button mat-button color="primary" (click)="scroll('portfolio')" [ngStyle]="{'border-bottom': this.visible.portfolio ? '2px solid var(--color5)':''}">
+  <button mat-button color="primary" (click)="scroll('portfolio')" [ngStyle]="this.border(this.visible.portfolio)">
     <span>Portfolio</span>
   </button>
   <span>|</span>
-  <button mat-button color="primary" (click)="scroll('about')" [ngStyle]="{'border-bottom': this.visible.about ? '2px solid var(--color5)':''}">
+  <button mat-button color="primary" (click)="scroll('about')" [ngStyle]="this.border(this.visible.about)">
     <span>About me</span>
   </button>
   <span>|</span>
-  <button mat-button color="primary" (click)="scroll('contact')" [ngStyle]="{'border-bottom': this.visible.contact ? '2px solid var(--color5)':''}">
+  <button mat-button color="primary" (click)="scroll('contact')" [ngStyle]="this.border(this.visible.contact)">
     <span>Contact</span>
   </button>
   <span>|</span>

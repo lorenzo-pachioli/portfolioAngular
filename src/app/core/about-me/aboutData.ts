@@ -5,6 +5,8 @@ interface obj {
 
 type list = {
     today: obj,
+    udemyqa: obj,
+    utn: obj,
     alkemy: obj,
     lamansys: obj,
     udemy: obj,
@@ -16,7 +18,15 @@ type list = {
 export const history: list = {
     today: {
         name: "Today",
-        story: "Now I'm looking for my first job as a front-end developer and studying on my own with the documentation and the info available on the internet. Being self taught I continue on expanding no only my technical knowledge, but also my capability to learn and solve coding problems while improving the code quality."
+        story: "Now I'm looking for my first job as a software developer and studying on Universidad Tecnológica Nacional and online courses. I continue on expanding no only my technical knowledge, but also my capability to learn and solve coding problems while improving the code quality."
+    },
+    udemyqa: {
+        name: "Udemy QA",
+        story: "Currently doing this 36hs QA bootcamp. Web site: 'https:// www.udemy.com/ course/ testerbootcamp/'"
+    },
+    utn: {
+        name: "UTN",
+        story: "Currently during first year of this two year carrer at Universidad Tecnológica Nacional in Mar del Plata. The carrer website: 'https:// mdp.utn.edu.ar/ tecnicatura/ tecnico_ universitario_ en_ programacion/' "
     },
     alkemy: {
         name: "Alkemy",
@@ -28,7 +38,7 @@ export const history: list = {
     },
     udemy: {
         name: "Udemy",
-        story: "The Complete Guide to Advanced React Component Patterns: Short course of advanced React Component Patterns. More info in: https://www.udemy.com/course/the-complete-guide-to-advanced-react-patterns/"
+        story: "The Complete Guide to Advanced React Component Patterns: Short course of advanced React Component Patterns. More info in: https:// www.udemy.com/ course/the- complete- guide-to- advanced- react- patterns/"
     },
     acamica: {
         name: "Acamica",
@@ -44,4 +54,4 @@ export const history: list = {
     }
 }
 
-export const buttonsHistory = ['Today', 'Alkemy', 'Lamansys', 'Udemy', 'Acamica', 'UTNBA', 'Before coding']
+export const buttonsHistory = ['Today', 'Udemy QA', 'UTN', 'Alkemy', 'Lamansys', 'Udemy', 'Acamica', 'UTNBA', 'Before coding']
