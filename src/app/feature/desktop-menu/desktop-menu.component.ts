@@ -49,7 +49,7 @@ export class DesktopMenuComponent implements OnInit {
     }
     if (el === 'contact') {
       setTimeout(() => {
-        this.element.contact.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
+        this.element.contact.nativeElement.scrollIntoView({ behavior: "smooth" });
       }, 1);
     }
   }
