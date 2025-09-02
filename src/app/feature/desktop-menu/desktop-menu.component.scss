@@ -1,3 +1,4 @@
+
 .header-molecule {
   display: flex;
   flex-direction: row;
@@ -6,9 +7,22 @@
   gap: 10px;
 
   button {
-    background-color: transparent;
+    background-color: transparent !important;
+    box-shadow: none !important;
     border: none;
     border-radius: 0;
     cursor: pointer;
+    span{
+      color: var(--color5);
+    }
+  }
+
+  button:hover {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    filter: brightness(1.2);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 3px 2px -2px var(--color5);
+    text-shadow: 0 0 0.05em var(--color2), 0 0 0.3em var(--color5);
   }
 }

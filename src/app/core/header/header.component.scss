@@ -48,6 +48,32 @@
     font-weight: 600;
   }
 
+  .cv-btn {
+      text-decoration: none;
+      padding: 4px;
+      cursor: pointer;
+      background-color: transparent;
+      font-size: 15px;
+      font-weight: 500;
+      z-index: 2;
+      border: none;
+      border-bottom: 2px solid var(--color5); 
+      /* border-radius: 4px; */
+
+      a {
+        text-decoration: none;
+        color: var(--color5);
+      }
+  }
+
+  .cv-btn:hover {
+    filter: brightness(1.2);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 3px 2px -2px var(--color5);
+    text-shadow: 0 0 0.05em var(--color2), 0 0 0.3em var(--color5);
+
+  }
+
 }
 
 @media screen and (max-width: 900px) {
