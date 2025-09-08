@@ -6,23 +6,35 @@
   align-items: center;
   gap: 10px;
 
-  button {
-    background-color: transparent !important;
-    box-shadow: none !important;
-    border: none;
-    border-radius: 0;
-    cursor: pointer;
-    span{
-      color: var(--color5);
-    }
+  .menu-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      padding: 0 16px;  
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      z-index: 2;
+
+     span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        font-size: 15px;
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--color5);
+        border: none;
+      }
   }
 
-  button:hover {
-    background-color: transparent !important;
-    box-shadow: none !important;
+  .menu-btn:hover {
     filter: brightness(1.2);
     transition: all 0.3s ease-in-out;
     box-shadow: 0 3px 2px -2px var(--color5);
     text-shadow: 0 0 0.05em var(--color2), 0 0 0.3em var(--color5);
   }
 }
+
