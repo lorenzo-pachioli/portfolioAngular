@@ -11,11 +11,12 @@
   justify-content: center;
   align-items: center;
   width: 90%;
-  height: 70vh;
+  height: 75vh;
   min-height: 400px;
   gap: 20px;
   margin-bottom: 10px;
   background-color: transparent;
+  box-shadow: none;
 
   .home-title {
     display: flex;
@@ -29,7 +30,7 @@
   .home-img {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     width: 50%;
     height: 100%;
 
@@ -104,13 +105,14 @@
 
 .contact-btn:hover {
   filter: brightness(100%);
+    transition: all 0.3s ease-in-out;
   box-shadow:
     inset 0 0 0.7em 0 var(--color5),
     inset 0 0 0.2em var(--color2),
     0 0 0.7em 0 var(--color5),
     0 0 0.2em var(--color2);
-  color: var(--color5);
-  text-shadow: 0 0 0.05em var(--color2), 0 0 0.3em var(--color5);
+    color: var(--color5);
+    text-shadow: 0 0 0.05em var(--color2), 0 0 0.3em var(--color5);
 }
 
 .continue {
@@ -119,6 +121,7 @@
   justify-content: center;
   align-items: center;
   margin: 2.5vh 0;
+  transition: all 0.3s ease-in-out;
 
   button {
     height: 100px;
@@ -126,6 +129,7 @@
     border-radius: 30px;
     background-color: transparent;
     border: 2px solid var(--color5);
+    transition: all 0.3s ease-in-out;
     box-shadow:
       inset 0 0 0.5em 0 var(--color5),
       inset 0 0 0.1em var(--color2),
@@ -135,6 +139,7 @@
   }
 
   mat-icon {
+    transition: all 0.3s ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -145,19 +150,29 @@
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-delay: 0.5s;
-    text-shadow: 0 0 0.05em var(--color2), 0 0 0.3em var(--color5);
     border-radius: 30%;
+    color: var(--color3);
   }
+  
 
   button:hover {
     filter: brightness(100%);
     box-shadow:
       inset 0 0 0.5em 0 var(--color5),
       inset 0 0 0.1em var(--color2),
-      0 0 0.7em 0 var(--color5),
+      0 0 0.9em 0 var(--color5),
       0 0 0.1em var(--color2);
   }
 
+}
+
+.continue {
+  button:hover {
+      mat-icon {
+        text-shadow: 0 0 0.05em var(--color2), 0 0 0.3em var(--color5);
+        color: var(--color5);
+    }
+  }
 }
 
 @keyframes arrow {

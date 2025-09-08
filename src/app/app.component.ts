@@ -5,6 +5,7 @@ import { HomeComponent } from './core/home/home.component';
 import { PortfolioComponent } from './core/portfolio/portfolio.component';
 import { SkillsComponent } from './core/skills/skills.component';
 import { ElementByIdService } from './shared/services/element-by-id.service';
+import { HeaderComponent } from './core/header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,8 @@ import { ElementByIdService } from './shared/services/element-by-id.service';
 export class AppComponent {
 
   title = 'portfolioAngular';
+  showScrollToTop = true;
+  @ViewChild(HeaderComponent, { read: ElementRef }) headerRef!: ElementRef;
   @ViewChild(HomeComponent, { read: ElementRef }) homeRef!: ElementRef;
   @ViewChild(SkillsComponent, { read: ElementRef }) skillsRef!: ElementRef;
   @ViewChild(PortfolioComponent, { read: ElementRef }) portfolioRef!: ElementRef;
@@ -33,6 +36,11 @@ export class AppComponent {
 
 
   onFocus(component: string, visible: boolean): void {
+  
+    if (component === 'header') {
+      this.element.visible.next({ ...this.element.visible.value, header: visible });
+      this.showScrollToTop = !visible;
+    }
     if (component === 'home') {
       this.element.visible.next({ ...this.element.visible.value, home: visible });
     }
@@ -49,5 +57,9 @@ export class AppComponent {
       this.element.visible.next({ ...this.element.visible.value, contact: visible });
     }
 
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

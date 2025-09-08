@@ -18,6 +18,7 @@ const jira = '../../../assets/svg/jira-3.svg';
 const taiga = '../../../assets/svg/taiga-2.svg';
 const ngrx = '../../../assets/svg/ngrx.svg';
 const jest = '../../../assets/svg/jest.svg';
+const next = '../../../assets/svg/next-js.svg';
 
 interface obj {
     svg: string
@@ -42,6 +43,9 @@ export const skillsList: list = [
     }, {
         svg: react,
         name: 'React'
+    }, {
+        svg: next,
+        name: 'Next.js'
     }, {
         svg: angular,
         name: 'Angular'

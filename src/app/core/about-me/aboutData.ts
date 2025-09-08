@@ -5,6 +5,7 @@ interface obj {
 
 type list = {
     today: obj,
+    swaplyar: obj,
     udemyqa: obj,
     utn: obj,
     alkemy: obj,
@@ -19,6 +20,10 @@ export const history: list = {
     today: {
         name: "Today",
         story: "Now I'm looking for my first job as a software developer and studying on Universidad Tecnológica Nacional and online courses. I continue on expanding no only my technical knowledge, but also my capability to learn and solve coding problems while improving the code quality."
+    },
+    swaplyar: {
+        name: "SwaplyAr",
+        story: "Collaborated with Front End functionalities using Next.js and Tailwind, improving and adding features centered on the logic and the information management algorithms. Helped the Back End team using Nest.js to solve bugs related to the features I was working on in the front. Worked collaboratively with a multicultural Latin American team on the implementation of features and bug fixing in the public, internal, and administration sections."
     },
     udemyqa: {
         name: "Udemy QA",
@@ -54,4 +59,4 @@ export const history: list = {
     }
 }
 
-export const buttonsHistory = ['Today', 'Udemy QA', 'UTN', 'Alkemy', 'Lamansys', 'Udemy', 'Acamica', 'UTNBA', 'Before coding']
+export const buttonsHistory = ['Today', 'SwaplyAr', 'Udemy QA', 'UTN', 'Alkemy', 'Lamansys', 'Udemy', 'Acamica', 'UTNBA', 'Before coding']
