@@ -90,7 +90,7 @@
 
 .contact-btn {
   text-decoration: none;
-  background-color: transparent;
+  background-color: transparent !important;
   font-size: 15px;
   font-weight: 500;
   z-index: 2;
@@ -100,7 +100,7 @@
     inset 0 0 0.1em var(--color2),
     0 0 0.5em 0 var(--color5),
     0 0 0.1em var(--color2);
-  color: var(--color3);
+  color: var(--color3) !important;
 }
 
 .contact-btn:hover {
@@ -111,8 +111,8 @@
     inset 0 0 0.2em var(--color2),
     0 0 0.7em 0 var(--color5),
     0 0 0.2em var(--color2);
-    color: var(--color5);
-    text-shadow: 0 0 0.05em var(--color2), 0 0 0.3em var(--color5);
+  color: var(--color5) !important;
+  text-shadow: 0 0 0.05em var(--color2), 0 0 0.3em var(--color5) !important;
 }
 
 .continue {
