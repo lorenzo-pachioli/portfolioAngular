@@ -2,10 +2,10 @@
 
 .contact-card-container {
   @include flex(flex, flex-start, flex-start, column);
-  width: 300px;
+  width: 600px;
   max-width: 100%;
   background-color: var(--color4);
-  padding-top: 0;
+  padding: 15px;
   box-sizing: border-box;
 }
 
@@ -14,7 +14,17 @@
 }
 
 .form {
+  @include flex(flex, center, center, column);
   width: 100%;
+
+  p {
+    width: 100%;
+    text-align: left;
+  }
+
+  .mat-mdc-form-field-hint-end {
+    color: var(--color2);
+  }
 }
 
 .message {
@@ -22,7 +32,7 @@
   min-height: 100px;
 }
 
-.mat-form-field {
+.mat-mdc-form-field {
   width: 100%;
 }
 
@@ -62,29 +72,33 @@
   color: var(--color4);
 }
 
-.mat-card-header {
+.mat-mdc-card-header {
   width: 100%;
   padding: 0;
-
-  p {
+    p {
     width: 100%;
     text-align: right;
     color: var(--color2);
     margin: 0;
-    font-size: 10px;
+    font-size: 12px;
   }
-
+}
+.mat-mdc-card-content{
+  width: 100%;
+  text-align: left;
+  padding: 16px 0;
 }
 
-.mat-card-footer {
+.mat-mdc-card-footer {
   width: 100%;
   min-height: 16px;
 
 
+
+}
   .success {
     @include flex(flex, center, flex-end);
     width: 100%;
-    color: var(--green);
+    color: var(--green) ;
     margin: 0;
   }
-}

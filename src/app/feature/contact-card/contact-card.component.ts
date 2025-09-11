@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-contact-card',
@@ -37,7 +38,7 @@ export class ContactCardComponent implements OnInit {
 
     if (this.newEmail.valid) {
       this.loading = true;
-      emailjs.sendForm('service_4ubx0g1', 'template_fo9favj', event, 'bjMDoIOJD-HmviB57')
+      emailjs.sendForm(environment.service_id, environment.template_id, event, environment.public_key)
         .then((result) => {
           if (result.status === 200) {
             this.loading = false;
