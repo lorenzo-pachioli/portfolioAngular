@@ -1,8 +1,8 @@
 <div class="about-container">
-  <h1 >About me</h1>
+  <h1 translate="app.HEADER.ABOUT-ME" ></h1>
   <hr />
   <div class="about-content">
-    <mat-button-toggle-group class="about-menu" #group="matButtonToggleGroup" aria-selected="'today'">
+    <mat-button-toggle-group class="about-menu" #group="matButtonToggleGroup" aria-selected="'today'"   [hideSingleSelectionIndicator]="true" >
       <mat-button-toggle value="'today'"  (click)="setInfo('today')">
         <p [ngStyle]="setButtonColor('today')">Today</p>
       </mat-button-toggle>

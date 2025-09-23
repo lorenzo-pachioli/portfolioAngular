@@ -7,6 +7,8 @@ import { ContactCardComponent } from './contact-card/contact-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DesktopMenuComponent } from './desktop-menu/desktop-menu.component';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
+import { TranslateDirective } from '@ngx-translate/core';
+import { LanguageSelectorComponent } from './language-selector/language-selector.component';
 
 @NgModule({
   declarations: [
@@ -14,19 +16,22 @@ import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
     ProjectInfoComponent,
     ContactCardComponent,
     DesktopMenuComponent,
-    MobileMenuComponent
+    MobileMenuComponent,
+    LanguageSelectorComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateDirective
   ],
   exports: [
     PortfolioGridComponent,
     ProjectInfoComponent,
     ContactCardComponent,
     DesktopMenuComponent,
-    MobileMenuComponent
+    MobileMenuComponent,
+    LanguageSelectorComponent
   ]
 })
 export class FeatureModule { }

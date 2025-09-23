@@ -1,0 +1,30 @@
+{
+	"app": {
+		"HEADER": {
+			"HOME": "Inicio",
+			"SKILLS": "Tecnologias",
+			"PORTFOLIO": "Portafolio",
+			"ABOUT-ME": "Acerca de mi",
+			"CONTACT": "Contacto",
+			"DOWNLOAD": "Descargar cv"
+		},
+		"TITLE": "Desarrollador Front End",
+		"HOME": {
+			"DESCRIPTION": "Soy un desarrollador Front End con +2 de experiencia en la creacion de sitios web escalables, eficientes y accesibles. Me desenvuelvo muy bien en entornos de codigo colaborativo y estoy trabajando constantemente para mejorar tanto mis habilidades técnicas como interpersonales",
+			"CONTACT-ME": "Mandame un mensaje!"
+		},
+		"CONTACT": {
+			"REQUIRED-VALUES": "* Valores requeridos",
+			"LABEL": "Si te gusto mi perfil y queres ponerte en contacto, mandame un mail:",
+			"NAME": "Nombre",
+			"INVALID-NAME": "Nombre invalido",
+			"MESSAGE": "Mensaje",
+			"SEND": "Enviar",
+			"INTRODUCE": "Contame un poco de vos!",
+			"EMAIL-SUCCESS": "Email enviado exitosamente",
+			"EMAIL-WRONG": "Algo salio mal, intenta de nuevo más tarde",
+			"LABEL2": "O visita alguna de mis redes sociales:",
+			"CV": "Descarga mi cv:"
+		}
+	}
+}

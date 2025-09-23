@@ -5,9 +5,12 @@
       <span>PACHIOLI<span class="dot">.</span></span>
     </div>
     <app-desktop-menu></app-desktop-menu>
-    <button class="cv-btn">
-      <a href="{{linkCv}}" target="_blank" rel="noopener noreferrer"> Download CV </a>
-    </button>
+    <div class="extra-selector">
+      <button class="cv-btn">
+        <a href="{{linkCv}}" target="_blank" rel="noopener noreferrer" translate="app.HEADER.DOWNLOAD"> </a>
+      </button>
+      <app-language-selector></app-language-selector>
+    </div>
     <app-mobile-menu></app-mobile-menu>
- </mat-toolbar>
+  </mat-toolbar>
 </div>

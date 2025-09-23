@@ -1,23 +1,23 @@
 <div class="header-molecule desktop-menu">
   <span>|</span>
   <button class="menu-btn" selected (click)="scroll('home')" [ngStyle]="this.border(this.visible.home)">
-    <span>Home</span>
+    <span translate="app.HEADER.HOME"></span>
   </button>
   <span>|</span>
   <button class="menu-btn" (click)="scroll('skills')" [ngStyle]="this.border(this.visible.skills)">
-    <span>Skills</span>
+    <span translate="app.HEADER.SKILLS"></span>
   </button>
   <span>|</span>
   <button class="menu-btn" (click)="scroll('portfolio')" [ngStyle]="this.border(this.visible.portfolio)">
-    <span>Portfolio</span>
+    <span translate="app.HEADER.PORTFOLIO"></span>
   </button>
   <span>|</span>
   <button class="menu-btn" (click)="scroll('about')" [ngStyle]="this.border(this.visible.about)">
-    <span>About me</span>
+    <span translate="app.HEADER.ABOUT-ME"></span>
   </button>
   <span>|</span>
   <button class="menu-btn" (click)="scroll('contact')" [ngStyle]="this.border(this.visible.contact)">
-    <span>Contact</span>
+    <span translate="app.HEADER.CONTACT"></span>
   </button>
   <span>|</span>
 </div>

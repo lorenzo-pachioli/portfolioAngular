@@ -6,6 +6,8 @@ import { PortfolioComponent } from './core/portfolio/portfolio.component';
 import { SkillsComponent } from './core/skills/skills.component';
 import { ElementByIdService } from './shared/services/element-by-id.service';
 import { HeaderComponent } from './core/header/header.component';
+import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from './services/language/language.service';
 
 @Component({
   selector: 'app-root',
@@ -23,8 +25,10 @@ export class AppComponent {
   @ViewChild(AboutMeComponent, { read: ElementRef }) aboutRef!: ElementRef;
   @ViewChild(ContactComponent, { read: ElementRef }) contactRef!: ElementRef;
 
-  constructor(public element: ElementByIdService) {
-  }
+  constructor(public element: ElementByIdService, public translate: TranslateService, private langService: LanguageService) {
+		const DEFAULT_LANG = this.langService.initLang();
+		this.translate.use(DEFAULT_LANG);
+	}
 
   ngAfterViewInit(): void {
     this.element.setHome(this.homeRef);

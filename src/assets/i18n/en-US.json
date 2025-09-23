@@ -1,0 +1,30 @@
+{
+	"app": {
+		"HEADER": {
+			"HOME": "Home",
+			"SKILLS": "Skills",
+			"PORTFOLIO": "Portfolio",
+			"ABOUT-ME": "About me",
+			"CONTACT": "Contact",
+			"DOWNLOAD": "Download cv"
+		},
+		"TITLE": "Front End developer ",
+		"HOME": {
+			"DESCRIPTION": "I'm a Front End Developer with +2 years of experience, focused on building efficient, scalable, and accessible web applications. I thrive in collaborative environments and I am constantly working to improve both my technical and interpersonal skills.",
+			"CONTACT-ME": "Contact me!"
+		},
+		"CONTACT": {
+			"REQUIRED-VALUES": "* Required values",
+			"LABEL": "If you liked my profile and want to get in touch, send me a message:",
+			"NAME": "Name",
+			"INVALID-NAME": "Not a valid name",
+			"MESSAGE": "Message",
+			"SEND": "Send",
+			"INTRODUCE": "Introduce yourself!",
+			"EMAIL-SUCCESS": "Email sent successfully",
+			"EMAIL-WRONG": "Something went wrong, try again later.",
+			"LABEL2": "Or visit any of my social networks:",
+			"CV": "Download my cv:"
+		}
+	}
+}

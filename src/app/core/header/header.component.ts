@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
     contact: false
   }
   linkCv = environment.cv_link;
+	language = localStorage.getItem('lang');
 
   constructor(public element: ElementByIdService) {
     this.element.visible.subscribe(currentVisible => {

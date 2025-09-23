@@ -1,30 +1,30 @@
 <mat-card class="contact-card-container">
   <mat-card-header>
-    <p>* Required values</p>
+    <p translate="app.CONTACT.REQUIRED-VALUES"></p>
   </mat-card-header>
 
   <mat-card-content>
-    <p class="title">If you liked my profile and want to get in touch, send me a message:</p>
+    <p class="title" translate="app.CONTACT.LABEL"></p>
   </mat-card-content>
   <form class="form" novalidate [formGroup]="newEmail" [target]="newEmail" #formDirective="ngForm" (ngSubmit)="sendEmail($event.target, formDirective)">
     
-    <p class="label">Name</p>
+    <p class="label" translate="app.CONTACT.NAME"></p>
     <mat-form-field appearance="fill">
-      <mat-label>name</mat-label>
+      <mat-label  translate="app.CONTACT.NAME"></mat-label>
       <input matInput class="input" color="primary" [formControl]="name" required name="name">
-      <mat-error *ngIf="name.invalid">Not a valid name</mat-error>
+      <mat-error *ngIf="name.invalid" translate="app.CONTACT.INVALID-NAME"></mat-error>
     </mat-form-field>
   
     <p class="label">Email</p>
     <mat-form-field appearance="fill" >
-      <mat-label>email</mat-label>
+      <mat-label>Email</mat-label>
       <input matInput type="email" [formControl]="email" required name="email">
       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
 
-    <p class="label">Message</p>
+    <p class="label" translate="app.CONTACT.MESSAGE"></p>
     <mat-form-field appearance="fill" >
-      <mat-label>Introduce yourself!</mat-label>
+      <mat-label translate="app.CONTACT.MESSAGE"></mat-label>
       <input matInput #msg maxlength="256" [formControl]="message" name="message">
       <mat-hint color="primary" align="end">{{msg.value.length}} / 256</mat-hint>
     </mat-form-field>
@@ -32,12 +32,12 @@
     <div class="buttons spinner" mat-dialog-actions>
       <button mat-raised-button color="primary" [disabled]="!newEmail.valid" type="submit" >
         <mat-spinner [diameter]="30" *ngIf="loading; else send" ></mat-spinner>
-        <ng-template #send ><p>Send</p></ng-template>
+        <ng-template #send ><p translate="app.CONTACT.SEND"></p></ng-template>
       </button>
     </div>
   </form>
   <mat-card-footer>
-    <mat-hint *ngIf="success" align="end" class="success">Email sent successfully</mat-hint>
-    <mat-error warn *ngIf="error" align="end">Something went wrong, try again later.</mat-error>
+    <mat-hint *ngIf="success" align="end" class="success" translate="app.CONTACT.EMAIL-SUCCESS"></mat-hint>
+    <mat-error warn *ngIf="error" align="end" translate="app.CONTACT.EMAIL-WRONG"></mat-error>
   </mat-card-footer>
 </mat-card>
