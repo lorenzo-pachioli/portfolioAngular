@@ -25,6 +25,44 @@
 			"EMAIL-WRONG": "Algo salio mal, intenta de nuevo más tarde",
 			"LABEL2": "O visita alguna de mis redes sociales:",
 			"CV": "Descarga mi cv:"
+		},
+		"ABOUT": {
+			"TODAY": {
+				"TITLE": "Actualidad",
+				"STORY": "Actualmente estoy buscando una posicion como desarrollador Front End mientras realizo la carrera de Tecnico Universitario en Programacion y curos online. Continuamente expandiendo no solo mis conocimientos tecnicos, sino tambien mis capacidades para resolver problemas de codigo mientras mejoro la calidad de mi codigo."
+			},
+			"UTN": {
+				"TITLE": "Utn",
+				"STORY": "Actualmente cursando el segundo cuatrimestre de la carrera de Tecnico Universitario en Programacion. Sitio de la carrera: 'https:// mdp.utn.edu.ar/ tecnicatura/ tecnico_ universitario_ en_ programacion/'"
+			},
+			"SWAPLYAR":  {
+				"TITLE": "SwaplyAr",
+				"STORY": "He colaborado con las funcionalidades de Front End utilizando Next.js y Tailwind, mejorando y añadiendo funciones centradas en la lógica y los algoritmos de gestión de la información. Ayudé al equipo de Back End a usar Nest.js para resolver errores relacionados con las características en las que estaba trabajando en el Front. Trabajar en colaboración con un equipo multicultural de América Latina en la implementación de características y corrección de errores en las secciones públicas, internas y de administración. Pila de tecnología: Next.js, Nest.js, Tailwind, Zustand y Postgre SQL."
+			}, 
+			"UDEMYQA":  {
+				"TITLE": "Udemy QA",
+				"STORY": "Un bootcamp de 36hs sobre QA manual, API testing, QA performance y QA Automation. Web site: 'https:// www.udemy.com/ course/ testerbootcamp/'"
+			},
+			"ALKEMY":  {
+				"TITLE": "Alkemy",
+				"STORY": "Un proyecto en grupo de 15 días usando Angular que cumpliendo con los requisitos propuestos por Alkemy, aplicando metodologías Scrum y Git Flow."
+			},
+			"LAMANSYS":  {
+				"TITLE": "Lamansys",
+				"STORY": "Un bootcamp de dos meses con Angular, Typescript y Material-UI. Terminando con un proyecto final cumpliendo con los requerimientos propuestos y gestionando con Taiga."
+			},
+			"UDEMY":  {
+				"TITLE": "Udemy",
+				"STORY": "The Complete Guide to Advanced React Component Patterns: Short course of advanced React Component Patterns."
+			},
+			"ACAMICA":  {
+				"TITLE": "Acamica",
+				"STORY": "Curso de 9 meses separados en 4 sprints me dio el conocimiento para convertirme en Front End developer, dandome las bases de HTML, CSS, Javascript, React and Firebase."
+			},
+			"BEFORE":  {
+				"TITLE": "Before",
+				"STORY": "Recibido como Tecnico Superior en Mecanica Liviana y 6 años desempeñandome como mecanico naval, creciendo desde ayudante a encarcado de taller"
+			}
 		}
 	}
 }

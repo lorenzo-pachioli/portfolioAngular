@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { history, buttonsHistory } from './aboutData';
+import { history, buttonsHistory, descriptions } from './aboutData';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-about-me',
@@ -11,7 +12,12 @@ export class AboutMeComponent implements OnInit {
   info = 'today';
   list = history;
   buttonsList = buttonsHistory;
-  constructor() { }
+  language;
+  descriptions = descriptions;
+
+  constructor(public translate: TranslateService) {
+    this.language = this.translate;
+  }
 
   ngOnInit(): void {
   }

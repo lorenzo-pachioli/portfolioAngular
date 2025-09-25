@@ -25,6 +25,44 @@
 			"EMAIL-WRONG": "Something went wrong, try again later.",
 			"LABEL2": "Or visit any of my social networks:",
 			"CV": "Download my cv:"
+		},
+		"ABOUT": {
+			"TODAY": {
+				"TITLE": "Today",
+				"STORY": "Now I'm looking for a job as a Front End developer and studying on Universidad Tecnológica Nacional and online courses. I continue on expanding no only my technical knowledge, but also my capability to learn and solve coding problems while improving the code quality."
+			},
+			"UTN": {
+				"TITLE": "Utn",
+				"STORY": "Currently during first year of this two year carrer at Universidad Tecnológica Nacional in Mar del Plata. The carrer website: 'https:// mdp.utn.edu.ar/ tecnicatura/ tecnico_ universitario_ en_ programacion/'"
+			},
+			"SWAPLYAR":  {
+				"TITLE": "SwaplyAr",
+				"STORY": "Collaborated with Front End functionalities using Next.js and Tailwind, improving and adding features centered on the logic and the information management algorithms. Helped the Back End team using Nest.js to solve bugs related to the features I was working on in the front. Working collaboratively with a multicultural Latin American team on the implementation of features and bug fixing in the public, internal, and administration sections. Tech Stack: Next.js, Nest.js, Tailwind, Zustand and Postgre SQL"
+			}, 
+			"UDEMYQA":  {
+				"TITLE": "Udemy QA",
+				"STORY": "Currently doing this 36hs QA bootcamp. Web site: 'https:// www.udemy.com/ course/ testerbootcamp/'"
+			},
+			"ALKEMY":  {
+				"TITLE": "Alkemy",
+				"STORY": "A 15 day Angular group project accomplishing the requests proposed by Alkemy and created applying scrum and git flow methodologies."
+			},
+			"LAMANSYS":  {
+				"TITLE": "Lamansys",
+				"STORY": "A two month front end boostcamp with Angular, Typescript and Material-UI. It ended with a final project that had some requirments and manage with Taiga."
+			},
+			"UDEMY":  {
+				"TITLE": "Udemy",
+				"STORY": "The Complete Guide to Advanced React Component Patterns: Short course of advanced React Component Patterns. More info in: https:// www.udemy.com/ course/the- complete- guide-to- advanced- react- patterns/"
+			},
+			"ACAMICA":  {
+				"TITLE": "Acamica",
+				"STORY": "This nine month course separated on four sprints gave me the knowledge to become a front-end web developer, teaching me about HTM, CSS, Javascript, React and Firebase."
+			},
+			"BEFORE":  {
+				"TITLE": "Before",
+				"STORY": "Graduated as a Superior Technician in Light Mechanics and 6 years working as a comertial ships mechanic, growing from assistant to workshop manager."
+			}
 		}
 	}
 }
