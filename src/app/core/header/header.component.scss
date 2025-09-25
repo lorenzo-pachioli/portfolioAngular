@@ -20,7 +20,7 @@
   }
 
   .header-molecule {
-    @include flex(flex, center, flex-start, row);
+    @include flex(flex, flex-end, flex-start, row);
     gap: 10px;
     max-width: 1600px;
 
@@ -41,6 +41,7 @@
     color: var(--color5);
     font-size: 30px;
     font-weight: 600;
+    height: fit-content;
   }
 
   .cv-btn {
@@ -69,7 +70,7 @@
 
   }
 
-  .extra-selector{
+  .extra-selector {
     @include flex(flex, center, center);
     gap: 20px;
   }

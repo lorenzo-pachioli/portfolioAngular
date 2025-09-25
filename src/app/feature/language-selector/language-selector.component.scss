@@ -20,6 +20,12 @@
         border-radius: 8px;
     }
 
+    .mat-button-toggle:hover {
+        color: var(--color5) !important;
+        filter: brightness(100%);
+        transition: all 0.3s ease-in-out;
+    }
+
     .mat-button-toggle-checked {
         background-color: transparent;
         color: var(--color5) !important;
