@@ -88,5 +88,20 @@
     app-mobile-menu {
       display: block;
     }
+
+    .extra-selector {
+      @include flex(flex, center, flex-end);
+      gap: 5px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 450px) {
+
+  .header-molecule {
+    span{
+      display: none;
+    }
   }
 }
