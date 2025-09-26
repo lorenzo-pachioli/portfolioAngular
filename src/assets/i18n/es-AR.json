@@ -13,6 +13,18 @@
 			"DESCRIPTION": "Soy un desarrollador Front End con +2 de experiencia en la creacion de sitios web escalables, eficientes y accesibles. Me desenvuelvo muy bien en entornos de codigo colaborativo y estoy trabajando constantemente para mejorar tanto mis habilidades técnicas como interpersonales",
 			"CONTACT-ME": "Mandame un mensaje!"
 		},
+		"PROJECT":{
+			"BACK": "Volver",
+			"DEPLOYED": "Ir al sitio",
+			"DEVUNITED": "Es un website al estilo Tweeter que utiliza Firebase para el Back End y React para el Front End. Fue creado como proyecto final evaluatorio del curso en Acamica.",
+			"APIBRAIN": "Es el Back End para el manejo de la website Brainstorming, hecho con Node, Express y MongoDB. Luego de terminar bootcamp de Lamansys y presentar Brainstorming, hice esta API para reemplazar la que me habian dado para hacer el proyecto final.",
+			"PORTFOLIO": "Es el sitio en el que estas actualmente. Visita el repositorio en GitHub para ver como funciona!",
+			"GIFY": "Es una SPA que utiliza la API externa de Giphy (https://giphy.com/) y le permite al usuario buscar gifs mediante una barra de busqueda. Fue creado como un proyecto evaluado para el tercer sprint del curso de Acamica.",
+			"BRAIN": "Es un administrador de Scrum realizado como proyectos final para el bootcamp de Lamansys usando Angular y Angular Material, conectado a una API presentada por ellos para la realizacion del proyecto evaluatorio.",
+			"RM": "Es una landingpage creada para un cliente que tiene un taller dedicado a la mecanica naval.",
+			"APICHAT": "Es el Back End para el manejo del sitio Chat App creada Socket.io, Express y MongoDB. Luego de terminar un proceso de entrevista tecnica y presentar ChatApp, hice esta API para reemplazar la que me habian dado para hacer el desafio.",
+			"CHAT": "Es un sitio web para enviar mensajes en tiempo real, creado como desafio tecnico para un proceso de entrevista."
+		},
 		"CONTACT": {
 			"REQUIRED-VALUES": "* Valores requeridos",
 			"LABEL": "Si te gusto mi perfil y queres ponerte en contacto, mandame un mail:",
