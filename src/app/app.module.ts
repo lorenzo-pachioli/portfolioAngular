@@ -26,7 +26,7 @@ import { provideTranslateHttpLoader, TranslateHttpLoader } from '@ngx-translate/
   providers: [
     ElementByIdService,
     provideHttpClient(),
-		{ provide: LOCALE_ID, useValue: 'en-US' },
+		{ provide: LOCALE_ID, useValue: 'en-us' },
     provideTranslateService({
       loader: provideTranslateHttpLoader({
         prefix: '/assets/i18n/',
