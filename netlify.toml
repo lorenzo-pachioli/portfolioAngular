@@ -1,5 +1,5 @@
 [build]
-  publish = "dist/portfolio-angular" # Adjust this to your actual build output directory
+  publish = "dist/portfolio-angular/browser" # Adjust this to your actual build output directory
   command = "npm install && ng build --configuration=production"
 
 [context.deploy-preview]
