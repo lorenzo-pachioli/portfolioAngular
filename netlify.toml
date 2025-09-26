@@ -1,0 +1,14 @@
+[build]
+  publish = "dist/portfolio-angular" # Adjust this to your actual build output directory
+  command = "npm install && ng build --configuration=production"
+
+[context.deploy-preview]
+  command = "npm install && ng build --configuration=development"
+
+[context.branch-deploy]
+  command = "npm install && ng build --configuration=development"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
