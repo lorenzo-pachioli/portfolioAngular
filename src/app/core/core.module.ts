@@ -11,6 +11,9 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactComponent } from './contact/contact.component';
 import { SocialSideNavComponent } from './social-side-nav/social-side-nav.component';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+import { TranslateDirective, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -28,7 +31,8 @@ import { SocialSideNavComponent } from './social-side-nav/social-side-nav.compon
     CommonModule,
     MaterialModule,
     FeatureModule,
-    SharedModule
+    SharedModule,
+    TranslateDirective
   ],
   exports: [
     HeaderComponent,

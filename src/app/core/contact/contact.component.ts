@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
+  linkCv = environment.cv_link;
   constructor() { }
 
   ngOnInit(): void {

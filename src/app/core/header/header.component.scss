@@ -1,31 +1,26 @@
+@import '../../../mixins';
+
 .toolbar {
-  position: fixed;   
+  @include flex(flex, center, center);
+  position: fixed;
   left: 0;
   z-index: 100;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   mat-icon {
     text-shadow: 0 0 0.07em var(--color2), 0 0 0.4em var(--color5);
   }
 
   mat-toolbar {
+    @include flex(flex, center, space-between);
     box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: transparent;
     backdrop-filter: blur(12px);
     max-width: var(--max-width);
   }
 
   .header-molecule {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+    @include flex(flex, flex-end, flex-start, row);
     gap: 10px;
     max-width: 1600px;
 
@@ -46,24 +41,25 @@
     color: var(--color5);
     font-size: 30px;
     font-weight: 600;
+    height: fit-content;
   }
 
   .cv-btn {
-      text-decoration: none;
-      padding: 4px;
-      cursor: pointer;
-      background-color: transparent;
-      font-size: 15px;
-      font-weight: 500;
-      z-index: 2;
-      border: none;
-      border-bottom: 2px solid var(--color5); 
-      /* border-radius: 4px; */
+    text-decoration: none;
+    padding: 4px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: 500;
+    z-index: 2;
+    border: none;
+    border-bottom: 2px solid var(--color5);
+    /* border-radius: 4px; */
 
-      a {
-        text-decoration: none;
-        color: var(--color5);
-      }
+    a {
+      text-decoration: none;
+      color: var(--color5);
+    }
   }
 
   .cv-btn:hover {
@@ -74,7 +70,14 @@
 
   }
 
+  .extra-selector {
+    @include flex(flex, center, center);
+    gap: 20px;
+  }
+
 }
+
+
 
 @media screen and (max-width: 900px) {
   .toolbar {

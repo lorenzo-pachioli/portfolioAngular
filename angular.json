@@ -15,12 +15,15 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@ngx-env/builder:application",
           "options": {
-            "outputPath": "dist/portfolio-angular",
+            "outputPath": {
+              "base": "dist/portfolio-angular"
+            },
             "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "src/polyfills.ts"
+            ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -28,10 +31,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "./node_modules/leaflet/dist/leaflet.css"
+              "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "browser": "src/main.ts"
           },
           "configurations": {
             "production": {
@@ -56,9 +59,7 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
@@ -67,25 +68,26 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@ngx-env/builder:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "portfolioAngular:build:production"
+              "buildTarget": "portfolioAngular:build:production"
             },
             "development": {
-              "browserTarget": "portfolioAngular:build:development"
+              "buildTarget": "portfolioAngular:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {}
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "@ngx-env/builder:extract-i18n",
           "options": {
-            "browserTarget": "portfolioAngular:build"
+            "buildTarget": "portfolioAngular:build"
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@ngx-env/builder:karma",
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
@@ -99,7 +101,8 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "builderMode": "browser"
           }
         }
       }

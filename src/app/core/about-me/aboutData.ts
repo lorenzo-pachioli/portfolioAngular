@@ -55,8 +55,48 @@ export const history: list = {
     },
     before: {
         name: "Before coding",
-        story: "I finished school on an art oriented highschool and move out to Buenos Aires to study a three year career. After I graduated as a superior mechanical technician, I pass through two short time jobs to finally end up in a commercial naval mechanics shop. I worked there until march 2022 when I resign to fully dedicate to get a job in the IT world as a front-end developer."
+        story: ""
     }
 }
 
-export const buttonsHistory = ['Today', 'SwaplyAr', 'Udemy QA', 'UTN', 'Alkemy', 'Lamansys', 'Udemy', 'Acamica', 'UTNBA', 'Before coding']
+export const buttonsHistory = ['Today', 'UTN', 'SwaplyAr', 'Udemy QA', 'Alkemy', 'Lamansys', 'Udemy', 'Acamica', 'Before coding'];
+
+export const descriptions = [
+    {
+        keyValue: 'today',
+        title: "app.ABOUT.TODAY.TITLE",
+        description: "app.ABOUT.TODAY.STORY"
+    }, {
+        keyValue: "utn",
+        title: "app.ABOUT.UTN.TITLE",
+        description: "app.ABOUT.UTN.STORY"
+    }, {
+        keyValue: "swaplyar",
+        title: "app.ABOUT.SWAPLYAR.TITLE",
+        description: "app.ABOUT.SWAPLYAR.STORY"
+    }, {
+        keyValue: "udemyqa",
+        title: "app.ABOUT.UDEMYQA.TITLE",
+        description: "app.ABOUT.UDEMYQA.STORY"
+    }, {
+        keyValue: "alkemy",
+        title: "app.ABOUT.ALKEMY.TITLE",
+        description: "app.ABOUT.ALKEMY.STORY"
+    }, {
+        keyValue: "lamansys",
+        title: "app.ABOUT.LAMANSYS.TITLE",
+        description: "app.ABOUT.LAMANSYS.STORY"
+    }, {
+        keyValue: "udemy",
+        title: "app.ABOUT.UDEMY.TITLE",
+        description: "app.ABOUT.UDEMY.STORY"
+    }, {
+        keyValue: "acamica",
+        title: "app.ABOUT.ACAMICA.TITLE",
+        description: "app.ABOUT.ACAMICA.STORY"
+    }, {
+        keyValue: "before",
+        title: "app.ABOUT.BEFORE.TITLE",
+        description: "app.ABOUT.BEFORE.STORY"
+    }
+];

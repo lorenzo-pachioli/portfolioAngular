@@ -1,50 +1,25 @@
 <div class="about-container">
-  <h1 >About me</h1>
+  
+  <h1 translate="app.HEADER.ABOUT-ME"></h1>
   <hr />
   <div class="about-content">
-    <mat-button-toggle-group class="about-menu" #group="matButtonToggleGroup" aria-selected="'today'">
-      <mat-button-toggle value="'today'"  (click)="setInfo('today')">
-        <p [ngStyle]="setButtonColor('today')">Today</p>
-      </mat-button-toggle>
-      <mat-button-toggle value="'swaplyar'"  (click)="setInfo('swaplyar')">
-        <p [ngStyle]="setButtonColor('swaplyar')">SwaplyAr</p>
-      </mat-button-toggle>
-      <mat-button-toggle value="'udemyqa'" (click)="setInfo('udemyqa')">
-        <p [ngStyle]="setButtonColor('udemyqa')">Udemy QA</p>
-      </mat-button-toggle>
-      <mat-button-toggle value="'utn'" (click)="setInfo('utn')">
-        <p [ngStyle]="setButtonColor('utn')">UTN</p>
-      </mat-button-toggle>
-      <mat-button-toggle value="'alkemy'" (click)="setInfo('alkemy')">
-        <p [ngStyle]="setButtonColor('alkemy')">Alkemy</p>
-      </mat-button-toggle>
-      <mat-button-toggle value="'lamansys'" (click)="setInfo('lamansys')">
-        <p [ngStyle]="setButtonColor('lamansys')">Lamansys</p>
-      </mat-button-toggle>
-      <mat-button-toggle value="'udemy'"  (click)="setInfo('udemy')">
-        <p [ngStyle]="setButtonColor('udemy')">Udemy</p>
-      </mat-button-toggle>
-      <mat-button-toggle value="'acamica'" (click)="setInfo('acamica')">
-        <p [ngStyle]="setButtonColor('acamica')" >Acamica</p>
-      </mat-button-toggle>
-      <mat-button-toggle value="'utnba'" (click)="setInfo('utnba')">
-        <p [ngStyle]="setButtonColor('utnba')">UTNBA</p>
-      </mat-button-toggle>
-      <mat-button-toggle value="'before'" (click)="setInfo('before')">
-        <p [ngStyle]="setButtonColor('before')">Before coding</p>
-      </mat-button-toggle>
+
+    <mat-button-toggle-group class="about-menu" #group="matButtonToggleGroup" aria-selected="'today'"
+      [hideSingleSelectionIndicator]="true">
+
+      <ng-template ngFor let-item [ngForOf]="descriptions" let-i="index">
+        <mat-button-toggle value="item.keyValue" (click)="setInfo(item.keyValue || '')">
+          <p [ngStyle]="setButtonColor(item.keyValue || '')" translate="{{item.title}}"></p>
+        </mat-button-toggle>
+      </ng-template>
     </mat-button-toggle-group>
+
     <diV class="about-info" [ngSwitch]="info">
-      <p *ngSwitchCase="'swaplyar'">{{list.swaplyar.story}}</p>
-      <p *ngSwitchCase="'udemyqa'">{{list.udemyqa.story}}</p>
-      <p *ngSwitchCase="'utn'">{{list.utn.story}}</p>
-      <p *ngSwitchCase="'alkemy'">{{list.alkemy.story}}</p>
-      <p *ngSwitchCase="'lamansys'">{{list.lamansys.story}}</p>
-      <p *ngSwitchCase="'udemy'">{{list.udemy.story}}</p>
-      <p *ngSwitchCase="'acamica'">{{list.acamica.story}}</p>
-      <p *ngSwitchCase="'utnba'">{{list.utnba.story}}</p>
-      <p *ngSwitchCase="'before'">{{list.before.story}}</p>
-      <p *ngSwitchDefault>{{list.today.story}}</p>
+      <ng-template ngFor let-item [ngForOf]="descriptions" let-i="index">
+        <p *ngSwitchCase="item.keyValue" translate="{{item.description}}"></p>
+      </ng-template>
+      <p *ngSwitchDefault translate="app.ABOUT.TODAY.TITLE"></p>
     </diV>
+
   </div>
 </div>

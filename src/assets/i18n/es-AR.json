@@ -1,0 +1,80 @@
+{
+	"app": {
+		"HEADER": {
+			"HOME": "Inicio",
+			"SKILLS": "Tecnologias",
+			"PORTFOLIO": "Portafolio",
+			"ABOUT-ME": "Acerca de mi",
+			"CONTACT": "Contacto",
+			"DOWNLOAD": "Descargar cv"
+		},
+		"TITLE": "Desarrollador Front End",
+		"HOME": {
+			"DESCRIPTION": "Soy un desarrollador Front End con +2 de experiencia en la creacion de sitios web escalables, eficientes y accesibles. Me desenvuelvo muy bien en entornos de codigo colaborativo y estoy trabajando constantemente para mejorar tanto mis habilidades técnicas como interpersonales",
+			"CONTACT-ME": "Mandame un mensaje!"
+		},
+		"PROJECT":{
+			"BACK": "Volver",
+			"DEPLOYED": "Ir al sitio",
+			"DEVUNITED": "Es un website al estilo Tweeter que utiliza Firebase para el Back End y React para el Front End. Fue creado como proyecto final evaluatorio del curso en Acamica.",
+			"APIBRAIN": "Es el Back End para el manejo de la website Brainstorming, hecho con Node, Express y MongoDB. Luego de terminar bootcamp de Lamansys y presentar Brainstorming, hice esta API para reemplazar la que me habian dado para hacer el proyecto final.",
+			"PORTFOLIO": "Es el sitio en el que estas actualmente. Visita el repositorio en GitHub para ver como funciona!",
+			"GIFY": "Es una SPA que utiliza la API externa de Giphy (https://giphy.com/) y le permite al usuario buscar gifs mediante una barra de busqueda. Fue creado como un proyecto evaluado para el tercer sprint del curso de Acamica.",
+			"BRAIN": "Es un administrador de Scrum realizado como proyectos final para el bootcamp de Lamansys usando Angular y Angular Material, conectado a una API presentada por ellos para la realizacion del proyecto evaluatorio.",
+			"RM": "Es una landingpage creada para un cliente que tiene un taller dedicado a la mecanica naval.",
+			"APICHAT": "Es el Back End para el manejo del sitio Chat App creada Socket.io, Express y MongoDB. Luego de terminar un proceso de entrevista tecnica y presentar ChatApp, hice esta API para reemplazar la que me habian dado para hacer el desafio.",
+			"CHAT": "Es un sitio web para enviar mensajes en tiempo real, creado como desafio tecnico para un proceso de entrevista."
+		},
+		"CONTACT": {
+			"REQUIRED-VALUES": "* Valores requeridos",
+			"LABEL": "Si te gusto mi perfil y queres ponerte en contacto, mandame un mail:",
+			"NAME": "Nombre",
+			"INVALID-NAME": "Nombre invalido",
+			"MESSAGE": "Mensaje",
+			"SEND": "Enviar",
+			"INTRODUCE": "Contame un poco de vos!",
+			"EMAIL-SUCCESS": "Email enviado exitosamente",
+			"EMAIL-WRONG": "Algo salio mal, intenta de nuevo más tarde",
+			"LABEL2": "O visita alguna de mis redes sociales:",
+			"CV": "Descarga mi cv:"
+		},
+		"ABOUT": {
+			"TODAY": {
+				"TITLE": "Actualidad",
+				"STORY": "Actualmente estoy buscando una posicion como desarrollador Front End mientras realizo la carrera de Tecnico Universitario en Programacion y curos online. Continuamente expandiendo no solo mis conocimientos tecnicos, sino tambien mis capacidades para resolver problemas de codigo mientras mejoro la calidad de mi codigo."
+			},
+			"UTN": {
+				"TITLE": "Utn",
+				"STORY": "Actualmente cursando el segundo cuatrimestre de la carrera de Tecnico Universitario en Programacion. Sitio de la carrera: 'https:// mdp.utn.edu.ar/ tecnicatura/ tecnico_ universitario_ en_ programacion/'"
+			},
+			"SWAPLYAR":  {
+				"TITLE": "SwaplyAr",
+				"STORY": "He colaborado con las funcionalidades de Front End utilizando Next.js y Tailwind, mejorando y añadiendo funciones centradas en la lógica y los algoritmos de gestión de la información. Ayudé al equipo de Back End a usar Nest.js para resolver errores relacionados con las características en las que estaba trabajando en el Front. Trabajar en colaboración con un equipo multicultural de América Latina en la implementación de características y corrección de errores en las secciones públicas, internas y de administración. Pila de tecnología: Next.js, Nest.js, Tailwind, Zustand y Postgre SQL."
+			}, 
+			"UDEMYQA":  {
+				"TITLE": "Udemy QA",
+				"STORY": "Un bootcamp de 36hs sobre QA manual, API testing, QA performance y QA Automation. Web site: 'https:// www.udemy.com/ course/ testerbootcamp/'"
+			},
+			"ALKEMY":  {
+				"TITLE": "Alkemy",
+				"STORY": "Un proyecto en grupo de 15 días usando Angular que cumpliendo con los requisitos propuestos por Alkemy, aplicando metodologías Scrum y Git Flow."
+			},
+			"LAMANSYS":  {
+				"TITLE": "Lamansys",
+				"STORY": "Un bootcamp de dos meses con Angular, Typescript y Material-UI. Terminando con un proyecto final cumpliendo con los requerimientos propuestos y gestionando con Taiga."
+			},
+			"UDEMY":  {
+				"TITLE": "Udemy",
+				"STORY": "The Complete Guide to Advanced React Component Patterns: Short course of advanced React Component Patterns."
+			},
+			"ACAMICA":  {
+				"TITLE": "Acamica",
+				"STORY": "Curso de 9 meses separados en 4 sprints me dio el conocimiento para convertirme en Front End developer, dandome las bases de HTML, CSS, Javascript, React and Firebase."
+			},
+			"BEFORE":  {
+				"TITLE": "Before",
+				"STORY": "Recibido como Tecnico Superior en Mecanica Liviana y 6 años desempeñandome como mecanico naval, creciendo desde ayudante a encarcado de taller"
+			}
+		}
+	}
+}

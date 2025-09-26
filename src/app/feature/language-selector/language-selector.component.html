@@ -1,0 +1,6 @@
+
+<mat-button-toggle-group class="language-selector"  [value]="language"  [hideSingleSelectionIndicator]="true" >
+    <mat-button-toggle value="en-US" (click)="setLang('en-US')">US</mat-button-toggle>
+    <mat-button-toggle value="es-AR" (click)="setLang('es-AR')">Arg</mat-button-toggle>
+    <span class="selector" [class.right]="language === 'es-AR'" ></span>
+</mat-button-toggle-group>

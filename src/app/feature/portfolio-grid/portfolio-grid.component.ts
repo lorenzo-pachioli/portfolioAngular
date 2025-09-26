@@ -56,7 +56,7 @@ export class PortfolioGridComponent implements OnInit {
       }
     } else if (width <= 1000) {
       this.gridSize = {
-        col: 4,
+        col: 2,
         rowHeight: '200px',
         gutterSize: '20px'
       }

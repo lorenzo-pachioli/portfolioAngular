@@ -30,11 +30,11 @@ $bv-brand: (
 );
 
 
-$portfolioAngular-primary: mat.define-palette(mat.$pink-palette);
-$portfolioAngular-accent: mat.define-palette($bv-brand);
-$portfolioAngular-warn: mat.define-palette(mat.$red-palette);
+$portfolioAngular-primary: mat.m2-define-palette(mat.$m2-pink-palette);
+$portfolioAngular-accent: mat.m2-define-palette($bv-brand);
+$portfolioAngular-warn: mat.m2-define-palette(mat.$m2-red-palette);
 
-$portfolioAngular-theme: mat.define-dark-theme((color: (primary: $portfolioAngular-primary,
+$portfolioAngular-theme: mat.m2-define-dark-theme((color: (primary: $portfolioAngular-primary,
         accent: $portfolioAngular-accent,
         warn: $portfolioAngular-warn)));
 
@@ -58,6 +58,7 @@ body {
 
   ::-webkit-scrollbar-thumb:hover {
     background: #B6B3B1;
+    cursor: pointer;
   }
 
   ::-webkit-scrollbar-track {

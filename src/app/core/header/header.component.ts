@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ElementByIdService } from 'src/app/shared/services/element-by-id.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -15,6 +16,8 @@ export class HeaderComponent implements OnInit {
     about: false,
     contact: false
   }
+  linkCv = environment.cv_link;
+	language = localStorage.getItem('lang');
 
   constructor(public element: ElementByIdService) {
     this.element.visible.subscribe(currentVisible => {

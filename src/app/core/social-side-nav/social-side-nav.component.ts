@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-social-side-nav',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class SocialSideNavComponent implements OnInit {
 
   menuOpen = false;
+  linkCv = environment.cv_link;
+  
   constructor() { }
 
   ngOnInit(): void {
