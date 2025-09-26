@@ -3,7 +3,7 @@
 .skills-container {
   @include flex(flex, center, center, column);
   width: 90%;
-  height: 80vh;
+  height: fit-content;
   border: 2px solid var(--color5);
   padding: 40px;
   box-sizing: border-box;

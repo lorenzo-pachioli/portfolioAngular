@@ -40,7 +40,6 @@
   app-contact-card {
     max-width: 50%;
     max-height: 1100px;
-    z-index: 20;
   }
 
   .socialLinks-container {
@@ -106,15 +105,34 @@
 @media screen and (max-width: 900px) {
   .contact-container {
     width: 95%;
+    height: fit-content;
     gap: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 100px;
   }
 
   .contact-content {
+    @include flex(flex, flex-start, center, column);
+    height: fit-content;
+
+    .socialLinks-container {
+      @include flex(flex, center, space-between, row);
+      gap: 10px;
+      height: fit-content;
+      max-width: 100%;
+    }
+
+    .socialLinks {
+      @include flex(flex, flex-start, space-between, column);
+      width: 300px;
+      height: 300px;
+    }
 
     app-contact-card {
       top: 30px;
-      left: 30px;
+      left: 0;
+      right: 0;
+      max-width: 100vw;
+      width: 100%;
     }
 
   }
@@ -126,6 +144,12 @@
     app-contact-card {
       top: 20px;
       left: 0;
+    }
+
+    .socialLinks-container {
+      @include flex(flex, center, space-between, column);
+      gap: 10px;
+      max-width: 100%;
     }
 
   }
