@@ -15,19 +15,13 @@ export class LanguageSelectorComponent {
   }
 
   ngAfterViewInit() {
-    const INIT_LANG = this.langService.initLang();
-    console.log("init", this.language, INIT_LANG);
-    if(this.language){
-      this.translate.use(this.language);
-    } else {
-      this.translate.use(INIT_LANG);
-    }
-     
+    this.language = this.langService.initLang();
+    this.translate.use(this.language);
   }
 
   setLang(lang: string): void {
     this.language = lang;
     this.translate.use(lang);
-    localStorage.setItem('lang', lang);
+    this.langService.setLanguage(lang);
   }
 }

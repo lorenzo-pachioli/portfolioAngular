@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class LanguageService {
 
-  constructor() { }
-  
-  private setDefaultLang(): string {
+	constructor() { }
+
+	private setDefaultLang(): string {
 		const ln = navigator.language && navigator.language.slice(0, 2);
 		if (ln === 'es') {
 			return 'es-ar';
@@ -25,5 +25,9 @@ export class LanguageService {
 			localStorage.setItem('lang', DEFAULT_LANG);
 			return DEFAULT_LANG;
 		}
+	}
+
+	setLanguage(newLang: string) {
+		localStorage.setItem('lang', newLang);
 	}
 }
