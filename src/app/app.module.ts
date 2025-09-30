@@ -7,9 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { ElementByIdService } from './shared/services/element-by-id.service';
 import { SharedModule } from './shared/shared.module';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
-import { provideTranslateService, TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { provideTranslateHttpLoader, TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideHttpClient } from '@angular/common/http';
+import { provideTranslateService } from '@ngx-translate/core';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [
@@ -32,8 +32,8 @@ import { provideTranslateHttpLoader, TranslateHttpLoader } from '@ngx-translate/
         prefix: '/assets/i18n/',
         suffix: '.json'
       }),
-      fallbackLang: 'en',
-      lang: 'en'
+      fallbackLang: 'en-us',
+      lang: 'en-us'
     })
   ],
   bootstrap: [AppComponent]

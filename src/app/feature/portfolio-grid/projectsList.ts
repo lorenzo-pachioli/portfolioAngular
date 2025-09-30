@@ -1,3 +1,4 @@
+import { cloudinary } from 'src/assets/img-cloudinary/img-cloudinary';
 import { IProject } from '../../shared/interfaces/IProject';
 
 export const projectsList: IProject[] = [
@@ -7,7 +8,7 @@ export const projectsList: IProject[] = [
     rows: 1,
     color: 'var(--color4)',
     hrColor: 'var(--color5)',
-    image: '../../../assets/img/devsUnited.png',
+    image: cloudinary.devsUnited,
     description: "app.PROJECT.DEVUNITED",
     github: 'https://github.com/lorenzo-pachioli/Devs_united',
     deployed: 'https://devsunited-pachioli.netlify.app'
@@ -18,7 +19,7 @@ export const projectsList: IProject[] = [
     rows: 2,
     color: 'var(--color4)',
     hrColor: 'var(--color5)',
-    image: '../../../assets/img/api-brainstorming.png',
+    image: cloudinary.apiBrainstorm,
     description: "app.PROJECT.APIBRAIN",
     github: 'https://github.com/lorenzo-pachioli/api-brainstorming',
     deployed: ''
@@ -29,7 +30,7 @@ export const projectsList: IProject[] = [
     rows: 2,
     color: 'var(--color4)',
     hrColor: 'var(--color5)',
-    image: '../../../assets/img/portfolio.png',
+    image: cloudinary.portfolio,
     description: "app.PROJECT.PORTFOLIO",
     github: 'https://github.com/lorenzo-pachioli/portfolioAngular',
     deployed: 'https://lorenzo-pachioli.netlify.app/'
@@ -40,7 +41,7 @@ export const projectsList: IProject[] = [
     rows: 1,
     color: 'var(--color4)',
     hrColor: 'var(--color5)',
-    image: '../../../assets/img/giphy.png',
+    image: cloudinary.gify,
     description: "app.PROJECT.GIFY",
     github: 'https://github.com/lorenzo-pachioli/Sprint_proyect_Giphy',
     deployed: 'https://sprint-proyect-giphy.netlify.app'
@@ -51,7 +52,7 @@ export const projectsList: IProject[] = [
     rows: 1,
     color: 'var(--color4)',
     hrColor: 'var(--color5)',
-    image: '../../../assets/img/brainstormingDescktop.png',
+    image: cloudinary.brainstorm,
     description: "app.PROJECT.BRAIN",
     github: 'https://github.com/lorenzo-pachioli/frontend-bootcamp',
     deployed: 'https://frontend-bootcamp-pachioli.netlify.app'
@@ -62,7 +63,7 @@ export const projectsList: IProject[] = [
     rows: 2,
     color: 'var(--color4)',
     hrColor: 'var(--color5)',
-    image: '../../../assets/img/rm-servicios-navales.png',
+    image: cloudinary.rm,
     description: "app.PROJECT.RM",
     github: 'https://github.com/lorenzo-pachioli/RMservicios-navales',
     deployed: 'https://rm-servicios-navales.netlify.app/'
@@ -73,7 +74,7 @@ export const projectsList: IProject[] = [
     rows: 2,
     color: 'var(--color4)',
     hrColor: 'var(--color5)',
-    image: '../../../assets/img/apiChat.png',
+    image: cloudinary.apiChat,
     description: "app.PROJECT.APICHAT",
     github: 'https://github.com/lorenzo-pachioli/Api-chat',
     deployed: ''
@@ -84,7 +85,7 @@ export const projectsList: IProject[] = [
     rows: 1,
     color: 'var(--color4)',
     hrColor: 'var(--color5)',
-    image: '../../../assets/img/chatApp.png',
+    image: cloudinary.chat,
     description: "app.PROJECT.CHAT",
     github: 'https://github.com/lorenzo-pachioli/Chat-app',
     deployed: 'https://pachioli-chat-app.netlify.app'

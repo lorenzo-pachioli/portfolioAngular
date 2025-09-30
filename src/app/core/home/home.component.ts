@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ElementByIdService } from 'src/app/shared/services/element-by-id.service';
+import { cloudinary } from 'src/assets/img-cloudinary/img-cloudinary';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,8 @@ import { ElementByIdService } from 'src/app/shared/services/element-by-id.servic
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  perfil = cloudinary.perfil;
 
   constructor(public element: ElementByIdService) { }
 
