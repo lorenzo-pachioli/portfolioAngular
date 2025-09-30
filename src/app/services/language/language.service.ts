@@ -10,9 +10,9 @@ export class LanguageService {
   private setDefaultLang(): string {
 		const ln = navigator.language && navigator.language.slice(0, 2);
 		if (ln === 'es') {
-			return 'es-AR';
+			return 'es-ar';
 		} else {
-			return 'en-US';
+			return 'en-us';
 		}
 	}
 
