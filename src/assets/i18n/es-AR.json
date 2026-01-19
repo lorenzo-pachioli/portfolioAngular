@@ -39,9 +39,9 @@
 			"CV": "Descarga mi cv:"
 		},
 		"ABOUT": {
-			"TODAY": {
-				"TITLE": "Actualidad",
-				"STORY": "Actualmente estoy buscando una posicion como desarrollador Front End mientras realizo la carrera de Tecnico Universitario en Programacion y curos online. Continuamente expandiendo no solo mis conocimientos tecnicos, sino tambien mis capacidades para resolver problemas de codigo mientras mejoro la calidad de mi codigo."
+			"SMARTERIX": {
+				"TITLE": "Desarrollador Front End en Smarterix",
+				"STORY": "Desde noviembre de 2025 me desempeño como Desarrollador Front End en Smarterix, una consultora digital con base en Mar del Plata, Argentina, bajo una modalidad de trabajo híbrida. Participo en todo el ciclo de vida del producto, desde la planificación y la implementación hasta el mantenimiento y la mejora continua. Mi rol incluye el desarrollo y mantenimiento de interfaces modernas utilizando tecnologías como PHP, Laravel y React, así como la integración de servicios y APIs de terceros como Spatie y Google Drive API. Trabajo de manera colaborativa con equipos multidisciplinarios para entregar soluciones digitales escalables, mantenibles y alineadas con los objetivos del negocio."
 			},
 			"UTN": {
 				"TITLE": "Utn",

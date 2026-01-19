@@ -19,6 +19,18 @@ const taiga = '../../../assets/svg/taiga-2.svg';
 const ngrx = '../../../assets/svg/ngrx.svg';
 const jest = '../../../assets/svg/jest.svg';
 const next = '../../../assets/svg/next-js.svg';
+const php = '../../../assets/svg/php.svg';
+const laravel = '../../../assets/svg/laravel.svg';
+const tailwind = '../../../assets/svg/tailwind-css.svg';
+const postgresql = '../../../assets/svg/postgresql.svg';
+const java = '../../../assets/svg/java.svg';
+const bootstrap = '../../../assets/svg/bootstrap.svg';
+const mysql = '../../../assets/svg/mysql.svg';
+const express = '../../../assets/svg/express.svg';
+const wordpress = '../../../assets/svg/wordpress.svg';
+const simpleCode = '../../../assets/svg/simple-code.svg';
+const zephyr = '../../../assets/svg/zephyr.svg';
+const zustand = '../../../assets/svg/zustand.svg';
 
 interface obj {
     svg: string
@@ -77,9 +89,6 @@ export const skillsList: list = [
         svg: jest,
         name: 'Jest'
     }, {
-        svg: git,
-        name: 'Git'
-    }, {
         svg: github,
         name: 'Github'
     }, {
@@ -91,6 +100,44 @@ export const skillsList: list = [
     }, {
         svg: taiga,
         name: 'Taiga'
+    }, {
+        svg: java,
+        name: 'Java'
+    }, {
+        svg: php,
+        name: 'PHP'
+    }, {
+        svg: laravel,
+        name: 'Laravel'
+    }, {
+        svg: bootstrap,
+        name: 'Bootstrap'
+    }, {
+        svg: tailwind,
+        name: 'Tailwind'
+    }, {
+        svg: mysql,
+        name: 'MySQL'
+    }, {
+        svg: express,
+        name: 'Express'
+    }, {
+        svg: wordpress,
+        name: 'Wordpress'
+    }, {
+        svg: postgresql,
+        name: 'Postgresql'
+    }, {
+        svg: zustand,
+        name: 'Zustand'
+    }, {
+        svg: simpleCode,
+        name: 'GitFlow'
+    }, {
+        svg: simpleCode,
+        name: 'Scrum'
+    }, {
+        svg: zephyr,
+        name: 'Zephyr Scale'
     }
 ]
-
