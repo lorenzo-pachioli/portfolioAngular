@@ -23,7 +23,8 @@
 			"BRAIN": "It's a scrum base task manager created as a final project for the Lamansys bootcamp using Angular and Angular Material, conecting to an API provided by them and following some requirements.",
 			"RM": "It's a landing page created for a client dedicated to commercial ship's mechanics",
 			"APICHAT": "It's the server aplication for Chat-app made in Node with Socket.io, Express and MongoDB.",
-			"CHAT": "It's a real time chat web site that uses React and Socket.io-client to communicate with Api-chat."
+			"CHAT": "It's a real time chat web site that uses React and Socket.io-client to communicate with Api-chat.",
+			"PAWSOME": "It's a mock e-commerce website created using Next.js and Tailwind, and working without a back-end using Firebase and Mercado Pago API. I also developed the Admin panel for managing the products, services, promotions and orders. The Register and Login are functional, but the user panel is still in development."
 		},
 		"CONTACT": {
 			"REQUIRED-VALUES": "* Required values",

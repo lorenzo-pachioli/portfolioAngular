@@ -23,7 +23,9 @@
 			"BRAIN": "Es un administrador de Scrum realizado como proyectos final para el bootcamp de Lamansys usando Angular y Angular Material, conectado a una API presentada por ellos para la realizacion del proyecto evaluatorio.",
 			"RM": "Es una landingpage creada para un cliente que tiene un taller dedicado a la mecanica naval.",
 			"APICHAT": "Es el Back End para el manejo del sitio Chat App creada Socket.io, Express y MongoDB. Luego de terminar un proceso de entrevista tecnica y presentar ChatApp, hice esta API para reemplazar la que me habian dado para hacer el desafio.",
-			"CHAT": "Es un sitio web para enviar mensajes en tiempo real, creado como desafio tecnico para un proceso de entrevista."
+			"CHAT": "Es un sitio web para enviar mensajes en tiempo real, creado como desafio tecnico para un proceso de entrevista.",
+			"PAWSOME": "Es una maqueta de e-commerce creada con Next.js y Tailwind, funcionando sin un back-end usando Firebase y la API de Mercado Pago. Desarrollé también el panel de administración para gestionar los productos, servicios, promociones y pedidos. El Registro y Login son funcionales, pero el panel de usuario esta en desarrollo."
+			
 		},
 		"CONTACT": {
 			"REQUIRED-VALUES": "* Valores requeridos",

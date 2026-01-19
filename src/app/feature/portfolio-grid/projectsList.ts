@@ -36,15 +36,15 @@ export const projectsList: IProject[] = [
     deployed: 'https://lorenzo-pachioli.netlify.app/'
   },
   {
-    title: 'Gify',
+    title: 'PawsomeMart',
     cols: 2,
     rows: 1,
     color: 'var(--color4)',
     hrColor: 'var(--color5)',
-    image: cloudinary.gify,
-    description: "app.PROJECT.GIFY",
-    github: 'https://github.com/lorenzo-pachioli/Sprint_proyect_Giphy',
-    deployed: 'https://sprint-proyect-giphy.netlify.app'
+    image: cloudinary.pawsomemart,
+    description: "app.PROJECT.PAWSOME",
+    github: 'https://github.com/lorenzo-pachioli/studio',
+    deployed: 'https://pawsomemart.netlify.app/'
   },
   {
     title: 'Brainstorming',

@@ -8,5 +8,6 @@ export const cloudinary = {
     rm: "https://res.cloudinary.com/dnridopyi/image/upload/v1758918496/rm-servicios-navales_harkzd.png",
     apiChat: "https://res.cloudinary.com/dnridopyi/image/upload/v1758918487/apiChat_mduphp.png",
     chat: "https://res.cloudinary.com/dnridopyi/image/upload/v1758918487/chatApp_l7sn3v.png",
-    perfil: "https://res.cloudinary.com/dnridopyi/image/upload/v1758918491/perfil_ianqa8.jpg"
+    perfil: "https://res.cloudinary.com/dnridopyi/image/upload/v1758918491/perfil_ianqa8.jpg",
+    pawsomemart: "https://res.cloudinary.com/dnridopyi/image/upload/v1768847080/Captura_de_pantalla_2026-01-19_152404_efbf1z.png"
 }
