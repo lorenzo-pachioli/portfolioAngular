@@ -1,36 +1,5 @@
-const html = '../../../assets/svg/html-1.svg';
-const css = '../../../assets/svg/css-3.svg';
-const react = '../../../assets/svg/react-2.svg';
-const redux = '../../../assets/svg/redux.svg';
-const sass = '../../../assets/svg/sass-1.svg';
-const javascript = '../../../assets/svg/javascript-1.svg';
-const typescript = '../../../assets/svg/typescript-2.svg';
-const firebase = '../../../assets/svg/firebase-1.svg';
-const git = '../../../assets/svg/git-icon.svg';
-const github = '../../../assets/svg/github-icon-1.svg';
-const angular = '../../../assets/svg/angular-icon-1.svg';
-const materialUi = '../../../assets/svg/material-ui-1.svg';
-const socketIO = '../../../assets/svg/socket-io.svg';
-const node = '../../../assets/svg/nodejs-1.svg';
-const mongodb = '../../../assets/svg/mongodb-icon-1.svg';
-const gitlab = '../../../assets/svg/gitlab.svg';
-const jira = '../../../assets/svg/jira-3.svg';
-const taiga = '../../../assets/svg/taiga-2.svg';
-const ngrx = '../../../assets/svg/ngrx.svg';
-const jest = '../../../assets/svg/jest.svg';
-const next = '../../../assets/svg/next-js.svg';
-const php = '../../../assets/svg/php.svg';
-const laravel = '../../../assets/svg/laravel.svg';
-const tailwind = '../../../assets/svg/tailwind-css.svg';
-const postgresql = '../../../assets/svg/postgresql.svg';
-const java = '../../../assets/svg/java.svg';
-const bootstrap = '../../../assets/svg/bootstrap.svg';
-const mysql = '../../../assets/svg/mysql.svg';
-const express = '../../../assets/svg/express.svg';
-const wordpress = '../../../assets/svg/wordpress.svg';
-const simpleCode = '../../../assets/svg/simple-code.svg';
-const zephyr = '../../../assets/svg/zephyr.svg';
-const zustand = '../../../assets/svg/zustand.svg';
+import { cloudinarySvg } from "src/assets/svg-cloudinary/svg-cloudinary"
+const simpleCode = "../../../assets/svg/simple-code.svg";
 
 interface obj {
     svg: string
@@ -41,103 +10,103 @@ type list = obj[]
 
 export const skillsList: list = [
     {
-        svg: html,
+        svg: cloudinarySvg.html,
         name: 'HTML'
     }, {
-        svg: css,
+        svg: cloudinarySvg.css,
         name: 'CSS'
     }, {
-        svg: javascript,
+        svg: cloudinarySvg.javascript,
         name: 'Javascript'
     }, {
-        svg: typescript,
+        svg: cloudinarySvg.typescript,
         name: 'Typescript'
     }, {
-        svg: react,
+        svg: cloudinarySvg.react,
         name: 'React'
     }, {
-        svg: next,
+        svg: cloudinarySvg.next,
         name: 'Next.js'
     }, {
-        svg: angular,
+        svg: cloudinarySvg.angular,
         name: 'Angular'
     }, {
-        svg: materialUi,
+        svg: cloudinarySvg.materialUi,
         name: 'Material UI'
     }, {
-        svg: redux,
+        svg: cloudinarySvg.redux,
         name: 'Redux'
     }, {
-        svg: ngrx,
+        svg: cloudinarySvg.ngrx,
         name: 'NGRX'
     }, {
-        svg: socketIO,
+        svg: cloudinarySvg.socketIO,
         name: 'Socket.io'
     }, {
-        svg: sass,
+        svg: cloudinarySvg.sass,
         name: 'SASS'
     }, {
-        svg: firebase,
+        svg: cloudinarySvg.firebase,
         name: 'Firebase'
     }, {
-        svg: node,
+        svg: cloudinarySvg.node,
         name: 'Node'
     }, {
-        svg: mongodb,
+        svg: cloudinarySvg.mongodb,
         name: 'MongoDB'
     }, {
-        svg: jest,
+        svg: cloudinarySvg.jest,
         name: 'Jest'
     }, {
-        svg: github,
+        svg: cloudinarySvg.githubIcon,
         name: 'Github'
     }, {
-        svg: gitlab,
+        svg: cloudinarySvg.gitlab,
         name: 'GitLab'
     }, {
-        svg: jira,
+        svg: cloudinarySvg.jira,
         name: 'Jira'
     }, {
-        svg: taiga,
+        svg: cloudinarySvg.taiga,
         name: 'Taiga'
     }, {
-        svg: java,
+        svg: cloudinarySvg.java,
         name: 'Java'
     }, {
-        svg: php,
+        svg: cloudinarySvg.php,
         name: 'PHP'
     }, {
-        svg: laravel,
+        svg: cloudinarySvg.laravel,
         name: 'Laravel'
     }, {
-        svg: bootstrap,
+        svg: cloudinarySvg.bootstrap,
         name: 'Bootstrap'
     }, {
-        svg: tailwind,
+        svg: cloudinarySvg.tailwind,
         name: 'Tailwind'
     }, {
-        svg: mysql,
+        svg: cloudinarySvg.mysql,
         name: 'MySQL'
     }, {
-        svg: express,
+        svg: cloudinarySvg.express,
         name: 'Express'
     }, {
-        svg: wordpress,
+        svg: cloudinarySvg.wordpress,
         name: 'Wordpress'
     }, {
-        svg: postgresql,
+        svg: cloudinarySvg.postgresql,
         name: 'Postgresql'
     }, {
-        svg: zustand,
+        svg: cloudinarySvg.zustand,
         name: 'Zustand'
     }, {
-        svg: simpleCode,
+        svg: cloudinarySvg.simpleCode,
         name: 'GitFlow'
     }, {
         svg: simpleCode,
         name: 'Scrum'
     }, {
-        svg: zephyr,
+        svg: cloudinarySvg.zephyr,
         name: 'Zephyr Scale'
     }
 ]
