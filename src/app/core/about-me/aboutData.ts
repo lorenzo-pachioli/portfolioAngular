@@ -4,7 +4,7 @@ interface obj {
 }
 
 type list = {
-    today: obj,
+    smarterix: obj,
     swaplyar: obj,
     udemyqa: obj,
     utn: obj,
@@ -12,13 +12,13 @@ type list = {
     lamansys: obj,
     udemy: obj,
     acamica: obj,
-    utnba: obj,
+    /* utnba: obj, */
     before: obj
 }
 
 export const history: list = {
-    today: {
-        name: "Today",
+    smarterix: {
+        name: "Smarterix",
         story: "Now I'm looking for my first job as a software developer and studying on Universidad Tecnológica Nacional and online courses. I continue on expanding no only my technical knowledge, but also my capability to learn and solve coding problems while improving the code quality."
     },
     swaplyar: {
@@ -49,23 +49,23 @@ export const history: list = {
         name: "Acamica",
         story: "This nine month course separated on four sprints gave me the knowledge to become a front-end web developer, teaching me about HTM, CSS, Javascript, React and Firebase."
     },
-    utnba: {
-        name: "UTNBA",
-        story: "A year ago, my friends convinced me to try out programing so I started this short course of Porgraming Fundamentals. In the end of it, I found out myself loving programing. It was divided in three modules: -Module 1: Introduction to programming, -Module 2: Structured programming, -Module 3: Object-oriented programming"
-    },
+    /*     utnba: {
+            name: "UTNBA",
+            story: "A year ago, my friends convinced me to try out programing so I started this short course of Porgraming Fundamentals. In the end of it, I found out myself loving programing. It was divided in three modules: -Module 1: Introduction to programming, -Module 2: Structured programming, -Module 3: Object-oriented programming"
+        }, */
     before: {
         name: "Before coding",
         story: ""
     }
 }
 
-export const buttonsHistory = ['Today', 'UTN', 'SwaplyAr', 'Udemy QA', 'Alkemy', 'Lamansys', 'Udemy', 'Acamica', 'Before coding'];
+export const buttonsHistory = ['Smarterix', 'UTN', 'SwaplyAr', 'Udemy QA', 'Alkemy', 'Lamansys', 'Udemy', 'Acamica', 'Before coding'];
 
 export const descriptions = [
     {
-        keyValue: 'today',
-        title: "app.ABOUT.TODAY.TITLE",
-        description: "app.ABOUT.TODAY.STORY"
+        keyValue: 'smarterix',
+        title: "app.ABOUT.SMARTERIX.TITLE",
+        description: "app.ABOUT.SMARTERIX.STORY"
     }, {
         keyValue: "utn",
         title: "app.ABOUT.UTN.TITLE",

@@ -42,11 +42,11 @@
 		},
 		"ABOUT": {
 			"SMARTERIX": {
-				"TITLE": "Desarrollador Front End en Smarterix",
+				"TITLE": "Smarterix",
 				"STORY": "Desde noviembre de 2025 me desempeño como Desarrollador Front End en Smarterix, una consultora digital con base en Mar del Plata, Argentina, bajo una modalidad de trabajo híbrida. Participo en todo el ciclo de vida del producto, desde la planificación y la implementación hasta el mantenimiento y la mejora continua. Mi rol incluye el desarrollo y mantenimiento de interfaces modernas utilizando tecnologías como PHP, Laravel y React, así como la integración de servicios y APIs de terceros como Spatie y Google Drive API. Trabajo de manera colaborativa con equipos multidisciplinarios para entregar soluciones digitales escalables, mantenibles y alineadas con los objetivos del negocio."
 			},
 			"UTN": {
-				"TITLE": "Utn",
+				"TITLE": "UTN",
 				"STORY": "Actualmente cursando el segundo cuatrimestre de la carrera de Tecnico Universitario en Programacion. Sitio de la carrera: 'https:// mdp.utn.edu.ar/ tecnicatura/ tecnico_ universitario_ en_ programacion/'"
 			},
 			"SWAPLYAR":  {
@@ -67,7 +67,7 @@
 			},
 			"UDEMY":  {
 				"TITLE": "Udemy",
-				"STORY": "The Complete Guide to Advanced React Component Patterns: Short course of advanced React Component Patterns."
+				"STORY": "Una guia completa sobre patrones avanzados de diseño de componentes de React."
 			},
 			"ACAMICA":  {
 				"TITLE": "Acamica",

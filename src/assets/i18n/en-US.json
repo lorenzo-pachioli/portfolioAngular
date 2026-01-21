@@ -41,11 +41,11 @@
 		},
 		"ABOUT": {
 			"SMARTERIX": {
-				"TITLE": "Front End Developer at Smarterix",
+				"TITLE": "Smarterix",
 				"STORY": "Since November 2025, I have been working as a Front End Developer at Smarterix, a digital consulting company based in Mar del Plata, Argentina, in a hybrid work environment. I participate in the full product lifecycle, from planning and implementation to maintenance and continuous improvement. My role involves developing and maintaining modern user interfaces using technologies such as PHP, Laravel, and React, as well as integrating third-party services like Spatie and the Google Drive API. I collaborate closely with multidisciplinary teams to deliver scalable, maintainable, and business-oriented digital solutions."
 			},
 			"UTN": {
-				"TITLE": "Utn",
+				"TITLE": "UTN",
 				"STORY": "Currently during first year of this two year carrer at Universidad Tecnológica Nacional in Mar del Plata. The carrer website: 'https:// mdp.utn.edu.ar/ tecnicatura/ tecnico_ universitario_ en_ programacion/'"
 			},
 			"SWAPLYAR":  {
@@ -63,6 +63,10 @@
 			"LAMANSYS":  {
 				"TITLE": "Lamansys",
 				"STORY": "A two month front end boostcamp with Angular, Typescript and Material-UI. It ended with a final project that had some requirments and manage with Taiga."
+			},			
+			"UDEMY":  {
+				"TITLE": "Udemy",
+				"STORY": "Short course of advanced design patterns for React components."
 			},
 			"ACAMICA":  {
 				"TITLE": "Acamica",
