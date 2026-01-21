@@ -1,23 +1,24 @@
-<mat-card class='home-container'>
+<section class='home-container'>
   <mat-card-content class="home-title">
     <h1>Lorenzo Pachioli</h1>
     <h2 color="accent" translate="app.TITLE"></h2>
     <hr />
-    <p class='summerice' translate="app.HOME.DESCRIPTION"> 
+    <p class='summerice' translate="app.HOME.DESCRIPTION">
     </p>
-    <button mat-raised-button color="primary" class="contact-btn" (click)="scroll('contact')" translate="app.HOME.CONTACT-ME">
+    <button mat-raised-button color="primary" class="contact-btn" (click)="scroll('contact')"
+      translate="app.HOME.CONTACT-ME">
     </button>
   </mat-card-content>
   <mat-card-content class="home-img">
-    <img src="{{perfil}}" alt="" /> 
+    <img src="{{perfil}}" alt="Lorenzo Pachioli - Front End Developer" />
   </mat-card-content>
-</mat-card>
+</section>
 
 
 
 
 <div class="continue">
-  <button  (click)="scroll('skills')">
+  <button (click)="scroll('skills')">
     <mat-icon color="primary">arrow_downward</mat-icon>
   </button>
 </div>

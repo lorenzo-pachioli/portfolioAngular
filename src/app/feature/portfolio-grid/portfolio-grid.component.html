@@ -1,13 +1,12 @@
 <div class="portfolio-grid-container">
   <mat-grid-list [cols]="gridSize.col" [rowHeight]="gridSize.rowHeight" [gutterSize]="gridSize.gutterSize">
-    <mat-grid-tile
-        *ngFor="let tile of projectsList"
-        [colspan]="tile.cols"
-        [rowspan]="tile.rows"
-        [style.background]="tile.color"
-        >
-      <img class="screenshot" [src]="tile.image" alt="" *ngIf="tile.image; else tileText" />
-      <ng-template #tileText><div class="no-img">{{tile.title}}</div></ng-template>
+    <mat-grid-tile *ngFor="let tile of projectsList" [colspan]="tile.cols" [rowspan]="tile.rows"
+      [style.background]="tile.color">
+      <img class="screenshot" [src]="tile.image" alt="{{tile.title}} project screenshot"
+        *ngIf="tile.image; else tileText" />
+      <ng-template #tileText>
+        <div class="no-img">{{tile.title}}</div>
+      </ng-template>
       <div class="tile-title">
         <h2 (click)="chooseProject(tile)">{{tile.title}}</h2>
         <hr [ngStyle]="{'background-color': tile.hrColor}" />
@@ -15,4 +14,3 @@
     </mat-grid-tile>
   </mat-grid-list>
 </div>
-
