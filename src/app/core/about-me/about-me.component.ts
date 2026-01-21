@@ -9,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AboutMeComponent implements OnInit {
 
-  info = 'today';
+  info = 'smarterix';
   list = history;
   buttonsList = buttonsHistory;
   language;
