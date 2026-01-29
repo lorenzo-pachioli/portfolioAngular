@@ -4,7 +4,8 @@ import { ElementByIdService } from 'src/app/shared/services/element-by-id.servic
 @Component({
   selector: 'app-desktop-menu',
   templateUrl: './desktop-menu.component.html',
-  styleUrls: ['./desktop-menu.component.scss']
+  styleUrls: ['./desktop-menu.component.scss'],
+  standalone: false
 })
 export class DesktopMenuComponent implements OnInit {
 

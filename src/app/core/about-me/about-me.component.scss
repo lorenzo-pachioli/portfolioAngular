@@ -1,4 +1,4 @@
-@import '../../../mixins';
+@use '../../../mixins' as *;
 
 .about-container {
   @include flex(flex, center, flex-start, column);

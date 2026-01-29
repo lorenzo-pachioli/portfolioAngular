@@ -1,7 +1,8 @@
 import { Directive, AfterViewInit, OnDestroy, Output, EventEmitter, Host, ElementRef } from '@angular/core';
 
 @Directive({
-  selector: '[appIsVisible]'
+  selector: '[appIsVisible]',
+  standalone: false
 })
 export class IsVisibleDirective implements AfterViewInit, OnDestroy {
 

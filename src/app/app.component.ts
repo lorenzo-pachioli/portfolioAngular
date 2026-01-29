@@ -12,7 +12,8 @@ import { LanguageService } from './services/language/language.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  standalone: false
 })
 export class AppComponent {
 
@@ -26,9 +27,9 @@ export class AppComponent {
   @ViewChild(ContactComponent, { read: ElementRef }) contactRef!: ElementRef;
 
   constructor(public element: ElementByIdService, public translate: TranslateService, private langService: LanguageService) {
-		const DEFAULT_LANG = this.langService.initLang();
-		this.translate.use(DEFAULT_LANG);
-	}
+    const DEFAULT_LANG = this.langService.initLang();
+    this.translate.use(DEFAULT_LANG);
+  }
 
   ngAfterViewInit(): void {
     this.element.setHome(this.homeRef);
@@ -39,8 +40,8 @@ export class AppComponent {
   }
 
 
-  onFocus(component: string, visible: boolean): void {
-  
+  onFocus(component: string, event: boolean): void {
+    const visible = event;
     if (component === 'header') {
       this.element.visible.next({ ...this.element.visible.value, header: visible });
       this.showScrollToTop = !visible;

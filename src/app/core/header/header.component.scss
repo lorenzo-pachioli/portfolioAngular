@@ -1,4 +1,4 @@
-@import '../../../mixins';
+@use '../../../mixins' as *;
 
 .toolbar {
   @include flex(flex, center, center);
@@ -100,7 +100,7 @@
 @media screen and (max-width: 450px) {
 
   .header-molecule {
-    span{
+    span {
       display: none;
     }
   }

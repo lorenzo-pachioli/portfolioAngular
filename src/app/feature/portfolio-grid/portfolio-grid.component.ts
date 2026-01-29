@@ -6,7 +6,8 @@ import { projectsList } from './projectsList';
 @Component({
   selector: 'app-portfolio-grid',
   templateUrl: './portfolio-grid.component.html',
-  styleUrls: ['./portfolio-grid.component.scss']
+  styleUrls: ['./portfolio-grid.component.scss'],
+  standalone: false
 })
 export class PortfolioGridComponent implements OnInit {
 
@@ -21,7 +22,7 @@ export class PortfolioGridComponent implements OnInit {
   @Output() showProjectChange: EventEmitter<boolean> = new EventEmitter();
   @Input() project!: IProject;
   @Output() projectChange: EventEmitter<any> = new EventEmitter();
-  @HostListener('window:resize', ['$event'])
+  @HostListener('window:resize')
   onResize() {
     this.innerWidth = window.innerWidth;
     this.mobileGrid(this.innerWidth);

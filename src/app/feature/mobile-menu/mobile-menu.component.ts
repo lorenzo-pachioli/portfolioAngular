@@ -4,7 +4,8 @@ import { ElementByIdService } from 'src/app/shared/services/element-by-id.servic
 @Component({
   selector: 'app-mobile-menu',
   templateUrl: './mobile-menu.component.html',
-  styleUrls: ['./mobile-menu.component.scss']
+  styleUrls: ['./mobile-menu.component.scss'],
+  standalone: false
 })
 export class MobileMenuComponent implements OnInit {
 

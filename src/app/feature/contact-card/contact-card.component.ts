@@ -6,7 +6,8 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-contact-card',
   templateUrl: './contact-card.component.html',
-  styleUrls: ['./contact-card.component.scss']
+  styleUrls: ['./contact-card.component.scss'],
+  standalone: false
 })
 export class ContactCardComponent implements OnInit {
 
