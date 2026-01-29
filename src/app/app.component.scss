@@ -12,6 +12,7 @@
     min-height: 700px;
     max-height: 1400px;
     padding-top: 70px;
+    z-index: 1000;
   }
 
   app-skills {
@@ -20,6 +21,7 @@
     max-width: 100vw;
     height: 100vh;
     max-height: 1400px;
+    z-index: 1000;
   }
 
   app-portfolio {
@@ -28,6 +30,7 @@
     min-height: 700px;
     max-height: 1400px;
     margin-top: 10vh;
+    z-index: 1000;
   }
 
   app-about-me {
@@ -37,6 +40,7 @@
     min-height: 700px;
     max-height: 1400px;
     margin-top: 10vh;
+    z-index: 1000;
   }
 
   app-contact {
@@ -45,11 +49,13 @@
     max-width: 100vw;
     min-height: 700px;
     max-height: 1400px;
+    z-index: 1000;
   }
 
   app-footer {
     width: 100%;
     max-width: 100vw;
+    z-index: 1000;
   }
 
   .scroll-to-top {

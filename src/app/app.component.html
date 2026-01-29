@@ -1,5 +1,7 @@
-<div class="app" >
+<div class="app">
   <app-header appIsVisible (visibilityChange)="onFocus('header', $event)"></app-header>
+  <app-background-animation></app-background-animation>
+
   <app-social-side-nav></app-social-side-nav>
   <button class="scroll-to-top" mat-fab color="accent" (click)="scrollToTop()" *ngIf="showScrollToTop">
     <mat-icon>arrow_upward</mat-icon>
@@ -11,4 +13,3 @@
   <app-contact appIsVisible (visibilityChange)="onFocus('contact', $event)"></app-contact>
 </div>
 <app-footer></app-footer>
-

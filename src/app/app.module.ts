@@ -11,6 +11,7 @@ import { provideTranslateService, TranslateModule } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { BackgroundAnimation } from "./core/background-animation/background-animation";
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MatIconModule } from '@angular/material/icon';
     SharedModule,
     CommonModule,
     MatIconModule,
-    TranslateModule.forRoot()
+    TranslateModule.forRoot(),
+    BackgroundAnimation
   ],
   providers: [
     ElementByIdService,
