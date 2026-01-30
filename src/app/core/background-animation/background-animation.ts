@@ -21,7 +21,7 @@ interface DustParticle {
 export class BackgroundAnimation implements OnInit, OnDestroy {
   @ViewChild('particlesContainer', { static: true }) particlesContainer!: ElementRef<HTMLDivElement>;
 
-  private particleCount = 300; // Aumentado significativamente
+  private particleCount = 600; // Aumentado significativamente
   private isDestroyed = false;
   private mouseInfluence = { x: 0, y: 0, active: false };
   private dustParticles: Array<DustParticle> = [];
@@ -145,33 +145,33 @@ export class BackgroundAnimation implements OnInit, OnDestroy {
     const mouseX = (event.clientX / window.innerWidth) * 100;
     const mouseY = (event.clientY / window.innerHeight) * 100;
 
-    // Crear partícula temporal
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-
-    // Tamaño pequeño
-    const size = Math.random() * 2 + 0.6;
-    particle.style.width = `${size}px`;
-    particle.style.height = `${size}px`;
-
-    // Posicionar en el mouse
-    particle.style.left = `${mouseX}%`;
-    particle.style.top = `${mouseY}%`;
-    particle.style.opacity = '0.6';
-
-    this.particlesContainer.nativeElement.appendChild(particle);
-
-    // Animar hacia afuera
-    setTimeout(() => {
-      particle.style.transition = 'all 2s ease-out';
-      particle.style.left = `${mouseX + (Math.random() * 10 - 5)}%`;
-      particle.style.top = `${mouseY + (Math.random() * 10 - 5)}%`;
-      particle.style.opacity = '0';
-
-      // Eliminar después de la animación
-      setTimeout(() => {
-        particle.remove();
-      }, 2000);
-    }, 10);
+    /*     // Crear partícula temporal
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+    
+        // Tamaño pequeño
+        const size = Math.random() * 2 + 0.6;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+    
+        // Posicionar en el mouse
+        particle.style.left = `${mouseX}%`;
+        particle.style.top = `${mouseY}%`;
+        particle.style.opacity = '0.6';
+    
+        this.particlesContainer.nativeElement.appendChild(particle);
+    
+        // Animar hacia afuera
+        setTimeout(() => {
+          particle.style.transition = 'all 2s ease-out';
+          particle.style.left = `${mouseX + (Math.random() * 10 - 5)}%`;
+          particle.style.top = `${mouseY + (Math.random() * 10 - 5)}%`;
+          particle.style.opacity = '0';
+    
+          // Eliminar después de la animación
+          setTimeout(() => {
+            particle.remove();
+          }, 2000);
+        }, 10); */
   }
 }
