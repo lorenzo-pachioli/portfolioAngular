@@ -3,7 +3,8 @@ import { Component, OnInit, TemplateRef, ContentChild, Input } from '@angular/co
 @Component({
 	selector: 'app-card-list',
 	templateUrl: './card-list.component.html',
-	styleUrls: ['./card-list.component.scss']
+	styleUrls: ['./card-list.component.scss'],
+	standalone: false
 })
 export class CardListComponent implements OnInit {
 

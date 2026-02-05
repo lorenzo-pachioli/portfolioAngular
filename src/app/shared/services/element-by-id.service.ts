@@ -20,6 +20,13 @@ export class ElementByIdService {
     about: false,
     contact: false
   });
+
+  private scrollRequest = new BehaviorSubject<string | null>(null);
+  scrollRequest$ = this.scrollRequest.asObservable();
+
+  requestScroll(section: string) {
+    this.scrollRequest.next(section);
+  }
   home!: ElementRef;
   skills!: ElementRef;
   portfolio!: ElementRef;

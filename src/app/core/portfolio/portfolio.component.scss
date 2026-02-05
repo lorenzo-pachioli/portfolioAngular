@@ -1,4 +1,4 @@
-@import '../../../mixins';
+@use '../../../mixins' as *;
 
 .portfolio-container {
   @include flex(flex, center, flex-start, column);

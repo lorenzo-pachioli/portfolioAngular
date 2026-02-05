@@ -4,7 +4,8 @@ import { ElementByIdService } from 'src/app/shared/services/element-by-id.servic
 @Component({
   selector: 'app-mobile-menu',
   templateUrl: './mobile-menu.component.html',
-  styleUrls: ['./mobile-menu.component.scss']
+  styleUrls: ['./mobile-menu.component.scss'],
+  standalone: false
 })
 export class MobileMenuComponent implements OnInit {
 
@@ -25,32 +26,7 @@ export class MobileMenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  scroll(el: any) {
-
-    if (el === 'home') {
-      setTimeout(() => {
-        this.element.home.nativeElement.scrollIntoView({ behavior: "smooth" });
-      }, 1);
-    }
-    if (el === 'skills') {
-      setTimeout(() => {
-        this.element.skills.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
-      }, 1);
-    }
-    if (el === 'portfolio') {
-      setTimeout(() => {
-        this.element.portfolio.nativeElement.scrollIntoView({ behavior: "smooth" });
-      }, 1);
-    }
-    if (el === 'about') {
-      setTimeout(() => {
-        this.element.about.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
-      }, 1);
-    }
-    if (el === 'contact') {
-      setTimeout(() => {
-        this.element.contact.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
-      }, 1);
-    }
+  scroll(el: string) {
+    this.element.requestScroll(el);
   }
 }

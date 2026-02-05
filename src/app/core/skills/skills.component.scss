@@ -1,4 +1,4 @@
-@import '../../../mixins';
+@use '../../../mixins' as *;
 
 .skills-container {
   @include flex(flex, center, center, column);
