@@ -36,7 +36,7 @@ export class GsapAnimationsService {
     gsap.from(element, {
       x: -distance,
       opacity: 0,
-      duration: 1,
+      duration: 1.5,
       delay: delay,
       ease: 'power3.out',
       scrollTrigger: {
@@ -51,7 +51,7 @@ export class GsapAnimationsService {
     gsap.from(element, {
       x: distance,
       opacity: 0,
-      duration: 1,
+      duration: 1.5,
       delay: delay,
       ease: 'power3.out',
       scrollTrigger: {

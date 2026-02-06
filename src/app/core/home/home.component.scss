@@ -25,6 +25,10 @@
     align-items: flex-start;
     width: 50%;
     height: 100%;
+
+    hr {
+      margin: 40px 0;
+    }
   }
 
   .home-img {
@@ -65,7 +69,7 @@
 
   h2 {
     font-size: 40px;
-    text-align: center;
+    text-align: left;
     color: var(--color3);
     z-index: 2;
   }
@@ -105,7 +109,7 @@
 
 .contact-btn:hover {
   filter: brightness(100%);
-    transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   box-shadow:
     inset 0 0 0.7em 0 var(--color5),
     inset 0 0 0.2em var(--color2),
@@ -152,7 +156,7 @@
     border-radius: 30%;
     color: var(--color3);
   }
-  
+
 
   button:hover {
     filter: brightness(100%);
@@ -167,9 +171,9 @@
 
 .continue {
   button:hover {
-      mat-icon {
-        text-shadow: 0 0 0.05em var(--color2), 0 0 0.3em var(--color5);
-        color: var(--color5);
+    mat-icon {
+      text-shadow: 0 0 0.05em var(--color2), 0 0 0.3em var(--color5);
+      color: var(--color5);
     }
   }
 }
@@ -232,8 +236,8 @@
     tab-size: 4px;
     text-align: center;
   }
-  
-.continue {
-  margin: 30px 0;
-}
+
+  .continue {
+    margin: 30px 0;
+  }
 }

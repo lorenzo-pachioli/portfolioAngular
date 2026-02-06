@@ -53,12 +53,16 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     public translate: TranslateService,
     private langService: LanguageService
   ) {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
     const DEFAULT_LANG = this.langService.initLang();
     this.translate.use(DEFAULT_LANG);
     this.isMobile = window.innerWidth < 900;
   }
 
   ngAfterViewInit(): void {
+    window.scrollTo(0, 0);
     setTimeout(() => {
       this.element.setHome(this.homeRef);
       this.element.setSkills(this.skillsRef);
@@ -67,6 +71,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       this.element.setContact(this.contactRef);
     }, 100);
     this.initScrollSmoother();
+    window.scrollTo(0, 0);
     this.setupSideAnimations();
     this.setupScrollTriggers();
     this.setupNavigation();
@@ -105,7 +110,8 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       gsap.from(section.ref.nativeElement, {
         x: index % 2 === 0 ? -200 : 200,
         opacity: 0,
-        duration: 1.2,
+        duration: 2.5,
+        delay: 0.5,
         ease: 'power3.out',
         once: true,
         scrollTrigger: {
@@ -161,6 +167,13 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     welcomeTl.add(() => {
       this.isWelcomeVisible = false;
       this.showScrollToTop = !this.element.visible.value.header;
+
+      // Ensure we are at the top when content is revealed
+      if (this.smoother) {
+        this.smoother.scrollTo(0);
+      } else {
+        window.scrollTo(0, 0);
+      }
 
       // Refresh GSAP ScrollTriggers
       ScrollTrigger.refresh();
