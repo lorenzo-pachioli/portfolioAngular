@@ -1,5 +1,16 @@
 @use '../mixins' as *;
 
+.main-content-wrapper {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+
 #smooth-wrapper {
   position: fixed;
   overflow: hidden;

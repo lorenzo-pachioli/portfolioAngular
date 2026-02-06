@@ -1,5 +1,8 @@
 {
 	"app": {
+		"WELCOME": {
+			"HI": "Hola! Soy"
+		},
 		"HEADER": {
 			"HOME": "Inicio",
 			"SKILLS": "Tecnologias",

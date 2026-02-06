@@ -12,6 +12,7 @@ import { LanguageService } from './services/language/language.service';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
+import { WelcomeComponent } from './core/welcome/welcome.component';
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 @Component({
@@ -23,11 +24,13 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 export class AppComponent implements AfterViewInit, OnDestroy {
 
   title = 'portfolioAngular';
-  showScrollToTop = true;
+  showScrollToTop = false;
+  isWelcomeVisible = true;
   private smoother: any;
   private isMobile: boolean = false;
   private scrollSub!: Subscription;
 
+  @ViewChild(WelcomeComponent) welcomeComponent!: WelcomeComponent;
   @ViewChild(HeaderComponent, { read: ElementRef }) headerRef!: ElementRef;
   @ViewChild(HomeComponent, { read: ElementRef }) homeRef!: ElementRef;
   @ViewChild(SkillsComponent, { read: ElementRef }) skillsRef!: ElementRef;
@@ -127,6 +130,41 @@ export class AppComponent implements AfterViewInit, OnDestroy {
         onLeaveBack: () => this.onFocus(section.id, false),
       });
     });
+  }
+
+  onWelcomeComplete(): void {
+    // Wait for the delay if needed, or start reveal
+    this.revealApp();
+  }
+
+  private revealApp(): void {
+    const homeTitleElement = this.homeRef.nativeElement.querySelector('.home-title');
+    const targetRect = homeTitleElement.getBoundingClientRect();
+
+    // Trigger WelcomeComponent transition
+    const welcomeTl = this.welcomeComponent.transitionToHome(targetRect);
+
+    // Sync background reveal with app reveal (with 1.2s delay)
+    setTimeout(() => {
+      document.querySelector('.background')?.classList.add('reveal');
+    }, 1.2);
+
+    gsap.to('.main-content-wrapper', {
+      opacity: 1,
+      duration: 1.2,
+      ease: 'power2.out',
+      onStart: () => {
+        document.querySelector('.main-content-wrapper')?.classList.remove('hidden');
+      }
+    });
+
+    welcomeTl.add(() => {
+      this.isWelcomeVisible = false;
+      this.showScrollToTop = !this.element.visible.value.header;
+
+      // Refresh GSAP ScrollTriggers
+      ScrollTrigger.refresh();
+    }, "-=0.2");
   }
 
   onFocus(component: string, event: boolean): void {

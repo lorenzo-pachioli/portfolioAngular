@@ -1,5 +1,8 @@
 {
 	"app": {
+		"WELCOME": {
+			"HI": "Hi! I'm"
+		},
 		"HEADER": {
 			"HOME": "Home",
 			"SKILLS": "Skills",
