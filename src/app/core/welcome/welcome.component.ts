@@ -12,8 +12,8 @@ import gsap from 'gsap';
       <div class="welcome-content">
         <h1 class="welcome-name welcome-hi static" translate="app.WELCOME.HI"></h1>
         <div class="move">
-        <h1 class="welcome-name">Lorenzo Pachioli</h1>
-        <h2 class="welcome-title" translate="app.TITLE"></h2>
+        <h1 class="welcome-name" #welcomeTitle>Lorenzo Pachioli</h1>
+        <h2 class="welcome-title" translate="app.TITLE" #welcomeSubTitle></h2>
         </div>
       </div>
     </div>
@@ -76,19 +76,11 @@ export class WelcomeComponent implements AfterViewInit {
     tl.to({}, { duration: 0.5 });
   }
 
-  public transitionToHome(targetRect: DOMRect): gsap.core.Timeline {
-    const screenCenter = {
-      x: window.innerWidth / 2,
-      y: window.innerHeight / 2
-    };
-
-    const targetX = targetRect.left + targetRect.width / 2 - screenCenter.x - 80;
-    const targetY = targetRect.top + targetRect.height / 2 - screenCenter.y - 180;
-
+  public transitionToHome(deltaX: number, deltaY: number): gsap.core.Timeline {
     const tl = gsap.timeline();
     tl.to('.move', {
-      x: targetX,
-      y: targetY,
+      x: deltaX,
+      y: deltaY,
       duration: 1.2,
       ease: 'power3.inOut',
     });
@@ -98,8 +90,6 @@ export class WelcomeComponent implements AfterViewInit {
       duration: 1.2,
       ease: 'power3.inOut'
     }, '<');
-
-    return tl;
 
     return tl;
   }

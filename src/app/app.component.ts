@@ -139,21 +139,34 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   }
 
   onWelcomeComplete(): void {
-    // Wait for the delay if needed, or start reveal
     this.revealApp();
   }
 
   private revealApp(): void {
-    const homeTitleElement = this.homeRef.nativeElement.querySelector('.home-title');
-    const targetRect = homeTitleElement.getBoundingClientRect();
+    // Exact measurement using the specific H1 elements as anchors
+    const targetTitle = this.homeRef.nativeElement.querySelector('h1');
+    const sourceTitle = document.querySelector('.move h1');
 
-    // Trigger WelcomeComponent transition
-    const welcomeTl = this.welcomeComponent.transitionToHome(targetRect);
+    if (!targetTitle || !sourceTitle) {
+      this.isWelcomeVisible = false;
+      ScrollTrigger.refresh();
+      return;
+    }
+
+    const targetRect = targetTitle.getBoundingClientRect();
+    const sourceRect = sourceTitle.getBoundingClientRect();
+
+    // Exact delta between the title text elements
+    const deltaX = targetRect.left - sourceRect.left;
+    const deltaY = targetRect.top - sourceRect.top;
+
+    // Trigger WelcomeComponent transition with pixel-perfect deltas
+    const welcomeTl = this.welcomeComponent.transitionToHome(deltaX, deltaY);
 
     // Sync background reveal with app reveal (with 1.2s delay)
     setTimeout(() => {
       document.querySelector('.background')?.classList.add('reveal');
-    }, 1.2);
+    }, 1200);
 
     gsap.to('.main-content-wrapper', {
       opacity: 1,
