@@ -118,6 +118,10 @@ export class AppComponent implements AfterViewInit, OnDestroy {
           trigger: section.ref.nativeElement,
           start: 'top 80%',
           toggleActions: 'play none none none',
+          onEnter: () => this.setScrollSpeed(0),
+          onLeave: () => this.setScrollSpeed(1),
+          onEnterBack: () => this.setScrollSpeed(0),
+          onLeaveBack: () => this.setScrollSpeed(1),
         }
       });
     });
@@ -212,6 +216,17 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       this.smoother.scrollTo(0, true, 'top top');
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  private setScrollSpeed(value: number): void {
+    if (this.smoother && this.smoother.speed) {
+      gsap.to(this.smoother, {
+        speed: value,
+        duration: 0.8,
+        ease: 'power2.out',
+        overwrite: 'auto'
+      });
     }
   }
 
