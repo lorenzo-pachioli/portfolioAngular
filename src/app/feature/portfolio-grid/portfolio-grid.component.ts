@@ -37,9 +37,6 @@ export class PortfolioGridComponent implements OnInit {
   chooseProject(project: IProject): void {
     this.showProjectChange.emit(true);
     this.projectChange.emit(project);
-    setTimeout(() => {
-      this.element.portfolio.nativeElement.scrollIntoView({ behavior: "smooth" });
-    }, 1);
   }
 
   mobileGrid(width: number) {

@@ -1,17 +1,18 @@
-<mat-card class="project-info-container" *ngIf="project">
+<mat-card class="project-info-container" *ngIf="project" #projectInfoContainer>
   <mat-card-title>{{project.title}}</mat-card-title>
 
   <div class="image-container">
     <img [src]="project.image" alt="" />
   </div>
-  
+
   <mat-card-content>
     <div class="description" translate="{{project.description}}"></div>
     <div class="links">
       <button mat-raised-button color="primary" (click)="back()" translate="app.PROJECT.BACK"></button>
-      <a [href]="project.github" target="_blank" rel="noopener noreferrer"><button mat-raised-button color="primary">Github</button></a>
-      <a [href]="project.deployed" target="_blank" rel="noopener noreferrer" *ngIf="project.deployed.length > 0"><button mat-raised-button color="primary" translate="app.PROJECT.DEPLOYED"></button></a>
+      <a [href]="project.github" target="_blank" rel="noopener noreferrer"><button mat-raised-button
+          color="primary">Github</button></a>
+      <a [href]="project.deployed" target="_blank" rel="noopener noreferrer" *ngIf="project.deployed.length > 0"><button
+          mat-raised-button color="primary" translate="app.PROJECT.DEPLOYED"></button></a>
     </div>
   </mat-card-content>
 </mat-card>
-

@@ -21,11 +21,11 @@ export class ElementByIdService {
     contact: false
   });
 
-  private scrollRequest = new BehaviorSubject<string | null>(null);
+  private scrollRequest = new BehaviorSubject<{ section: string, position: string, duration?: number } | null>(null);
   scrollRequest$ = this.scrollRequest.asObservable();
 
-  requestScroll(section: string) {
-    this.scrollRequest.next(section);
+  requestScroll(section: string, position: string = 'top top', duration: number = 2) {
+    this.scrollRequest.next({ section, position, duration });
   }
   home!: ElementRef;
   skills!: ElementRef;

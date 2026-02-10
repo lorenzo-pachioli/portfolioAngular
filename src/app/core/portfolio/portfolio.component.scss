@@ -20,13 +20,13 @@
 
   app-portfolio-grid {
     min-width: 100%;
-    transition: all 1s ease-in-out;
+    transition: all 0.8s ease-in-out;
     transform-origin: right top;
   }
 
   app-project-info {
     min-width: 100%;
-    transition: all 1s ease-in-out;
+    transition: all 0.8s ease-in-out;
     transform-origin: left;
   }
 }
@@ -37,5 +37,4 @@
     gap: 20px;
     height: fit-content;
   }
-
 }

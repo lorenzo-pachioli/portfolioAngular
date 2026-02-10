@@ -78,12 +78,19 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   }
 
   private setupNavigation(): void {
-    this.scrollSub = this.element.scrollRequest$.subscribe(section => {
-      if (section && this.smoother) {
+    this.scrollSub = this.element.scrollRequest$.subscribe(request => {
+      if (request && this.smoother) {
+        const { section, position, duration } = request;
         const targetSection = this.sections.find(s => s.id === section);
-        const target = targetSection?.ref?.nativeElement;
+        const target = targetSection?.ref?.nativeElement || document.getElementById(section);
+
         if (target) {
-          this.smoother.scrollTo(target, true, 'top top');
+          const scrollTween = this.smoother.scrollTo(target, true, position, duration);
+          if (scrollTween && scrollTween.eventCallback) {
+            scrollTween.eventCallback('onComplete', () => {
+              ScrollTrigger.refresh();
+            });
+          }
         }
       }
     });
@@ -96,7 +103,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
         content: '#smooth-content',
         smooth: this.isMobile ? 1 : 2,
         effects: !this.isMobile,
-        normalizeScroll: true,
+        normalizeScroll: !this.isMobile,
         smoothTouch: this.isMobile ? 0 : 0.1,
         ignoreMobileResize: true
       });
@@ -147,7 +154,6 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   }
 
   private revealApp(): void {
-    // Exact measurement using the specific H1 elements as anchors
     const targetTitle = this.homeRef.nativeElement.querySelector('h1');
     const sourceTitle = document.querySelector('.move h1');
 
@@ -160,14 +166,11 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     const targetRect = targetTitle.getBoundingClientRect();
     const sourceRect = sourceTitle.getBoundingClientRect();
 
-    // Exact delta between the title text elements
     const deltaX = targetRect.left - sourceRect.left;
     const deltaY = targetRect.top - sourceRect.top;
 
-    // Trigger WelcomeComponent transition with pixel-perfect deltas
     const welcomeTl = this.welcomeComponent.transitionToHome(deltaX, deltaY);
 
-    // Sync background reveal with app reveal (with 1.2s delay)
     setTimeout(() => {
       document.querySelector('.background')?.classList.add('reveal');
     }, 1200);
@@ -185,14 +188,12 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       this.isWelcomeVisible = false;
       this.showScrollToTop = !this.element.visible.value.header;
 
-      // Ensure we are at the top when content is revealed
       if (this.smoother) {
         this.smoother.scrollTo(0);
       } else {
         window.scrollTo(0, 0);
       }
 
-      // Refresh GSAP ScrollTriggers
       ScrollTrigger.refresh();
     }, "-=0.2");
   }
