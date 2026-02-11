@@ -18,6 +18,6 @@ export class HomeComponent implements OnInit {
   }
 
   scroll(el: any) {
-    this.element.requestScroll(el);
+    this.element.requestScroll(el, 'smooth', 1200);
   }
 }

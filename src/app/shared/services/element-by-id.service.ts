@@ -21,6 +21,9 @@ export class ElementByIdService {
     contact: false
   });
 
+  activeSection: BehaviorSubject<string> = new BehaviorSubject('home');
+  activeSection$ = this.activeSection.asObservable();
+
   private scrollRequest = new BehaviorSubject<{ section: string, position: string, duration?: number } | null>(null);
   scrollRequest$ = this.scrollRequest.asObservable();
 

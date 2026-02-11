@@ -14,19 +14,19 @@
     <div id="smooth-content">
       <div class="app">
 
-        <app-home appIsVisible (visibilityChange)="onFocus('home', $event)" data-speed="0.95">
+        <app-home id="home" appIsVisible (visibilityChange)="onFocus('home', $event)" data-speed="0.95">
         </app-home>
 
-        <app-skills appIsVisible (visibilityChange)="onFocus('skills', $event)" data-speed="1">
+        <app-skills id="skills" appIsVisible (visibilityChange)="onFocus('skills', $event)" data-speed="1">
         </app-skills>
 
-        <app-portfolio appIsVisible (visibilityChange)="onFocus('portfolio', $event)" data-speed="0.95">
+        <app-portfolio id="portfolio" appIsVisible (visibilityChange)="onFocus('portfolio', $event)" data-speed="0.95">
         </app-portfolio>
 
-        <app-about-me appIsVisible (visibilityChange)="onFocus('about', $event)" data-speed="1">
+        <app-about-me id="about" appIsVisible (visibilityChange)="onFocus('about', $event)" data-speed="1">
         </app-about-me>
 
-        <app-contact appIsVisible (visibilityChange)="onFocus('contact', $event)" data-speed="0.95">
+        <app-contact id="contact" appIsVisible (visibilityChange)="onFocus('contact', $event)" data-speed="0.95">
         </app-contact>
       </div>
 

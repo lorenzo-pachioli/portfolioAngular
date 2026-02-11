@@ -40,11 +40,11 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   private get sections() {
     return [
-      { id: 'home', ref: this.homeRef },
-      { id: 'skills', ref: this.skillsRef, once: true },
-      { id: 'portfolio', ref: this.portfolioRef },
-      { id: 'about', ref: this.aboutRef },
-      { id: 'contact', ref: this.contactRef }
+      { id: 'home', ref: this.homeRef, once: false },
+      { id: 'skills', ref: this.skillsRef, once: false },
+      { id: 'portfolio', ref: this.portfolioRef, once: false },
+      { id: 'about', ref: this.aboutRef, once: false },
+      { id: 'contact', ref: this.contactRef, once: false }
     ];
   }
 
@@ -141,9 +141,15 @@ export class AppComponent implements AfterViewInit, OnDestroy {
         start: 'top center',
         end: 'bottom center',
         once: section.once || false,
-        onEnter: () => this.onFocus(section.id, true),
+        onEnter: () => {
+          this.onFocus(section.id, true);
+          this.element.activeSection.next(section.id);
+        },
         onLeave: () => this.onFocus(section.id, false),
-        onEnterBack: () => this.onFocus(section.id, true),
+        onEnterBack: () => {
+          this.onFocus(section.id, true);
+          this.element.activeSection.next(section.id);
+        },
         onLeaveBack: () => this.onFocus(section.id, false),
       });
     });

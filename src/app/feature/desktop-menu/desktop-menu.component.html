@@ -1,23 +1,27 @@
 <div class="header-molecule desktop-menu">
   <span>|</span>
-  <button class="menu-btn" selected (click)="scroll('home')" [ngStyle]="this.border(this.visible.home)">
+  <button #homeBtn class="menu-btn" selected (click)="scroll('home')">
     <span translate="app.HEADER.HOME"></span>
   </button>
   <span>|</span>
-  <button class="menu-btn" (click)="scroll('skills')" [ngStyle]="this.border(this.visible.skills)">
+  <button #skillsBtn class="menu-btn" (click)="scroll('skills')">
     <span translate="app.HEADER.SKILLS"></span>
   </button>
   <span>|</span>
-  <button class="menu-btn" (click)="scroll('portfolio')" [ngStyle]="this.border(this.visible.portfolio)">
+  <button #portfolioBtn class="menu-btn" (click)="scroll('portfolio')">
     <span translate="app.HEADER.PORTFOLIO"></span>
   </button>
   <span>|</span>
-  <button class="menu-btn" (click)="scroll('about')" [ngStyle]="this.border(this.visible.about)">
+  <button #aboutBtn class="menu-btn" (click)="scroll('about')">
     <span translate="app.HEADER.ABOUT-ME"></span>
   </button>
   <span>|</span>
-  <button class="menu-btn" (click)="scroll('contact')" [ngStyle]="this.border(this.visible.contact)">
+  <button #contactBtn class="menu-btn" (click)="scroll('contact')">
     <span translate="app.HEADER.CONTACT"></span>
   </button>
   <span>|</span>
+
+  <div class="scroll-indicator">
+    <div #indicator class="indicator-line"></div>
+  </div>
 </div>
