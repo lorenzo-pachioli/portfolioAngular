@@ -12,8 +12,9 @@ import { LanguageService } from './services/language/language.service';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { WelcomeComponent } from './core/welcome/welcome.component';
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
 
 @Component({
   selector: 'app-root',
@@ -85,11 +86,22 @@ export class AppComponent implements AfterViewInit, OnDestroy {
         const target = targetSection?.ref?.nativeElement || document.getElementById(section);
 
         if (target) {
-          const scrollTween = this.smoother.scrollTo(target, true, position, duration);
-          if (scrollTween && scrollTween.eventCallback) {
-            scrollTween.eventCallback('onComplete', () => {
-              ScrollTrigger.refresh();
+          if (this.isMobile) {
+            const offset = 0;
+            const targetPos = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            gsap.to(window, {
+              scrollTo: targetPos,
+              duration: 1.5,
+              ease: 'power2.inOut',
+              overwrite: 'auto'
             });
+          } else {
+            const scrollTween = this.smoother.scrollTo(target, true, position, duration);
+            if (scrollTween && scrollTween.eventCallback) {
+              scrollTween.eventCallback('onComplete', () => {
+                ScrollTrigger.refresh();
+              });
+            }
           }
         }
       }
