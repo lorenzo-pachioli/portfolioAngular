@@ -231,11 +231,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   }
 
   scrollToTop() {
-    if (this.smoother) {
-      this.smoother.scrollTo(0, true, 'top top');
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    this.element.requestScroll('home');
   }
 
   private setScrollSpeed(value: number): void {
