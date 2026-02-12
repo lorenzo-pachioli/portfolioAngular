@@ -1,10 +1,12 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { IProject } from '../../shared/interfaces/IProject';
+import { ElementByIdService } from '../../shared/services/element-by-id.service';
 
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
-  styleUrls: ['./portfolio.component.scss']
+  styleUrls: ['./portfolio.component.scss'],
+  standalone: false
 })
 export class PortfolioComponent implements OnInit {
 
@@ -12,13 +14,17 @@ export class PortfolioComponent implements OnInit {
   @Output() showProjectChange: EventEmitter<boolean> = new EventEmitter();
   @Input() project!: IProject;
   @Output() projectChange: EventEmitter<any> = new EventEmitter();
-  constructor() { }
+  constructor(private elementService: ElementByIdService) { }
 
   ngOnInit(): void {
   }
 
   setProject(event: IProject): void {
     this.project = event;
+    this.showProject = true;
+    setTimeout(() => {
+      this.elementService.requestScroll('project-info', 'center center', 1.5);
+    }, 850);
   }
 
   changeShowProject(): void {

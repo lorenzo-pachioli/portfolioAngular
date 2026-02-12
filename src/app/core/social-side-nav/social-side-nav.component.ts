@@ -5,7 +5,8 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-social-side-nav',
   templateUrl: './social-side-nav.component.html',
-  styleUrls: ['./social-side-nav.component.scss']
+  styleUrls: ['./social-side-nav.component.scss'],
+  standalone: false
 })
 export class SocialSideNavComponent implements OnInit {
 

@@ -6,12 +6,13 @@ import { LanguageService } from './language/language.service';
 
 @NgModule({
   declarations: [
-    LanguageService
   ],
   imports: [
     CommonModule
   ],
   exports: [
+  ],
+  providers: [
     LanguageService
   ]
 })

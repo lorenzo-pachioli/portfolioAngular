@@ -1,14 +1,36 @@
-<div class="app" >
+<app-background-animation-canvas></app-background-animation-canvas>
+
+<app-welcome *ngIf="isWelcomeVisible" (animationComplete)="onWelcomeComplete()"></app-welcome>
+
+<div class="main-content-wrapper" [class.hidden]="isWelcomeVisible">
   <app-header appIsVisible (visibilityChange)="onFocus('header', $event)"></app-header>
+
   <app-social-side-nav></app-social-side-nav>
+
   <button class="scroll-to-top" mat-fab color="accent" (click)="scrollToTop()" *ngIf="showScrollToTop">
     <mat-icon>arrow_upward</mat-icon>
   </button>
-  <app-home appIsVisible (visibilityChange)="onFocus('home', $event)"></app-home>
-  <app-skills appIsVisible (visibilityChange)="onFocus('skills', $event)"></app-skills>
-  <app-portfolio appIsVisible (visibilityChange)="onFocus('portfolio', $event)"></app-portfolio>
-  <app-about-me appIsVisible (visibilityChange)="onFocus('about', $event)"></app-about-me>
-  <app-contact appIsVisible (visibilityChange)="onFocus('contact', $event)"></app-contact>
-</div>
-<app-footer></app-footer>
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <div class="app">
 
+        <app-home id="home" appIsVisible (visibilityChange)="onFocus('home', $event)" data-speed="0.95">
+        </app-home>
+
+        <app-skills id="skills" appIsVisible (visibilityChange)="onFocus('skills', $event)" data-speed="1">
+        </app-skills>
+
+        <app-portfolio id="portfolio" appIsVisible (visibilityChange)="onFocus('portfolio', $event)" data-speed="0.95">
+        </app-portfolio>
+
+        <app-about-me id="about" appIsVisible (visibilityChange)="onFocus('about', $event)" data-speed="1">
+        </app-about-me>
+
+        <app-contact id="contact" appIsVisible (visibilityChange)="onFocus('contact', $event)" data-speed="0.95">
+        </app-contact>
+      </div>
+
+      <app-footer></app-footer>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-@import '../../../mixins';
+@use '../../../mixins' as *;
 
 .socialSideNav-container {
   @include flex(flex, center, space-evenly, column);

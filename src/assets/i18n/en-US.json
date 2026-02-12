@@ -1,5 +1,8 @@
 {
 	"app": {
+		"WELCOME": {
+			"HI": "Hi! I'm"
+		},
 		"HEADER": {
 			"HOME": "Home",
 			"SKILLS": "Skills",
@@ -40,8 +43,8 @@
 			"CV": "Download my cv:"
 		},
 		"ABOUT": {
-			"SMARTERIX": {
-				"TITLE": "Smarterix",
+			"ACTUALIDAD": {
+				"TITLE": "Now",
 				"STORY": "Since November 2025, I have been working as a Front End Developer at Smarterix, a digital consulting company based in Mar del Plata, Argentina, in a hybrid work environment. I participate in the full product lifecycle, from planning and implementation to maintenance and continuous improvement. My role involves developing and maintaining modern user interfaces using technologies such as PHP, Laravel, and React, as well as integrating third-party services like Spatie and the Google Drive API. I collaborate closely with multidisciplinary teams to deliver scalable, maintainable, and business-oriented digital solutions."
 			},
 			"UTN": {
@@ -73,7 +76,7 @@
 				"STORY": "This nine month course separated on four sprints gave me the knowledge to become a front-end web developer, teaching me about HTM, CSS, Javascript, React and Firebase."
 			},
 			"BEFORE":  {
-				"TITLE": "Before",
+				"TITLE": "Before coding",
 				"STORY": "Graduated as a Superior Technician in Light Mechanics and 6 years working as a comertial ships mechanic, growing from assistant to workshop manager."
 			}
 		}

@@ -1,11 +1,11 @@
-@import '../../../mixins';
+@use '../../../mixins' as *;
 
 .toolbar {
   @include flex(flex, center, center);
   position: fixed;
   left: 0;
-  z-index: 100;
-  width: 100%;
+  z-index: 2000;
+  width: 100vw;
 
   mat-icon {
     text-shadow: 0 0 0.07em var(--color2), 0 0 0.4em var(--color5);
@@ -100,7 +100,7 @@
 @media screen and (max-width: 450px) {
 
   .header-molecule {
-    span{
+    span {
       display: none;
     }
   }

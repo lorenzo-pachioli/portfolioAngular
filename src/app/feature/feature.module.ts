@@ -7,7 +7,7 @@ import { ContactCardComponent } from './contact-card/contact-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DesktopMenuComponent } from './desktop-menu/desktop-menu.component';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
-import { TranslateDirective } from '@ngx-translate/core';
+import { TranslateDirective, TranslateModule } from '@ngx-translate/core';
 import { LanguageSelectorComponent } from './language-selector/language-selector.component';
 
 @NgModule({
@@ -23,7 +23,8 @@ import { LanguageSelectorComponent } from './language-selector/language-selector
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
-    TranslateDirective
+    TranslateDirective,
+    TranslateModule
   ],
   exports: [
     PortfolioGridComponent,

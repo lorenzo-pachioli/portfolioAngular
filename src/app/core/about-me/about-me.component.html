@@ -4,15 +4,22 @@
   <hr />
   <div class="about-content">
 
-    <mat-button-toggle-group class="about-menu" #group="matButtonToggleGroup" aria-selected="'today'"
-      [hideSingleSelectionIndicator]="true">
-
-      <ng-template ngFor let-item [ngForOf]="descriptions" let-i="index">
-        <mat-button-toggle value="item.keyValue" (click)="setInfo(item.keyValue || '')">
-          <p [ngStyle]="setButtonColor(item.keyValue || '')" translate="{{item.title}}"></p>
-        </mat-button-toggle>
-      </ng-template>
-    </mat-button-toggle-group>
+    <div class="timeline-container">
+      <div class="timeline-items">
+        <ng-template ngFor let-item [ngForOf]="descriptions" let-i="index">
+          <div class="timeline-item" *ngIf="isItemVisible(item.keyValue)" [class.selected]="info === item.keyValue"
+            (click)="setInfo(item.keyValue || '')">
+            <p [ngStyle]="setButtonColor(item.keyValue || '')" translate="{{item.title}}"></p>
+          </div>
+        </ng-template>
+      </div>
+      <div class="timeline-indicator">
+        <div class="indicator-line"></div>
+        <input type="range" class="indicator-slider" [min]="0" [max]="100" [value]="sliderValue"
+          (input)="onSliderChange($event)" (mousedown)="onDragStart()" (mouseup)="onDragEnd()"
+          (touchstart)="onDragStart()" (touchend)="onDragEnd()">
+      </div>
+    </div>
 
     <diV class="about-info" [ngSwitch]="info">
       <ng-template ngFor let-item [ngForOf]="descriptions" let-i="index">
