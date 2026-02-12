@@ -181,6 +181,7 @@ app-footer {
       width: 100%;
       max-width: var(--max-width-mobile);
       max-height: none;
+      margin-top: 80px;
     }
 
     app-portfolio {
@@ -188,6 +189,7 @@ app-footer {
       margin-top: 5vh;
       max-width: var(--max-width-mobile);
       max-height: none;
+      padding: 110px 40px 40px 40px;
     }
 
     app-about-me {
@@ -195,12 +197,14 @@ app-footer {
       margin-top: 5vh;
       max-width: var(--max-width-mobile);
       max-height: none;
+      margin-top: 100px;
     }
 
     app-contact {
       width: 100%;
       max-width: var(--max-width-mobile);
       max-height: none;
+      margin-top: 100px;
     }
 
     app-footer {
