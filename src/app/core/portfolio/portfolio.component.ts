@@ -23,7 +23,7 @@ export class PortfolioComponent implements OnInit {
     this.project = event;
     this.showProject = true;
     setTimeout(() => {
-      this.elementService.requestScroll('project-info', 'top center', 1.5);
+      this.elementService.requestScroll('project-info', 'center center', 1.5);
     }, 850);
   }
 
