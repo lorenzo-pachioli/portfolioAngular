@@ -10,9 +10,9 @@ export class LanguageService {
 	private setDefaultLang(): string {
 		const ln = navigator.language && navigator.language.slice(0, 2);
 		if (ln === 'es') {
-			return 'es-ar';
+			return 'es-AR';
 		} else {
-			return 'en-us';
+			return 'en-US';
 		}
 	}
 
@@ -20,6 +20,14 @@ export class LanguageService {
 		const lang = localStorage.getItem('lang');
 		const DEFAULT_LANG = this.setDefaultLang();
 		if (lang) {
+			if (lang === 'en-us') {
+				localStorage.setItem('lang', 'en-US');
+				return 'en-US';
+			}
+			if (lang === 'es-ar') {
+				localStorage.setItem('lang', 'es-AR');
+				return 'es-AR';
+			}
 			return lang;
 		} else {
 			localStorage.setItem('lang', DEFAULT_LANG);

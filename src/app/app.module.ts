@@ -37,14 +37,14 @@ import { WelcomeComponent } from './core/welcome/welcome.component';
   providers: [
     ElementByIdService,
     provideHttpClient(),
-    { provide: LOCALE_ID, useValue: 'en-us' },
+    { provide: LOCALE_ID, useValue: 'en-US' },
     provideTranslateService({
       loader: provideTranslateHttpLoader({
-        prefix: '/assets/i18n/',
+        prefix: './assets/i18n/',
         suffix: '.json'
       }),
-      fallbackLang: 'en-us',
-      defaultLanguage: 'en-us'
+      fallbackLang: 'en-US',
+      defaultLanguage: 'en-US'
     })
   ],
   bootstrap: [AppComponent]
