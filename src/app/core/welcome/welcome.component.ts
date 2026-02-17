@@ -12,7 +12,7 @@ import gsap from 'gsap';
       <div class="welcome-content">
         <h1 class="welcome-name welcome-hi static" translate="app.WELCOME.HI"></h1>
         <div class="move">
-        <h1 class="welcome-name" #welcomeTitle>Lorenzo Pachioli</h1>
+        <h1 class="welcome-name name" #welcomeTitle>Lorenzo Pachioli</h1>
         <h2 class="welcome-title" translate="app.TITLE" #welcomeSubTitle></h2>
         </div>
       </div>
@@ -50,6 +50,20 @@ import gsap from 'gsap';
     @media screen and (max-width: 900px) {
       .welcome-name { font-size: 40px; }
       .welcome-title { font-size: 25px; }
+    }
+    @media screen and (max-width: 400px) {
+      .welcome-name, .welcome-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .name, .welcome-title {
+        text-wrap: wrap;
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+      }
     }
   `]
 })
