@@ -100,6 +100,20 @@
 @media screen and (max-width: 900px) {
   .project-info-container {
     @include flex(flex, center, space-between, column);
+    max-height: fit-content;
+
+    .image-container {
+      height: auto;
+      max-height: 50vh;
+      width: 100%;
+      padding: 5px;
+      margin: 5px;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
 
     mat-card-title {
       padding: 20px;
