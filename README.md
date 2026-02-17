@@ -17,7 +17,7 @@ This portfolio is designed to provide an interactive and engaging user experienc
 
 ## Tech Stack
 
-- **Framework**: [Angular](https://angular.io/) (v14+)
+- **Framework**: [Angular](https://angular.io/) (v21)
 - **Languages**: TypeScript, SCSS, HTML5
 - **Animations**: [GSAP](https://greensock.com/gsap/)
 - **Libraries**:
@@ -53,4 +53,4 @@ The project follows a standard Angular CLI structure with a focus on modularity:
 
 ---
 
-_Generated with Angular CLI version 14.2.5._
+_Generated with Angular CLI version 21._
