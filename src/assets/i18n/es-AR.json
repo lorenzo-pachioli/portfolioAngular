@@ -1,5 +1,8 @@
 {
 	"app": {
+		"WELCOME": {
+			"HI": "Hola! Soy"
+		},
 		"HEADER": {
 			"HOME": "Inicio",
 			"SKILLS": "Tecnologias",
@@ -18,12 +21,12 @@
 			"DEPLOYED": "Ir al sitio",
 			"DEVUNITED": "Es un website al estilo Tweeter que utiliza Firebase para el Back End y React para el Front End. Fue creado como proyecto final evaluatorio del curso en Acamica.",
 			"APIBRAIN": "Es el Back End para el manejo de la website Brainstorming, hecho con Node, Express y MongoDB. Luego de terminar bootcamp de Lamansys y presentar Brainstorming, hice esta API para reemplazar la que me habian dado para hacer el proyecto final.",
-			"PORTFOLIO": "Es el sitio en el que estas actualmente. Visita el repositorio en GitHub para ver como funciona!",
+			"PORTFOLIO": "Es el sitio en el que estas actualmente creado con Angular, Typescript, Angular-Material, i18n y Gsap. Visita el repositorio en GitHub para ver como funciona!",
 			"GIFY": "Es una SPA que utiliza la API externa de Giphy (https://giphy.com/) y le permite al usuario buscar gifs mediante una barra de busqueda. Fue creado como un proyecto evaluado para el tercer sprint del curso de Acamica.",
 			"BRAIN": "Es un administrador de Scrum realizado como proyectos final para el bootcamp de Lamansys usando Angular y Angular Material, conectado a una API presentada por ellos para la realizacion del proyecto evaluatorio.",
-			"RM": "Es una landingpage creada para un cliente que tiene un taller dedicado a la mecanica naval.",
+			"RM": "Es una landingpage creada con Angular, Typescript y Angular-Material para un cliente que tiene un taller dedicado a la mecanica naval.",
 			"APICHAT": "Es el Back End para el manejo del sitio Chat App creada Socket.io, Express y MongoDB. Luego de terminar un proceso de entrevista tecnica y presentar ChatApp, hice esta API para reemplazar la que me habian dado para hacer el desafio.",
-			"CHAT": "Es un sitio web para enviar mensajes en tiempo real, creado como desafio tecnico para un proceso de entrevista.",
+			"CHAT": "Es chat en chat en tiempo real hecho con React y Socket.io que se comuninca con Api-chat.",
 			"PAWSOME": "Es una maqueta de e-commerce creada con Next.js y Tailwind, funcionando sin un back-end usando Firebase y la API de Mercado Pago. Desarrollé también el panel de administración para gestionar los productos, servicios, promociones y pedidos. El Registro y Login son funcionales, pero el panel de usuario esta en desarrollo."
 			
 		},
@@ -41,8 +44,8 @@
 			"CV": "Descarga mi cv:"
 		},
 		"ABOUT": {
-			"SMARTERIX": {
-				"TITLE": "Smarterix",
+			"ACTUALIDAD": {
+				"TITLE": "Ahora",
 				"STORY": "Desde noviembre de 2025 me desempeño como Desarrollador Front End en Smarterix, una consultora digital con base en Mar del Plata, Argentina, bajo una modalidad de trabajo híbrida. Participo en todo el ciclo de vida del producto, desde la planificación y la implementación hasta el mantenimiento y la mejora continua. Mi rol incluye el desarrollo y mantenimiento de interfaces modernas utilizando tecnologías como PHP, Laravel y React, así como la integración de servicios y APIs de terceros como Spatie y Google Drive API. Trabajo de manera colaborativa con equipos multidisciplinarios para entregar soluciones digitales escalables, mantenibles y alineadas con los objetivos del negocio."
 			},
 			"UTN": {
@@ -74,7 +77,7 @@
 				"STORY": "Curso de 9 meses separados en 4 sprints me dio el conocimiento para convertirme en Front End developer, dandome las bases de HTML, CSS, Javascript, React and Firebase."
 			},
 			"BEFORE":  {
-				"TITLE": "Before",
+				"TITLE": "Antes de programar",
 				"STORY": "Recibido como Tecnico Superior en Mecanica Liviana y 6 años desempeñandome como mecanico naval, creciendo desde ayudante a encarcado de taller"
 			}
 		}

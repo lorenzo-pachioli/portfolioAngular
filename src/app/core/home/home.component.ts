@@ -5,7 +5,8 @@ import { cloudinary } from 'src/assets/img-cloudinary/img-cloudinary';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  standalone: false
 })
 export class HomeComponent implements OnInit {
 
@@ -17,12 +18,6 @@ export class HomeComponent implements OnInit {
   }
 
   scroll(el: any) {
-
-    if (el === 'skills') {
-      this.element.skills.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-    if (el === 'contact') {
-      this.element.contact.nativeElement.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
+    this.element.requestScroll(el, 'smooth', 1200);
   }
 }

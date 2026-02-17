@@ -8,8 +8,8 @@ import { IsVisibleDirective } from './directives/is-visible.directive';
 
 @NgModule({
   declarations: [
-    CardListComponent,
-    IsVisibleDirective
+    IsVisibleDirective,
+    CardListComponent
   ],
   imports: [
     CommonModule,

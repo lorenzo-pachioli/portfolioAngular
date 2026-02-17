@@ -1,20 +1,32 @@
-<button mat-icon-button class="menu-mobile" [matMenuTriggerFor]="menu">
-  <mat-icon>more_vert</mat-icon>
+<button mat-icon-button class="menu-mobile-trigger" (click)="toggleMenu()" [class.active]="isOpen">
+  <div class="icon-wrapper">
+    <mat-icon class="icon-vert">more_vert</mat-icon>
+    <mat-icon class="icon-close">close</mat-icon>
+  </div>
 </button>
-<mat-menu #menu="matMenu" class="menu-mobile">
-  <button mat-menu-item color="primary" selected (click)="scroll('home')" [ngStyle]="{'background-color': this.visible.home ? 'var(--color5)':''}">
-    <span>Home</span>
-  </button>
-  <button mat-menu-item color="primary" (click)="scroll('skills')" [ngStyle]="{'background-color': this.visible.skills ? 'var(--color5)':''}">
-    <span>Skills</span>
-  </button>
-  <button mat-menu-item color="primary" (click)="scroll('portfolio')" [ngStyle]="{'background-color': this.visible.portfolio ? 'var(--color5)':''}">
-    <span>Portfolio</span>
-  </button>
-  <button mat-menu-item color="primary" (click)="scroll('about')" [ngStyle]="{'background-color': this.visible.about ? 'var(--color5)':''}">
-    <span>About me</span>
-  </button>
-  <button mat-menu-item color="primary" (click)="scroll('contact')" [ngStyle]="{'background-color': this.visible.contact ? 'var(--color5)':''}">
-    <span>Contact</span>
-  </button>
-</mat-menu>
+
+<div #drawer class="mobile-drawer glass-card" [class.open]="isOpen">
+  <div class="drawer-content">
+    <div class="buttons-container">
+      <button #homeBtn mat-button (click)="scroll('home')">
+        <span>{{ 'app.HEADER.HOME' | translate }}</span>
+      </button>
+      <button #skillsBtn mat-button (click)="scroll('skills')">
+        <span>{{ 'app.HEADER.SKILLS' | translate }}</span>
+      </button>
+      <button #portfolioBtn mat-button (click)="scroll('portfolio')">
+        <span>{{ 'app.HEADER.PORTFOLIO' | translate }}</span>
+      </button>
+      <button #aboutBtn mat-button (click)="scroll('about')">
+        <span>{{ 'app.HEADER.ABOUT-ME' | translate }}</span>
+      </button>
+      <button #contactBtn mat-button (click)="scroll('contact')">
+        <span>{{ 'app.HEADER.CONTACT' | translate }}</span>
+      </button>
+
+      <div #indicator class="mobile-indicator"></div>
+    </div>
+  </div>
+</div>
+
+<div class="drawer-overlay" *ngIf="isOpen" (click)="toggleMenu()"></div>

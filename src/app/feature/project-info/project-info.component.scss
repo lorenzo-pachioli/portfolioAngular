@@ -1,9 +1,10 @@
-@import '../../../mixins';
+@use '../../../mixins' as *;
 
 .project-info-container {
   @include flex(flex, center, space-between, row);
   width: 100%;
-  max-width: 95vw;
+  //max-width: 95vw;
+  max-height: 80vh;
   padding: 10px;
   gap: 20px;
   box-sizing: border-box;
@@ -18,11 +19,14 @@
 
   .image-container {
     @include flex(flex, center, center);
-    height: 90%;
+    height: 80%;
+    max-height: 70vh;
     width: 50%;
+    overflow: hidden;
     border-radius: 2px;
     object-fit: cover;
     padding: 10px;
+    margin: 10px;
 
     img {
       width: 80%;
@@ -96,6 +100,20 @@
 @media screen and (max-width: 900px) {
   .project-info-container {
     @include flex(flex, center, space-between, column);
+    max-height: fit-content;
+
+    .image-container {
+      height: auto;
+      max-height: 50vh;
+      width: 100%;
+      padding: 5px;
+      margin: 5px;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
 
     mat-card-title {
       padding: 20px;

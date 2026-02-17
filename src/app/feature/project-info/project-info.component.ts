@@ -5,7 +5,8 @@ import { IProject } from '../../shared/interfaces/IProject';
 @Component({
   selector: 'app-project-info',
   templateUrl: './project-info.component.html',
-  styleUrls: ['./project-info.component.scss']
+  styleUrls: ['./project-info.component.scss'],
+  standalone: false
 })
 export class ProjectInfoComponent implements OnInit {
 

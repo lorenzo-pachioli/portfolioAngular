@@ -1,10 +1,10 @@
-@import '../../../mixins';
+@use '../../../mixins' as *;
 
 .portfolio-container {
   @include flex(flex, center, flex-start, column);
   width: 90%;
   gap: 40px;
-  margin: 15vh 0;
+  /* margin: 15vh 0; */
 
   h2 {
     font-size: 50px;
@@ -20,13 +20,13 @@
 
   app-portfolio-grid {
     min-width: 100%;
-    transition: all 1s ease-in-out;
+    transition: all 0.8s ease-in-out;
     transform-origin: right top;
   }
 
   app-project-info {
     min-width: 100%;
-    transition: all 1s ease-in-out;
+    transition: all 0.8s ease-in-out;
     transform-origin: left;
   }
 }
@@ -37,5 +37,4 @@
     gap: 20px;
     height: fit-content;
   }
-
 }

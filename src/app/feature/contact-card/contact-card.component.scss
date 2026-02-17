@@ -1,4 +1,4 @@
-@import '../../../mixins';
+@use '../../../mixins' as *;
 
 .contact-card-container {
   @include flex(flex, flex-start, flex-start, column);
