@@ -27,7 +27,6 @@
   @include flex(flex, flex-start, center);
   width: 100%;
   position: relative;
-  max-height: 1100px;
   gap: 20px;
 
   app-map {
