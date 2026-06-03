@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { IProject } from '../../shared/interfaces/IProject';
 import { ElementByIdService } from '../../shared/services/element-by-id.service';
 
@@ -6,7 +6,8 @@ import { ElementByIdService } from '../../shared/services/element-by-id.service'
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PortfolioComponent implements OnInit {
 
@@ -14,7 +15,7 @@ export class PortfolioComponent implements OnInit {
   @Output() showProjectChange: EventEmitter<boolean> = new EventEmitter();
   @Input() project!: IProject;
   @Output() projectChange: EventEmitter<any> = new EventEmitter();
-  constructor(private elementService: ElementByIdService) { }
+  constructor(private elementService: ElementByIdService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +23,7 @@ export class PortfolioComponent implements OnInit {
   setProject(event: IProject): void {
     this.project = event;
     this.showProject = true;
+    this.cdr.markForCheck();
     setTimeout(() => {
       this.elementService.requestScroll('project-info', 'center center', 1.5);
     }, 850);
@@ -29,5 +31,7 @@ export class PortfolioComponent implements OnInit {
 
   changeShowProject(): void {
     this.showProject = !this.showProject;
+    this.cdr.markForCheck();
   }
 }
+

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { ElementByIdService } from 'src/app/shared/services/element-by-id.service';
 import { IProject } from '../../shared/interfaces/IProject';
 
@@ -6,7 +6,8 @@ import { IProject } from '../../shared/interfaces/IProject';
   selector: 'app-project-info',
   templateUrl: './project-info.component.html',
   styleUrls: ['./project-info.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectInfoComponent implements OnInit {
 

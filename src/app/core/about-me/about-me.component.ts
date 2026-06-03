@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { descriptions } from './aboutData';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -6,7 +6,8 @@ import { TranslateService } from '@ngx-translate/core';
   selector: 'app-about-me',
   templateUrl: './about-me.component.html',
   styleUrls: ['./about-me.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AboutMeComponent implements OnInit {
 
@@ -16,7 +17,7 @@ export class AboutMeComponent implements OnInit {
   isDragging = false;
   draggingValue = 0;
 
-  constructor(public translate: TranslateService) {
+  constructor(public translate: TranslateService, private cdr: ChangeDetectorRef) {
     this.language = this.translate;
   }
 
@@ -28,6 +29,7 @@ export class AboutMeComponent implements OnInit {
     if (!this.isDragging) {
       this.draggingValue = this.calculateSliderValue();
     }
+    this.cdr.markForCheck();
   }
 
   setButtonColor(value: string): any {
@@ -56,17 +58,20 @@ export class AboutMeComponent implements OnInit {
     if (item && this.info !== item.keyValue) {
       this.setInfo(item.keyValue);
     }
+    this.cdr.markForCheck();
   }
 
   onDragStart(): void {
     this.isDragging = true;
     this.draggingValue = this.calculateSliderValue();
+    this.cdr.markForCheck();
   }
 
   onDragEnd(): void {
     this.isDragging = false;
     // Snap to the final discrete value
     this.draggingValue = this.calculateSliderValue();
+    this.cdr.markForCheck();
   }
 
   isItemVisible(keyValue: string): boolean {
@@ -77,3 +82,4 @@ export class AboutMeComponent implements OnInit {
     return index === 0 || index === this.descriptions.length - 1 || index === selectedIndex;
   }
 }
+

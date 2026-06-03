@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { ElementByIdService } from 'src/app/shared/services/element-by-id.service';
 import { environment } from 'src/environments/environment';
 
@@ -6,7 +6,8 @@ import { environment } from 'src/environments/environment';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit {
 
@@ -20,9 +21,10 @@ export class HeaderComponent implements OnInit {
   linkCv = environment.cv_link;
   language = localStorage.getItem('lang');
 
-  constructor(public element: ElementByIdService) {
+  constructor(public element: ElementByIdService, private cdr: ChangeDetectorRef) {
     this.element.visible.subscribe(currentVisible => {
       this.visible = currentVisible;
+      this.cdr.markForCheck();
     })
   }
 

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, OnInit, Output, Input } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { ElementByIdService } from 'src/app/shared/services/element-by-id.service';
 import { IProject } from '../../shared/interfaces/IProject';
 import { projectsList } from './projectsList';
@@ -7,7 +7,8 @@ import { projectsList } from './projectsList';
   selector: 'app-portfolio-grid',
   templateUrl: './portfolio-grid.component.html',
   styleUrls: ['./portfolio-grid.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PortfolioGridComponent implements OnInit {
 
@@ -26,8 +27,9 @@ export class PortfolioGridComponent implements OnInit {
   onResize() {
     this.innerWidth = window.innerWidth;
     this.mobileGrid(this.innerWidth);
+    this.cdr.markForCheck();
   }
-  constructor(public element: ElementByIdService) { }
+  constructor(public element: ElementByIdService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;

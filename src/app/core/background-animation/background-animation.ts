@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, OnDestroy, HostListener, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, Renderer2, NgZone, ChangeDetectionStrategy } from '@angular/core';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface DustParticle {
   element: HTMLDivElement;
@@ -16,18 +17,21 @@ interface DustParticle {
   standalone: true,
   imports: [CommonModule],
   templateUrl: './background-animation.html',
-  styleUrls: ['./background-animation.scss']
+  styleUrls: ['./background-animation.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BackgroundAnimation implements OnInit, OnDestroy {
+export class BackgroundAnimation implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('particlesContainer', { static: true }) particlesContainer!: ElementRef<HTMLDivElement>;
   @ViewChild('gradientWrapper', { static: true }) gradientWrapper!: ElementRef<HTMLDivElement>;
 
-  private particleCount = 600;
+  private particleCount = 450;
   private isDestroyed = false;
+  private isScrolling = false;
   private mouseInfluence = { x: 0, y: 0, active: false };
   private dustParticles: Array<DustParticle> = [];
+  private mouseMoveUnlisten?: () => void;
 
-  constructor(private renderer: Renderer2) { }
+  constructor(private renderer: Renderer2, private ngZone: NgZone) { }
 
   ngOnInit(): void {
     for (let i = 0; i < this.particleCount; i++) {
@@ -36,7 +40,29 @@ export class BackgroundAnimation implements OnInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    this.animateDustParticles();
+    this.ngZone.runOutsideAngular(() => {
+      this.animateDustParticles();
+
+      ScrollTrigger.addEventListener("scrollStart", () => {
+        this.isScrolling = true;
+      });
+
+      ScrollTrigger.addEventListener("scrollEnd", () => {
+        this.isScrolling = false;
+      });
+
+      this.mouseMoveUnlisten = this.renderer.listen('document', 'mousemove', (event: MouseEvent) => {
+        this.mouseInfluence = {
+          x: event.clientX,
+          y: event.clientY,
+          active: true
+        };
+
+        setTimeout(() => {
+          this.mouseInfluence.active = false;
+        }, 100);
+      });
+    });
     this.moveGradientToSmoothContent();
   }
 
@@ -51,6 +77,9 @@ export class BackgroundAnimation implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.isDestroyed = true;
+    if (this.mouseMoveUnlisten) {
+      this.mouseMoveUnlisten();
+    }
   }
 
   private createDustParticle(): void {
@@ -117,29 +146,15 @@ export class BackgroundAnimation implements OnInit, OnDestroy {
     const animate = () => {
       if (this.isDestroyed) return;
 
-      this.dustParticles.forEach(dust => {
-        this.animateOneParticle(dust);
-      });
+      if (!this.isScrolling) {
+        this.dustParticles.forEach(dust => {
+          this.animateOneParticle(dust);
+        });
+      }
 
       requestAnimationFrame(animate);
     };
 
     requestAnimationFrame(animate);
-  }
-
-  @HostListener('document:mousemove', ['$event'])
-  onMouseMove(event: MouseEvent): void {
-    this.mouseInfluence = {
-      x: event.clientX,
-      y: event.clientY,
-      active: true
-    };
-
-    setTimeout(() => {
-      this.mouseInfluence.active = false;
-    }, 100);
-    const mouseX = (event.clientX / window.innerWidth) * 100;
-    const mouseY = (event.clientY / window.innerHeight) * 100;
-
   }
 }

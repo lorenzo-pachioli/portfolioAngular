@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, OnDestroy, NgZone, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AboutMeComponent } from './core/about-me/about-me.component';
 import { ContactComponent } from './core/contact/contact.component';
@@ -20,7 +20,8 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements AfterViewInit, OnDestroy {
 
@@ -52,7 +53,9 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   constructor(
     public element: ElementByIdService,
     public translate: TranslateService,
-    private langService: LanguageService
+    private langService: LanguageService,
+    private ngZone: NgZone,
+    private cdr: ChangeDetectorRef
   ) {
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
@@ -71,11 +74,14 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       this.element.setAbout(this.aboutRef);
       this.element.setContact(this.contactRef);
     }, 100);
-    this.initScrollSmoother();
-    window.scrollTo(0, 0);
-    this.setupSideAnimations();
-    this.setupScrollTriggers();
-    this.setupNavigation();
+
+    this.ngZone.runOutsideAngular(() => {
+      this.initScrollSmoother();
+      window.scrollTo(0, 0);
+      this.setupSideAnimations();
+      this.setupScrollTriggers();
+      this.setupNavigation();
+    });
   }
 
   private setupNavigation(): void {
@@ -86,22 +92,29 @@ export class AppComponent implements AfterViewInit, OnDestroy {
         const target = targetSection?.ref?.nativeElement || document.getElementById(section);
 
         if (target) {
+          const targetDuration = duration ?? 1.5;
+          const targetEase = 'power2.inOut';
+
           if (this.isMobile) {
             const offset = 0;
             const targetPos = target.getBoundingClientRect().top + window.pageYOffset - offset;
             gsap.to(window, {
               scrollTo: targetPos,
-              duration: 1.5,
-              ease: 'power2.inOut',
+              duration: targetDuration,
+              ease: targetEase,
               overwrite: 'auto'
             });
           } else {
-            const scrollTween = this.smoother.scrollTo(target, true, position, duration);
-            if (scrollTween && scrollTween.eventCallback) {
-              scrollTween.eventCallback('onComplete', () => {
+            const targetScrollTop = this.smoother.offset(target, position);
+            gsap.to(this.smoother, {
+              scrollTop: targetScrollTop,
+              duration: targetDuration,
+              ease: targetEase,
+              overwrite: 'auto',
+              onComplete: () => {
                 ScrollTrigger.refresh();
-              });
-            }
+              }
+            });
           }
         }
       }
@@ -126,21 +139,19 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   private setupSideAnimations(): void {
     this.sections.forEach((section, index) => {
+      // Forzar aceleración por hardware antes de animar
+      gsap.set(section.ref.nativeElement, { willChange: 'transform, opacity' });
       gsap.from(section.ref.nativeElement, {
-        x: index % 2 === 0 ? -200 : 200,
+        x: index % 2 === 0 ? -60 : 60,
         opacity: 0,
-        duration: 2.5,
-        delay: 0.5,
-        ease: 'power3.out',
+        duration: 1.8,
+        delay: 0.1,
+        ease: 'sine.inOut',
         once: true,
         scrollTrigger: {
           trigger: section.ref.nativeElement,
-          start: 'top 80%',
-          toggleActions: 'play none none none',
-          onEnter: () => this.setScrollSpeed(0),
-          onLeave: () => this.setScrollSpeed(1),
-          onEnterBack: () => this.setScrollSpeed(0),
-          onLeaveBack: () => this.setScrollSpeed(1),
+          start: 'top 85%',
+          toggleActions: 'play none none none'
         }
       });
     });
@@ -154,15 +165,27 @@ export class AppComponent implements AfterViewInit, OnDestroy {
         end: 'bottom center',
         once: section.once || false,
         onEnter: () => {
-          this.onFocus(section.id, true);
-          this.element.activeSection.next(section.id);
+          this.ngZone.run(() => {
+            this.onFocus(section.id, true);
+            this.element.activeSection.next(section.id);
+          });
         },
-        onLeave: () => this.onFocus(section.id, false),
+        onLeave: () => {
+          this.ngZone.run(() => {
+            this.onFocus(section.id, false);
+          });
+        },
         onEnterBack: () => {
-          this.onFocus(section.id, true);
-          this.element.activeSection.next(section.id);
+          this.ngZone.run(() => {
+            this.onFocus(section.id, true);
+            this.element.activeSection.next(section.id);
+          });
         },
-        onLeaveBack: () => this.onFocus(section.id, false),
+        onLeaveBack: () => {
+          this.ngZone.run(() => {
+            this.onFocus(section.id, false);
+          });
+        },
       });
     });
   }
@@ -176,7 +199,10 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     const sourceTitle = document.querySelector('.move h1');
 
     if (!targetTitle || !sourceTitle) {
-      this.isWelcomeVisible = false;
+      this.ngZone.run(() => {
+        this.isWelcomeVisible = false;
+        this.cdr.markForCheck();
+      });
       ScrollTrigger.refresh();
       return;
     }
@@ -203,8 +229,11 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     });
 
     welcomeTl.add(() => {
-      this.isWelcomeVisible = false;
-      this.showScrollToTop = !this.element.visible.value.header;
+      this.ngZone.run(() => {
+        this.isWelcomeVisible = false;
+        this.showScrollToTop = !this.element.visible.value.header;
+        this.cdr.markForCheck();
+      });
 
       if (this.smoother) {
         this.smoother.scrollTo(0);
@@ -221,12 +250,14 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     if (component === 'header') {
       this.element.visible.next({ ...this.element.visible.value, header: visible });
       this.showScrollToTop = !visible;
+      this.cdr.markForCheck();
       return;
     }
 
     const currentVisible = this.element.visible.value;
     if (currentVisible.hasOwnProperty(component)) {
       this.element.visible.next({ ...currentVisible, [component]: visible });
+      this.cdr.markForCheck();
     }
   }
 
@@ -254,3 +285,4 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     }
   }
 }
+
