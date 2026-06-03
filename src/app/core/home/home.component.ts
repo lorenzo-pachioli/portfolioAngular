@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ElementByIdService } from 'src/app/shared/services/element-by-id.service';
 import { cloudinary } from 'src/assets/img-cloudinary/img-cloudinary';
 
@@ -6,7 +6,8 @@ import { cloudinary } from 'src/assets/img-cloudinary/img-cloudinary';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
 
@@ -18,6 +19,6 @@ export class HomeComponent implements OnInit {
   }
 
   scroll(el: any) {
-    this.element.requestScroll(el, 'smooth', 1200);
+    this.element.requestScroll(el, 'top top', 1.5);
   }
 }

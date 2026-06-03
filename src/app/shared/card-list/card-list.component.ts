@@ -1,10 +1,11 @@
-import { Component, OnInit, TemplateRef, ContentChild, Input } from '@angular/core';
+import { Component, OnInit, TemplateRef, ContentChild, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
 	selector: 'app-card-list',
 	templateUrl: './card-list.component.html',
 	styleUrls: ['./card-list.component.scss'],
-	standalone: false
+	standalone: false,
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardListComponent implements OnInit {
 
