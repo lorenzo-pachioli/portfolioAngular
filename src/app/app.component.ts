@@ -129,13 +129,13 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       gsap.from(section.ref.nativeElement, {
         x: index % 2 === 0 ? -200 : 200,
         opacity: 0,
-        duration: 2.5,
-        delay: 0.5,
-        ease: 'power3.out',
+        duration: 2.0,
+        delay: 0.4,
+        ease: 'power3.inout',
         once: true,
         scrollTrigger: {
           trigger: section.ref.nativeElement,
-          start: 'top 80%',
+          start: 'top 85%',
           toggleActions: 'play none none none',
           onEnter: () => this.setScrollSpeed(0),
           onLeave: () => this.setScrollSpeed(1),

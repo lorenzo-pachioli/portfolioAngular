@@ -22,7 +22,7 @@ export class BackgroundAnimation implements OnInit, OnDestroy {
   @ViewChild('particlesContainer', { static: true }) particlesContainer!: ElementRef<HTMLDivElement>;
   @ViewChild('gradientWrapper', { static: true }) gradientWrapper!: ElementRef<HTMLDivElement>;
 
-  private particleCount = 600;
+  private particleCount = 450;
   private isDestroyed = false;
   private mouseInfluence = { x: 0, y: 0, active: false };
   private dustParticles: Array<DustParticle> = [];

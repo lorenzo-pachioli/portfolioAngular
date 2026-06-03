@@ -33,7 +33,7 @@ export const projectsList: IProject[] = [
     image: cloudinary.portfolio,
     description: "app.PROJECT.PORTFOLIO",
     github: 'https://github.com/lorenzo-pachioli/portfolioAngular',
-    deployed: 'https://lorenzo-pachioli.netlify.app/'
+    deployed: 'https://lorenzopachioli.com'
   },
   {
     title: 'PawsomeMart',

@@ -1,0 +1,90 @@
+# Lorenzo Pachioli
+
+> Front End Developer with 2+ years of experience, focused on building scalable, efficient, and accessible web applications following SOLID principles. Based in Mar del Plata, Argentina. Languages: Spanish (native), English (B2 Upper Intermediate).
+
+## Contact
+- Portfolio: https://lorenzopachioli.com
+- GitHub: https://github.com/LorenzoPachioli
+- LinkedIn: https://www.linkedin.com/in/lorenzo-pachioli/
+- Email: lorenzopachioli@gmail.com
+
+## Work Experience
+
+### Smarterix - Consultora Digital (11/2025 – present)
+Front End Developer at a digital consulting company in Mar del Plata, hybrid environment. Full product lifecycle: planning, implementation, maintenance and continuous improvement. Develops modern UIs, integrates third-party services and APIs, collaborates with multidisciplinary teams.
+- Stack: PHP, Laravel, React, Spatie, Google Drive API, Cloudways, Digital Ocean
+
+### SwaplyAr.com (06/2025 – 09/2025)
+Front End Developer. Feature development and bug fixing across public, internal, and admin sections. Helped the Back End team with Nest.js bugs. Multicultural Latin American team.
+- Stack: Next.js, Nest.js, Tailwind, Zustand, PostgreSQL
+
+### RM Servicios Navales - Freelance (08/2023)
+Designed and built a responsive landing page for a commercial ship workshop to showcase services and increase sales.
+- Stack: Angular, SASS, TypeScript, Netlify
+
+## Projects
+
+### PawsomeMart
+Mock e-commerce website with admin panel for managing products, services, promotions and orders. Functional register and login. Built without a traditional back-end using Firebase and Mercado Pago API.
+- Stack: Next.js, Tailwind, Firebase, Mercado Pago API
+- GitHub: https://github.com/lorenzo-pachioli/studio
+- Live: https://pawsomemart.netlify.app
+
+### Devs United
+Twitter-like social network using Firebase as back-end and React Router for navigation. Built as a final evaluated project for the Acamica course.
+- Stack: React, Firebase, React Router
+- GitHub: https://github.com/lorenzo-pachioli/Devs_united
+- Live: https://devsunited-pachioli.netlify.app
+
+### Chat App
+Real-time chat website using React and Socket.io-client, connected to a custom API built after a technical interview process.
+- Stack: React, Socket.io-client
+- GitHub: https://github.com/lorenzo-pachioli/Chat-app
+- Live: https://pachioli-chat-app.netlify.app
+
+### Api Chat
+Back-end for Chat App, built after a technical interview to replace the provided API.
+- Stack: Node.js, Express, Socket.io, MongoDB
+- GitHub: https://github.com/lorenzo-pachioli/Api-chat
+
+### Brainstorming
+Scrum-based task manager built as the final project of the Lamansys bootcamp, connecting to an external API following specific requirements.
+- Stack: Angular, Angular Material
+- GitHub: https://github.com/lorenzo-pachioli/frontend-bootcamp
+- Live: https://frontend-bootcamp-pachioli.netlify.app
+
+### Api Brainstorming
+Back-end server for the Brainstorming app.
+- Stack: Node.js, Express, MongoDB
+- GitHub: https://github.com/lorenzo-pachioli/api-brainstorming
+
+### Portfolio
+Personal portfolio with multilanguage support (i18n) and animations.
+- Stack: Angular, TypeScript, Angular Material, i18n, GSAP
+- GitHub: https://github.com/lorenzo-pachioli/portfolioAngular
+- Live: https://lorenzopachioli.com
+
+### RM Servicios Navales
+Landing page for a commercial ship workshop client.
+- Stack: Angular, SASS, TypeScript
+- GitHub: https://github.com/lorenzo-pachioli/RMservicios-navales
+- Live: https://rm-servicios-navales.netlify.app
+
+## Education
+- UTN – Técnico Universitario en Programación (2025 – present), Mar del Plata
+
+## Courses
+- Udemy: The Complete 2025 Software Testing Bootcamp (36hs — Manual, API, Performance, Automation Testing)
+- Udemy: Advanced design patterns for React components
+- Alkemy: Angular Skill Up (15-day group project, Scrum + GitFlow)
+- Lamansys: Front End Developer Bootcamp (2 months — Angular, TypeScript, Material-UI)
+- Acamica: Front End Software Developer (9 months — HTML/CSS, JavaScript, React, Firebase)
+
+## Background
+Before coding, graduated as Superior Technician in Light Mechanics with 6 years working as a commercial ships mechanic, growing from assistant to workshop manager.
+
+## Technical Skills
+HTML, CSS, SASS, JavaScript, TypeScript, React.js, Next.js, Angular, Node.js, React Native, Java, Spring Boot, PHP, Laravel, Firebase, Bootstrap, Tailwind, Material UI, Redux, NgRx, Zustand, MongoDB, MySQL, Express, Jest, WebSockets, Socket.io, GSAP, GitFlow, Scrum, Jira
+
+## Soft Skills
+Team collaboration, effective communication, problem-solving, critical thinking, adaptability, continuous learning, time management, agile teamwork (Scrum, GitFlow, Jira)
