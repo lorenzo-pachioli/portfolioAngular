@@ -19,6 +19,6 @@ export class HomeComponent implements OnInit {
   }
 
   scroll(el: any) {
-    this.element.requestScroll(el, 'top top', 1.5);
+    this.element.requestScroll(el, 'top top', 1.5); // Terminar de revisar velocidad de scroll
   }
 }

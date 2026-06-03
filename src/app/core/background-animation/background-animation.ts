@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, Renderer2, NgZone, ChangeDetectionStrategy } from '@angular/core';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface DustParticle {
   element: HTMLDivElement;
@@ -25,6 +26,7 @@ export class BackgroundAnimation implements OnInit, OnDestroy, AfterViewInit {
 
   private particleCount = 450;
   private isDestroyed = false;
+  private isScrolling = false;
   private mouseInfluence = { x: 0, y: 0, active: false };
   private dustParticles: Array<DustParticle> = [];
   private mouseMoveUnlisten?: () => void;
@@ -40,6 +42,14 @@ export class BackgroundAnimation implements OnInit, OnDestroy, AfterViewInit {
   ngAfterViewInit(): void {
     this.ngZone.runOutsideAngular(() => {
       this.animateDustParticles();
+
+      ScrollTrigger.addEventListener("scrollStart", () => {
+        this.isScrolling = true;
+      });
+
+      ScrollTrigger.addEventListener("scrollEnd", () => {
+        this.isScrolling = false;
+      });
 
       this.mouseMoveUnlisten = this.renderer.listen('document', 'mousemove', (event: MouseEvent) => {
         this.mouseInfluence = {
@@ -136,9 +146,11 @@ export class BackgroundAnimation implements OnInit, OnDestroy, AfterViewInit {
     const animate = () => {
       if (this.isDestroyed) return;
 
-      this.dustParticles.forEach(dust => {
-        this.animateOneParticle(dust);
-      });
+      if (!this.isScrolling) {
+        this.dustParticles.forEach(dust => {
+          this.animateOneParticle(dust);
+        });
+      }
 
       requestAnimationFrame(animate);
     };
