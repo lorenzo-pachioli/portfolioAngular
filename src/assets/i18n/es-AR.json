@@ -11,12 +11,12 @@
 			"CONTACT": "Contacto",
 			"DOWNLOAD": "Descargar cv"
 		},
-		"TITLE": "Desarrollador Front End",
+		"TITLE": "Desarrollador Full Stack",
 		"HOME": {
-			"DESCRIPTION": "Soy un desarrollador Front End con +2 de experiencia en la creacion de sitios web escalables, eficientes y accesibles. Me desenvuelvo muy bien en entornos de codigo colaborativo y estoy trabajando constantemente para mejorar tanto mis habilidades técnicas como interpersonales",
+			"DESCRIPTION": "Soy un desarrollador Full Stack con +2 de experiencia en la creacion de sitios web escalables, eficientes y accesibles. Me desenvuelvo muy bien en entornos de codigo colaborativo y estoy trabajando constantemente para mejorar tanto mis habilidades técnicas como interpersonales",
 			"CONTACT-ME": "Mandame un mensaje!"
 		},
-		"PROJECT":{
+		"PROJECT": {
 			"BACK": "Volver",
 			"DEPLOYED": "Ir al sitio",
 			"DEVUNITED": "Es un website al estilo Tweeter que utiliza Firebase para el Back End y React para el Front End. Fue creado como proyecto final evaluatorio del curso en Acamica.",
@@ -28,7 +28,6 @@
 			"APICHAT": "Es el Back End para el manejo del sitio Chat App creada Socket.io, Express y MongoDB. Luego de terminar un proceso de entrevista tecnica y presentar ChatApp, hice esta API para reemplazar la que me habian dado para hacer el desafio.",
 			"CHAT": "Es chat en chat en tiempo real hecho con React y Socket.io que se comuninca con Api-chat.",
 			"PAWSOME": "Es una maqueta de e-commerce creada con Next.js y Tailwind, funcionando sin un back-end usando Firebase y la API de Mercado Pago. Desarrollé también el panel de administración para gestionar los productos, servicios, promociones y pedidos. El Registro y Login son funcionales, pero el panel de usuario esta en desarrollo."
-			
 		},
 		"CONTACT": {
 			"REQUIRED-VALUES": "* Valores requeridos",
@@ -52,35 +51,34 @@
 				"TITLE": "UTN",
 				"STORY": "Actualmente cursando el segundo cuatrimestre de la carrera de Tecnico Universitario en Programacion. Sitio de la carrera: 'https:// mdp.utn.edu.ar/ tecnicatura/ tecnico_ universitario_ en_ programacion/'"
 			},
-			"SWAPLYAR":  {
+			"SWAPLYAR": {
 				"TITLE": "SwaplyAr",
 				"STORY": "He colaborado con las funcionalidades de Front End utilizando Next.js y Tailwind, mejorando y añadiendo funciones centradas en la lógica y los algoritmos de gestión de la información. Ayudé al equipo de Back End a usar Nest.js para resolver errores relacionados con las características en las que estaba trabajando en el Front. Trabajar en colaboración con un equipo multicultural de América Latina en la implementación de características y corrección de errores en las secciones públicas, internas y de administración. Pila de tecnología: Next.js, Nest.js, Tailwind, Zustand y Postgre SQL."
-			}, 
-			"UDEMYQA":  {
+			},
+			"UDEMYQA": {
 				"TITLE": "Udemy QA",
 				"STORY": "Un bootcamp de 36hs sobre QA manual, API testing, QA performance y QA Automation. Web site: 'https:// www.udemy.com/ course/ testerbootcamp/'"
 			},
-			"ALKEMY":  {
+			"ALKEMY": {
 				"TITLE": "Alkemy",
 				"STORY": "Un proyecto en grupo de 15 días usando Angular que cumpliendo con los requisitos propuestos por Alkemy, aplicando metodologías Scrum y Git Flow."
 			},
-			"LAMANSYS":  {
+			"LAMANSYS": {
 				"TITLE": "Lamansys",
 				"STORY": "Un bootcamp de dos meses con Angular, Typescript y Material-UI. Terminando con un proyecto final cumpliendo con los requerimientos propuestos y gestionando con Taiga."
 			},
-			"UDEMY":  {
+			"UDEMY": {
 				"TITLE": "Udemy",
 				"STORY": "Una guia completa sobre patrones avanzados de diseño de componentes de React."
 			},
-			"ACAMICA":  {
+			"ACAMICA": {
 				"TITLE": "Acamica",
 				"STORY": "Curso de 9 meses separados en 4 sprints me dio el conocimiento para convertirme en Front End developer, dandome las bases de HTML, CSS, Javascript, React and Firebase."
 			},
-			"BEFORE":  {
+			"BEFORE": {
 				"TITLE": "Antes de programar",
 				"STORY": "Recibido como Tecnico Superior en Mecanica Liviana y 6 años desempeñandome como mecanico naval, creciendo desde ayudante a encarcado de taller"
 			}
 		}
 	}
-	
 }
