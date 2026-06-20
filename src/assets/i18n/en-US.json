@@ -16,7 +16,7 @@
 			"DESCRIPTION": "I'm a Full Stack Developer with +2 years of experience, focused on building efficient, scalable, and accessible web applications. I thrive in collaborative environments and I am constantly working to improve both my technical and interpersonal skills.",
 			"CONTACT-ME": "Contact me!"
 		},
-		"PROJECT":{
+		"PROJECT": {
 			"BACK": "Back",
 			"DEPLOYED": "Website",
 			"DEVUNITED": "Its a tweeter alike website using firebase as back-end and React router for the difrent pages. It was created as a evaluated project for the last sprint of the Acamica course.",
@@ -51,35 +51,41 @@
 				"TITLE": "UTN",
 				"STORY": "Currently during third quarter of this two year carrer at Universidad Tecnológica Nacional in Mar del Plata. The carrer website: 'https:// mdp.utn.edu.ar/ tecnicatura/ tecnico_ universitario_ en_ programacion/'"
 			},
-			"SWAPLYAR":  {
+			"SWAPLYAR": {
 				"TITLE": "SwaplyAr",
 				"STORY": "Collaborated with Front End functionalities using Next.js and Tailwind, improving and adding features centered on the logic and the information management algorithms. Helped the Back End team using Nest.js to solve bugs related to the features I was working on in the front. Working collaboratively with a multicultural Latin American team on the implementation of features and bug fixing in the public, internal, and administration sections. Tech Stack: Next.js, Nest.js, Tailwind, Zustand and Postgre SQL"
-			}, 
-			"UDEMYQA":  {
+			},
+			"UDEMYQA": {
 				"TITLE": "Udemy QA",
 				"STORY": "Currently doing this 36hs QA bootcamp. Web site: 'https:// www.udemy.com/ course/ testerbootcamp/'"
 			},
-			"ALKEMY":  {
+			"ALKEMY": {
 				"TITLE": "Alkemy",
 				"STORY": "A 15 day Angular group project accomplishing the requests proposed by Alkemy and created applying scrum and git flow methodologies."
 			},
-			"LAMANSYS":  {
+			"LAMANSYS": {
 				"TITLE": "Lamansys",
 				"STORY": "A two month front end boostcamp with Angular, Typescript and Material-UI. It ended with a final project that had some requirments and manage with Taiga."
-			},			
-			"UDEMY":  {
+			},
+			"UDEMY": {
 				"TITLE": "Udemy",
 				"STORY": "Short course of advanced design patterns for React components."
 			},
-			"ACAMICA":  {
+			"ACAMICA": {
 				"TITLE": "Acamica",
 				"STORY": "This nine month course separated on four sprints gave me the knowledge to become a front-end web developer, teaching me about HTM, CSS, Javascript, React and Firebase."
 			},
-			"BEFORE":  {
+			"BEFORE": {
 				"TITLE": "Before coding",
 				"STORY": "Graduated as a Superior Technician in Light Mechanics and 6 years working as a comertial ships mechanic, growing from assistant to workshop manager."
 			}
+		},
+		"SKILLS": {
+			"FRONTEND": "Front End",
+			"BACKEND": "Back End",
+			"TOOLS": "Tools",
+			"TESTING": "Testing",
+			"DATABASE": "Database"
 		}
 	}
-	
 }

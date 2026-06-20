@@ -79,6 +79,13 @@
 				"TITLE": "Antes de programar",
 				"STORY": "Recibido como Tecnico Superior en Mecanica Liviana y 6 años desempeñandome como mecanico naval, creciendo desde ayudante a encarcado de taller"
 			}
+		},
+		"SKILLS": {
+			"FRONTEND": "Front End",
+			"BACKEND": "Back End",
+			"TOOLS": "Herramientas",
+			"TESTING": "Testing",
+			"DATABASE": "Base de datos"
 		}
 	}
 }

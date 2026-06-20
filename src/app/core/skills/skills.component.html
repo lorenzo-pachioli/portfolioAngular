@@ -1,12 +1,26 @@
-<mat-card class="skills-container">
+<section class="skills-container">
   <h1 translate="app.HEADER.SKILLS"></h1>
-	<hr />
-  <app-card-list class="list" [list]="list">
-		<ng-template let-item #card>
-			<button mat-raised-button color="accent" class="skill-card">
-				<img [src]="item.svg" alt="" />
-				<p>{{item.name}}</p>
-			</button>
-		</ng-template>
-	</app-card-list>
-</mat-card>
+  <hr />
+
+  <div class="glass-stage">
+    <div class="glass-blob blob-1"></div>
+    <div class="glass-blob blob-2"></div>
+
+    <div class="bento-grid">
+      <div *ngFor="let category of categories" #glassCard class="glass-bento-card" [ngClass]="'span-' + category.key">
+        <div class="glass-pane"></div>
+        <div class="card-content">
+          <h3>
+            <span class="dot"></span>
+            <span translate="{{ category.label }}"></span>
+            <span class="gcount">{{ category.technologies.length }}</span>
+          </h3>
+          <div class="neon-divider"></div>
+          <div class="hole-tags">
+            <span class="hole-tag" *ngFor="let tech of category.technologies">{{ tech }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
