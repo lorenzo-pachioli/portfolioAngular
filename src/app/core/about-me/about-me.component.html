@@ -2,31 +2,20 @@
 
   <h2 translate="app.HEADER.ABOUT-ME"></h2>
   <hr />
-  <div class="about-content">
 
-    <div class="timeline-container">
-      <div class="timeline-items">
-        <ng-template ngFor let-item [ngForOf]="descriptions" let-i="index">
-          <div class="timeline-item" *ngIf="isItemVisible(item.keyValue)" [class.selected]="info === item.keyValue"
-            (click)="setInfo(item.keyValue || '')">
-            <p [ngStyle]="setButtonColor(item.keyValue || '')" translate="{{item.title}}"></p>
-          </div>
-        </ng-template>
+  <div class="timeline-wrap">
+    <div class="timeline-line"></div>
+
+    <div class="timeline-item" *ngFor="let item of descriptions" [ngClass]="'side-' + item.side" #timelineItem>
+      <div class="tl-date-col">
+        <div class="tl-node" translate="{{ item.title }}"></div>
       </div>
-      <div class="timeline-indicator">
-        <div class="indicator-line"></div>
-        <input type="range" class="indicator-slider" [min]="0" [max]="100" [value]="sliderValue"
-          (input)="onSliderChange($event)" (mousedown)="onDragStart()" (mouseup)="onDragEnd()"
-          (touchstart)="onDragStart()" (touchend)="onDragEnd()">
+      <div class="tl-card">
+        <span class="tl-card-date" *ngIf="item.showDateInCard" translate="{{ item.date }}"></span>
+        <h3 translate="{{ item.title }}"></h3>
+        <p translate="{{ item.description }}"></p>
       </div>
     </div>
-
-    <diV class="about-info" [ngSwitch]="info">
-      <ng-template ngFor let-item [ngForOf]="descriptions" let-i="index">
-        <p *ngSwitchCase="item.keyValue" translate="{{item.description}}"></p>
-      </ng-template>
-      <p *ngSwitchDefault translate="app.ABOUT.TODAY.TITLE"></p>
-    </diV>
-
   </div>
+
 </section>
