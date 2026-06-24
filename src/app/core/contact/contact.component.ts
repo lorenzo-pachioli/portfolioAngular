@@ -14,9 +14,8 @@ export class ContactComponent implements OnInit {
   linkCv = environment.cv_link;
   svgLinkedin = cloudinarySvg.linkedin;
   github = cloudinarySvg.github;
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+  constructor() {}
 
+  ngOnInit(): void {}
 }

@@ -1,19 +1,10 @@
 @use '../../../mixins' as *;
 
 .skills-container {
-  @include flex(flex, center, center, column);
+  @include flex(flex, center, flex-start, column);
   width: 90%;
-  height: fit-content;
-  border: 2px solid var(--color5);
-  padding: 40px;
-  box-sizing: border-box;
-  background-color: transparent;
-  margin: 15px 0 5px 0;
-  box-shadow:
-    inset 0 0 0.5em 0 var(--color5),
-    inset 0 0 0.1em var(--color2),
-    0 0 0.5em 0 var(--color5),
-    0 0 0.1em var(--color2);
+  gap: 30px;
+  margin: 15px 0 40px;
 
   h1 {
     font-size: 50px;
@@ -22,77 +13,142 @@
   }
 }
 
-.skill-card {
-  @include flex(flex, center, center, column);
-  width: 90px;
-  height: 90px;
-  padding: 10px;
-  gap: 10px;
-  transition: all 0.2s ease-in-out;
-
-  img {
-    height: 40px;
-  }
-
-  p {
-    margin: 0;
-  }
-}
-
-.skill-card:hover {
-  transform: translateY(20px);
-  box-shadow:
-    inset 0 0 0.3em 0 var(--color5),
-    inset 0 0 0.2em var(--color2),
-    0 0.3em 0.7em 0 var(--color5),
-    0 0 0.2em var(--color2);
+.bento-grid {
+  position: relative;
   z-index: 1;
-  transition: all 0.3s ease-in-out;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
 }
 
-.list {
-  @include flex(flex, center, center, row);
+.span-frontend {
+  grid-column: span 7;
+}
+
+.span-backend {
+  grid-column: span 5;
+}
+
+.span-tools {
+  grid-column: span 5;
+}
+
+.span-testing {
+  grid-column: span 4;
+}
+
+.span-database {
+  grid-column: span 3;
+}
+
+.glass-bento-card {
+  position: relative;
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+.glass-pane {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: rgba(26, 25, 29, 0.35);
+  backdrop-filter: blur(5px) saturate(100%);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  z-index: 0;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+  mask-mode: luminance;
+  -webkit-mask-mode: luminance;
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+  padding: 26px 28px;
+
+  h3 {
+    @include flex(flex, center, flex-start, row);
+    gap: 9px;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--color1);
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--color5);
+      box-shadow: 0 0 8px var(--color5);
+      flex-shrink: 0;
+    }
+
+    .gcount {
+      margin-left: auto;
+      font-size: 11.5px;
+      font-weight: 400;
+      text-transform: none;
+      color: var(--color3);
+    }
+  }
+}
+
+// Separador neón que no llega al borde de la card
+.neon-divider {
+  height: 2px;
   width: 70%;
-  height: 100%;
+  margin: 14px 0 20px;
+  border-radius: 2px;
+  background: var(--color5);
+  box-shadow: 0 0 10px rgba(var(--color5-rgb), 0.6), 0 0 3px var(--color2);
+}
+
+.hole-tags {
+  @include flex(flex, center, flex-start, row);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hole-tag {
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--color2);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow:
+    inset 0 3px 6px rgba(0, 0, 0, 0.38),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.04);
+  transition: border-color 0.45s ease, box-shadow 0.45s ease, color 0.45s ease, text-shadow 0.45s ease;
+  cursor: pointer;
+
+  &:hover {
+    border-color: rgba(var(--color5-rgb), 0.32);
+    box-shadow:
+      inset 0 3px 6px rgba(0, 0, 0, 0.38),
+      inset 0 -1px 1px rgba(255, 255, 255, 0.04),
+      inset 0 0 5px 0 rgba(var(--color5-rgb), 0.28);
+    color: rgba(var(--color5-rgb), 0.85);
+    text-shadow: 0 0 3px rgba(var(--color5-rgb), 0.3);
+  }
 }
 
 @media screen and (max-width: 900px) {
   .skills-container {
-    @include flex(flex, center, center, column);
     width: 95%;
-    min-height: 80vh;
-    padding: 20px;
-
-    h1 {
-      font-size: 50px;
-      color: var(--color1);
-      margin: 0;
-    }
-
-    hr {
-      width: 70%;
-      margin: 20px;
-    }
   }
 
-  .skill-card {
-    @include flex(flex, center, center, column);
-    width: 70px;
-    height: 70px;
-    padding: 10px;
-    gap: 5px;
-
-    img {
-      height: 30px;
-    }
-  }
-
-  .skill-card:hover {
-    transform: translateY(0px);
-  }
-
-  .list {
-    width: 95%;
-    height: 100%;
+  .span-frontend,
+  .span-backend,
+  .span-tools,
+  .span-testing,
+  .span-database {
+    grid-column: span 12;
   }
 }
