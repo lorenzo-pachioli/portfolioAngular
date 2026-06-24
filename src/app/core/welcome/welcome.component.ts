@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Output, EventEmitter } from '@angular/core';
+import { Component, AfterViewInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import gsap from 'gsap';
@@ -7,6 +7,7 @@ import gsap from 'gsap';
   selector: 'app-welcome',
   standalone: true,
   imports: [CommonModule, TranslateModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="welcome-screen">
       <div class="welcome-content">

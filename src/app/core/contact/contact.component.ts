@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { cloudinarySvg } from 'src/assets/svg-cloudinary/svg-cloudinary';
 import { environment } from 'src/environments/environment';
 
@@ -6,7 +6,8 @@ import { environment } from 'src/environments/environment';
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactComponent implements OnInit {
 

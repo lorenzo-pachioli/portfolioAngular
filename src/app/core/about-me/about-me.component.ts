@@ -5,7 +5,8 @@ import { descriptions, AboutMilestone } from './aboutData';
   selector: 'app-about-me',
   templateUrl: './about-me.component.html',
   styleUrls: ['./about-me.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AboutMeComponent implements AfterViewInit, OnDestroy {
 
@@ -33,3 +34,4 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
     this.observer?.disconnect();
   }
 }
+
