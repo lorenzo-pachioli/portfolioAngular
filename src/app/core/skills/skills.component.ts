@@ -5,7 +5,8 @@ import { skillCategories, SkillCategory } from './skillsList';
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SkillsComponent implements AfterViewInit {
 

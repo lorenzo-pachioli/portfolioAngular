@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { TranslateService } from '@ngx-translate/core';
@@ -8,7 +8,8 @@ import { environment } from 'src/environments/environment';
   selector: 'app-contact-card',
   templateUrl: './contact-card.component.html',
   styleUrls: ['./contact-card.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactCardComponent implements OnInit {
 
@@ -40,6 +41,7 @@ export class ContactCardComponent implements OnInit {
 
     if (this.newEmail.valid) {
       this.loading = true;
+      this.cdr.markForCheck();
       emailjs.sendForm(environment.service_id, environment.template_id, event, environment.public_key)
         .then((result) => {
           if (result.status === 200) {
@@ -47,16 +49,20 @@ export class ContactCardComponent implements OnInit {
             this.success = true;
             formDirective.resetForm();
             this.newEmail.reset();
+            this.cdr.markForCheck();
             setTimeout(() => {
               this.success = false;
+              this.cdr.markForCheck();
             }, 1500);
           }
         }, (error) => {
           console.error(error);
           this.loading = false;
           this.error = true;
+          this.cdr.markForCheck();
           setTimeout(() => {
             this.error = false;
+            this.cdr.markForCheck();
           }, 1500);
         });
     }
@@ -69,3 +75,4 @@ export class ContactCardComponent implements OnInit {
     return this.email.errors ? this.translateService.instant('app.CONTACT.EMAIL-INVALID') : '';
   }
 }
+

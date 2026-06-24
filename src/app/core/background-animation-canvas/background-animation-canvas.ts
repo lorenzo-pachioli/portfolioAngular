@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit, NgZone, ChangeDetectionStrategy } from '@angular/core';
 
 interface Particle3D {
     x: number;
@@ -19,7 +19,8 @@ interface Particle3D {
     standalone: true,
     imports: [CommonModule],
     templateUrl: './background-animation-canvas.html',
-    styleUrls: ['./background-animation-canvas.scss']
+    styleUrls: ['./background-animation-canvas.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BackgroundAnimationCanvas implements OnInit, AfterViewInit, OnDestroy {
     @ViewChild('particleCanvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
@@ -40,8 +41,11 @@ export class BackgroundAnimationCanvas implements OnInit, AfterViewInit, OnDestr
     private mouseActive = false;
     private mouseTimeout: any;
     private particleColor = '#FF4081'; // Fallback
+    
+    private mouseMoveUnlisten?: () => void;
+    private resizeUnlisten?: () => void;
 
-    constructor() { }
+    constructor(private ngZone: NgZone) { }
 
     ngOnInit(): void {
         this.initParticles();
@@ -56,30 +60,37 @@ export class BackgroundAnimationCanvas implements OnInit, AfterViewInit, OnDestr
         this.particleColor = style.getPropertyValue('--color5').trim() || '#FF4081';
 
         this.resize();
-        this.animate();
+
+        this.ngZone.runOutsideAngular(() => {
+            this.animate();
+
+            const mouseHandler = (event: MouseEvent) => {
+                this.mouseX = event.clientX;
+                this.mouseY = event.clientY;
+                this.mouseActive = true;
+
+                if (this.mouseTimeout) clearTimeout(this.mouseTimeout);
+                this.mouseTimeout = setTimeout(() => {
+                    this.mouseActive = false;
+                }, 100);
+            };
+            document.addEventListener('mousemove', mouseHandler);
+            this.mouseMoveUnlisten = () => document.removeEventListener('mousemove', mouseHandler);
+
+            const resizeHandler = () => {
+                this.resize();
+            };
+            window.addEventListener('resize', resizeHandler);
+            this.resizeUnlisten = () => window.removeEventListener('resize', resizeHandler);
+        });
     }
 
     ngOnDestroy(): void {
         this.isDestroyed = true;
         cancelAnimationFrame(this.animationId);
         if (this.mouseTimeout) clearTimeout(this.mouseTimeout);
-    }
-
-    @HostListener('window:resize')
-    onResize(): void {
-        this.resize();
-    }
-
-    @HostListener('document:mousemove', ['$event'])
-    onMouseMove(event: MouseEvent): void {
-        this.mouseX = event.clientX;
-        this.mouseY = event.clientY;
-        this.mouseActive = true;
-
-        if (this.mouseTimeout) clearTimeout(this.mouseTimeout);
-        this.mouseTimeout = setTimeout(() => {
-            this.mouseActive = false;
-        }, 100);
+        if (this.mouseMoveUnlisten) this.mouseMoveUnlisten();
+        if (this.resizeUnlisten) this.resizeUnlisten();
     }
 
     private resize(): void {

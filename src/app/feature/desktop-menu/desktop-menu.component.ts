@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, HostListener, NgZone, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { ElementByIdService } from 'src/app/shared/services/element-by-id.service';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -9,9 +9,10 @@ import { TranslateService } from '@ngx-translate/core';
   selector: 'app-desktop-menu',
   templateUrl: './desktop-menu.component.html',
   styleUrls: ['./desktop-menu.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DesktopMenuComponent implements OnInit {
+export class DesktopMenuComponent implements OnInit, OnDestroy {
 
   visible = {
     home: false,
@@ -35,28 +36,40 @@ export class DesktopMenuComponent implements OnInit {
   private scrollIndicatorTl?: gsap.core.Timeline;
   private buttonData: { [key: string]: { center: number, width: number } } = {};
 
-  constructor(public element: ElementByIdService, private translate: TranslateService) {
+  constructor(
+    public element: ElementByIdService, 
+    private translate: TranslateService,
+    private ngZone: NgZone,
+    private cdr: ChangeDetectorRef
+  ) {
     this.element.visible.subscribe(currentVisible => {
       this.visible = currentVisible;
+      this.cdr.markForCheck();
     })
   }
 
   ngOnInit(): void {
     this.activeSectionSub = this.element.activeSection$.subscribe(section => {
-      this.updateLinePosition(section);
+      this.ngZone.runOutsideAngular(() => {
+        this.updateLinePosition(section);
+      });
     });
 
     this.langSub = this.translate.onLangChange.subscribe(() => {
       setTimeout(() => {
         this.calculateButtonData();
-        this.initScrollProgress();
+        this.ngZone.runOutsideAngular(() => {
+          this.initScrollProgress();
+        });
       }, 100);
     });
 
     setTimeout(() => {
       this.calculateButtonData();
-      this.initScrollProgress();
-      this.updateLinePosition(this.element.activeSection.value);
+      this.ngZone.runOutsideAngular(() => {
+        this.initScrollProgress();
+        this.updateLinePosition(this.element.activeSection.value);
+      });
     }, 1000);
   }
 
@@ -73,7 +86,9 @@ export class DesktopMenuComponent implements OnInit {
   @HostListener('window:resize')
   onResize() {
     this.calculateButtonData();
-    this.initScrollProgress();
+    this.ngZone.runOutsideAngular(() => {
+      this.initScrollProgress();
+    });
   }
 
   private calculateButtonData() {
@@ -177,6 +192,5 @@ export class DesktopMenuComponent implements OnInit {
   scroll(el: string) {
     this.element.requestScroll(el);
   }
-
-
 }
+
