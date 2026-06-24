@@ -40,7 +40,9 @@
 			"EMAIL-SUCCESS": "Email enviado exitosamente",
 			"EMAIL-WRONG": "Algo salio mal, intenta de nuevo más tarde",
 			"LABEL2": "O visita alguna de mis redes sociales:",
-			"CV": "Descarga mi cv:"
+			"CV": "Descarga mi cv:",
+			"EMAIL-REQUIRED": "Debes ingresar un correo electrónico",
+			"EMAIL-INVALID": "No es un correo electrónico válido"
 		},
 		"ABOUT": {
 			"ACTUALIDAD": {

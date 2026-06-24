@@ -31,12 +31,6 @@ export class SkillsComponent implements AfterViewInit {
     this.glassCards?.forEach(card => this.buildMaskForCard(card.nativeElement));
   }
 
-  /**
-   * Mide la posición y el tamaño real de cada .hole-tag dentro de la card
-   * y arma un mask SVG (data URI) que recorta esa misma forma en .glass-pane.
-   * Donde el mask es negro, el backdrop-filter no se renderiza: se ve el
-   * fondo real de la página, sin blur, simulando un agujero en el vidrio.
-   */
   private buildMaskForCard(card: HTMLElement): void {
     const pane = card.querySelector<HTMLElement>('.glass-pane');
     const tags = card.querySelectorAll<HTMLElement>('.hole-tag');

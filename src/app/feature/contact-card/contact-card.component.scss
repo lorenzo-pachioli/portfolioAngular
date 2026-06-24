@@ -2,116 +2,137 @@
 
 .contact-card-container {
   @include flex(flex, flex-start, flex-start, column);
-  width: 600px;
-  max-width: 100%;
-  background-color: var(--color4);
-  padding: 15px;
-  box-sizing: border-box;
+  width: 100%;
+  gap: 0;
 }
 
-.title {
-  color: var(--color1);
+.required-note {
+  font-size: 12px;
+  color: var(--color2);
+  text-align: right;
+  width: 100%;
+  margin: 0 0 20px;
 }
 
 .form {
-  @include flex(flex, center, center, column);
+  @include flex(flex, flex-start, flex-start, column);
   width: 100%;
+  gap: 20px;
+}
 
-  p {
+.field {
+  @include flex(flex, flex-start, flex-start, column);
+  width: 100%;
+  gap: 6px;
+
+  label {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color5);
+  }
+
+  input,
+  textarea {
     width: 100%;
-    text-align: left;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(var(--color3-rgb), 0.5);
+    color: var(--color1);
+    font-family: inherit;
+    font-size: 14px;
+    padding: 8px 0;
+    outline: none;
+    transition: border-color 0.3s ease;
+    resize: none;
+
+    &::placeholder {
+      color: var(--color3);
+      font-size: 13px;
+    }
+
+    &:focus {
+      border-bottom-color: var(--color5);
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0px 1000px #1A191D inset;
+      -webkit-text-fill-color: var(--color1);
+      transition: background-color 5000s ease-in-out 0s;
+    }
   }
-
-  .mat-mdc-form-field-hint-end {
-    color: var(--color2);
-  }
 }
 
-.message {
+.field-error {
+  font-size: 12px;
+  color: #f44336;
+}
+
+.field-hint {
+  font-size: 12px;
+  color: var(--color3);
+  align-self: flex-end;
+}
+
+.form-footer {
+  @include flex(flex, center, space-between, row);
   width: 100%;
-  min-height: 100px;
+  min-height: 42px;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.mat-mdc-form-field {
-  width: 100%;
+.success-msg {
+  font-size: 13px;
+  color: var(--green);
 }
 
-.label {
+.error-msg {
+  font-size: 13px;
+  color: #f44336;
+}
+
+.send-btn {
+  @include flex(flex, center, center);
+  margin-left: auto;
+  padding: 10px 28px;
+  min-height: 40px;
+  border-radius: 3px;
+  cursor: pointer;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
   color: var(--color5);
-}
+  border: 1.5px solid var(--color5);
+  box-shadow:
+    inset 0 0 0.4em 0 var(--color5),
+    0 0 0.4em 0 var(--color5);
+  transition: box-shadow 0.3s ease, color 0.3s ease;
 
-.buttons {
-  @include flex(flex, center, space-around);
-  width: 100%;
-  margin-top: 20px;
-
-  button {
-    @include flex(flex, center, center);
-    height: 40px;
-    width: 100%;
-    border-radius: 2px;
+  &:hover:not(:disabled) {
+    color: var(--color1);
+    box-shadow:
+      inset 0 0 0.7em 0 var(--color5),
+      0 0 0.7em 0 var(--color5);
   }
 
-  button:active {
-    background-color: var(--color4);
-    color: white;
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow: none;
+    border-color: var(--color3);
+    color: var(--color3);
   }
 
-  p {
+  span {
     margin: 0;
   }
-}
-
-.date-picker {
-  color: var(--color4);
 }
 
 .spinner::ng-deep .mat-progress-spinner circle,
 .mat-spinner circle {
-  stroke: var(--color4);
-  color: var(--color4);
-}
-
-.mat-mdc-card-header {
-  width: 100%;
-  padding: 0;
-
-  p {
-    width: 100%;
-    text-align: right;
-    color: var(--color2);
-    margin: 0;
-    font-size: 12px;
-  }
-}
-
-.mat-mdc-card-content {
-  width: 100%;
-  text-align: left;
-  padding: 16px 0;
-}
-
-.mat-mdc-card-footer {
-  width: 100%;
-  min-height: 16px;
-
-
-
-}
-
-.success {
-  @include flex(flex, center, flex-end);
-  width: 100%;
-  color: var(--green);
-  margin: 0;
-}
-
-
-
-@media screen and (max-width: 900px) {
-  .contact-card-container {
-    @include flex(flex, flex-start, flex-start, column);
-    width: 100%;
-    padding: 15px;
-  }
+  stroke: var(--color5);
 }

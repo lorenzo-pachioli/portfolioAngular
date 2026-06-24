@@ -40,7 +40,9 @@
 			"EMAIL-SUCCESS": "Email sent successfully",
 			"EMAIL-WRONG": "Something went wrong, please try again later",
 			"LABEL2": "Or visit one of my social networks:",
-			"CV": "Download my CV:"
+			"CV": "Download my CV:",
+			"EMAIL-REQUIRED": "You must enter an email address",
+			"EMAIL-INVALID": "Not a valid email"
 		},
 		"ABOUT": {
 			"ACTUALIDAD": {

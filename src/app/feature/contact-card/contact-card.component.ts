@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
+import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -30,7 +31,7 @@ export class ContactCardComponent implements OnInit {
     message: this.message
   });
 
-  constructor() { }
+  constructor(private translateService: TranslateService) { }
 
   ngOnInit(): void {
   }
@@ -63,8 +64,8 @@ export class ContactCardComponent implements OnInit {
 
   getErrorMessage() {
     if (this.email.hasError('required')) {
-      return 'You must enter a value';
+      return this.translateService.instant('app.CONTACT.EMAIL-REQUIRED');
     }
-    return this.email.errors ? 'Not a valid email' : '';
+    return this.email.errors ? this.translateService.instant('app.CONTACT.EMAIL-INVALID') : '';
   }
 }
