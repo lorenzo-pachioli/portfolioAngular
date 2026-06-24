@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnDestroy, QueryList, ViewChildren } from '@angular/core';
 import { descriptions, AboutMilestone } from './aboutData';
 
 @Component({

@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { TranslateService } from '@ngx-translate/core';
@@ -32,7 +32,7 @@ export class ContactCardComponent implements OnInit {
     message: this.message
   });
 
-  constructor(private translateService: TranslateService) { }
+  constructor(private translateService: TranslateService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
