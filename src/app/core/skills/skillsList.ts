@@ -38,7 +38,7 @@ export const skillCategories: SkillCategory[] = [
         key: 'testing',
         label: 'app.SKILLS.TESTING',
         span: 4,
-        technologies: ['Jest', 'Manual Testing', 'API Testing', 'Performance Testing', 'Automation Testing']
+        technologies: ['Jest', 'Manual Testing', 'API Testing']
     },
     {
         key: 'database',
