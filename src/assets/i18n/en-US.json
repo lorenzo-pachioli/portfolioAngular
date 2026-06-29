@@ -5,81 +5,98 @@
 		},
 		"HEADER": {
 			"HOME": "Home",
-			"SKILLS": "Skills",
+			"SKILLS": "Technologies",
 			"PORTFOLIO": "Portfolio",
 			"ABOUT-ME": "About me",
 			"CONTACT": "Contact",
 			"DOWNLOAD": "Download cv"
 		},
-		"TITLE": "Full Stack developer ",
+		"TITLE": "Full Stack Developer",
 		"HOME": {
-			"DESCRIPTION": "I'm a Full Stack Developer with +2 years of experience, focused on building efficient, scalable, and accessible web applications. I thrive in collaborative environments and I am constantly working to improve both my technical and interpersonal skills.",
-			"CONTACT-ME": "Contact me!"
+			"DESCRIPTION": "I'm a Full Stack Developer with 2+ years of experience building scalable, efficient and accessible web applications. I thrive in collaborative coding environments and I'm constantly working to improve both my technical and interpersonal skills.",
+			"CONTACT-ME": "Send me a message!"
 		},
-		"PROJECT":{
+		"PROJECT": {
 			"BACK": "Back",
-			"DEPLOYED": "Website",
-			"DEVUNITED": "Its a tweeter alike website using firebase as back-end and React router for the difrent pages. It was created as a evaluated project for the last sprint of the Acamica course.",
-			"APIBRAIN": "It's the server aplication for Brainstorming made in Node with Express and MongoDB.",
-			"PORTFOLIO": "Its the web page you are currently visiting created with Angular, Typescript, Angular-Material, i18n and Gsap. Check out the code in Github to see how it works!",
-			"GIFY": "Its a static SPA that conects to the API of Giphy (https://giphy.com/) and alows the user to search gifs throw a simple searcher.It was created as a evaluated project for the third sprint of the Acamica course.",
-			"BRAIN": "It's a scrum base task manager created as a final project for the Lamansys bootcamp using Angular and Angular Material, conecting to an API provided by them and following some requirements.",
-			"RM": "It's a landing page created using Angular, Typescript and Angular-Material for a client dedicated to commercial ship's mechanics",
-			"APICHAT": "It's the server aplication for Chat-app made in Node with Socket.io, Express and MongoDB. After finishing a technical interview process and presenting ChatApp, I made this API to replace the one they had given me to do the challenge.",
-			"CHAT": "It's a real time chat web site that uses React and Socket.io-client to communicate with Api-chat.",
-			"PAWSOME": "It's a mock e-commerce website created using Next.js and Tailwind, and working without a back-end using Firebase and Mercado Pago API. I also developed the Admin panel for managing the products, services, promotions and orders. The Register and Login are functional, but the user panel is still in development."
+			"DEPLOYED": "Visit site",
+			"DEVUNITED": "A Twitter-like website that uses Firebase as the Back End and React as the Front End. It was created as a final evaluated project for the Acamica course.",
+			"APIBRAIN": "The Back End for the Brainstorming website, built with Node, Express and MongoDB. After finishing the Lamansys bootcamp and presenting Brainstorming, I built this API to replace the one they gave me for the final project.",
+			"PORTFOLIO": "The site you are currently on, built with Angular, TypeScript, Angular Material, i18n and GSAP. Visit the GitHub repository to see how it works!",
+			"GIFY": "A SPA that uses the external Giphy API (https://giphy.com/) and allows users to search for GIFs through a search bar. It was created as an evaluated project for the third sprint of the Acamica course.",
+			"BRAIN": "A Scrum manager built as the final project for the Lamansys bootcamp using Angular and Angular Material, connected to an API provided by them for the evaluated project.",
+			"RM": "A landing page built with Angular, TypeScript and Angular Material for a client who runs a naval mechanics workshop.",
+			"APICHAT": "The Back End for the Chat App site, built with Socket.io, Express and MongoDB. After finishing a technical interview process and presenting ChatApp, I built this API to replace the one I was given for the challenge.",
+			"CHAT": "A real-time chat app built with React and Socket.io that communicates with Api-chat.",
+			"PAWSOME": "A mock e-commerce built with Next.js and Tailwind, running without a traditional back-end using Firebase and the Mercado Pago API. I also developed the admin panel to manage products, services, promotions and orders. Register and Login are functional, but the user panel is still in development."
 		},
 		"CONTACT": {
-			"REQUIRED-VALUES": "* Required values",
-			"LABEL": "If you liked my profile and want to get in touch, send me a message:",
+			"REQUIRED-VALUES": "* Required fields",
+			"LABEL": "If you liked my profile and want to get in touch, send me an email:",
 			"NAME": "Name",
-			"INVALID-NAME": "Not a valid name",
+			"INVALID-NAME": "Invalid name",
 			"MESSAGE": "Message",
 			"SEND": "Send",
-			"INTRODUCE": "Introduce yourself!",
+			"INTRODUCE": "Tell me a bit about yourself!",
 			"EMAIL-SUCCESS": "Email sent successfully",
-			"EMAIL-WRONG": "Something went wrong, try again later.",
-			"LABEL2": "Or visit any of my social networks:",
-			"CV": "Download my cv:"
+			"EMAIL-WRONG": "Something went wrong, please try again later",
+			"LABEL2": "Or visit one of my social networks:",
+			"CV": "Download my CV:",
+			"EMAIL-REQUIRED": "You must enter an email address",
+			"EMAIL-INVALID": "Not a valid email"
 		},
 		"ABOUT": {
 			"ACTUALIDAD": {
+				"DATE": "Nov 2025 – Jun 2026",
 				"TITLE": "Now",
-				"STORY": "From November 2025 to June 2026, I worked as a Front End Developer at Smarterix, a digital consulting company based in Mar del Plata, Argentina, under a hybrid work model. I participated in the entire product lifecycle, from planning and implementation to maintenance and continuous improvement. My role involved developing and maintaining modern user interfaces using technologies such as PHP, Laravel, and React, as well as integrating third-party services and APIs, including Spatie and the Google Drive API. I collaborated closely with cross-functional teams to deliver scalable, maintainable digital solutions aligned with business objectives."
+				"STORY": "From November 2025 to June 2026 I worked as a Front End Developer at Smarterix, a digital consultancy based in Mar del Plata, Argentina, in a hybrid work model. I participated in the full product lifecycle, from planning and implementation to maintenance and continuous improvement. My role included developing and maintaining modern interfaces using technologies such as PHP, Laravel and React, as well as integrating third-party services and APIs like Spatie and Google Drive API. I worked collaboratively with multidisciplinary teams to deliver scalable, maintainable digital solutions aligned with business objectives."
 			},
 			"UTN": {
+				"DATE": "Ongoing",
 				"TITLE": "UTN",
-				"STORY": "Currently during third quarter of this two year carrer at Universidad Tecnológica Nacional in Mar del Plata. The carrer website: 'https:// mdp.utn.edu.ar/ tecnicatura/ tecnico_ universitario_ en_ programacion/'"
+				"STORY": "Currently in my third term of the University Technician in Programming degree. Course site: 'https:// mdp.utn.edu.ar/ tecnicatura/ tecnico_ universitario_ en_ programacion/'"
 			},
-			"SWAPLYAR":  {
+			"SWAPLYAR": {
+				"DATE": "Jun – Sep 2025",
 				"TITLE": "SwaplyAr",
-				"STORY": "Collaborated with Front End functionalities using Next.js and Tailwind, improving and adding features centered on the logic and the information management algorithms. Helped the Back End team using Nest.js to solve bugs related to the features I was working on in the front. Working collaboratively with a multicultural Latin American team on the implementation of features and bug fixing in the public, internal, and administration sections. Tech Stack: Next.js, Nest.js, Tailwind, Zustand and Postgre SQL"
-			}, 
-			"UDEMYQA":  {
+				"STORY": "I collaborated on Front End features using Next.js and Tailwind, improving and adding functionality focused on logic and information management algorithms. I helped the Back End team use Nest.js to fix bugs related to the features I was working on in the Front. Worked collaboratively with a multicultural Latin American team on feature implementation and bug fixing across the public, internal and administration sections. Tech stack: Next.js, Nest.js, Tailwind, Zustand and PostgreSQL."
+			},
+			"UDEMYQA": {
+				"DATE": "Training",
 				"TITLE": "Udemy QA",
-				"STORY": "Currently doing this 36hs QA bootcamp. Web site: 'https:// www.udemy.com/ course/ testerbootcamp/'"
+				"STORY": "A 36-hour bootcamp on manual QA, API testing, performance testing and automation testing. Website: 'https:// www.udemy.com/ course/ testerbootcamp/'"
 			},
-			"ALKEMY":  {
+			"ALKEMY": {
+				"DATE": "Training",
 				"TITLE": "Alkemy",
-				"STORY": "A 15 day Angular group project accomplishing the requests proposed by Alkemy and created applying scrum and git flow methodologies."
+				"STORY": "A 15-day group project using Angular, fulfilling the requirements proposed by Alkemy and applying Scrum and GitFlow methodologies."
 			},
-			"LAMANSYS":  {
+			"LAMANSYS": {
+				"DATE": "Training",
 				"TITLE": "Lamansys",
-				"STORY": "A two month front end boostcamp with Angular, Typescript and Material-UI. It ended with a final project that had some requirments and manage with Taiga."
-			},			
-			"UDEMY":  {
+				"STORY": "A two-month bootcamp with Angular, TypeScript and Material UI, finishing with a final project fulfilling the proposed requirements and managed with Taiga."
+			},
+			"UDEMY": {
+				"DATE": "Training",
 				"TITLE": "Udemy",
-				"STORY": "Short course of advanced design patterns for React components."
+				"STORY": "A complete guide on advanced design patterns for React components."
 			},
-			"ACAMICA":  {
+			"ACAMICA": {
+				"DATE": "Training",
 				"TITLE": "Acamica",
-				"STORY": "This nine month course separated on four sprints gave me the knowledge to become a front-end web developer, teaching me about HTM, CSS, Javascript, React and Firebase."
+				"STORY": "A 9-month course split into 4 sprints that gave me the knowledge to become a Front End developer, covering the fundamentals of HTML, CSS, JavaScript, React and Firebase."
 			},
-			"BEFORE":  {
+			"BEFORE": {
+				"DATE": "Before code",
 				"TITLE": "Before coding",
-				"STORY": "Graduated as a Superior Technician in Light Mechanics and 6 years working as a comertial ships mechanic, growing from assistant to workshop manager."
+				"STORY": "Graduated as a Superior Technician in Light Mechanics and spent 6 years working as a naval mechanic, growing from assistant to workshop manager."
 			}
+		},
+		"SKILLS": {
+			"FRONTEND": "Frontend",
+			"BACKEND": "Backend",
+			"TOOLS": "Tools & Methodologies",
+			"TESTING": "Testing & QA",
+			"DATABASE": "Databases"
 		}
 	}
-	
 }

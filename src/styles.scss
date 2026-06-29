@@ -64,18 +64,18 @@ app-root {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ff4081;
+  background: var(--color5);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #B6B3B1;
+  background: var(--color2);
   cursor: pointer;
 }
 
 ::-webkit-scrollbar-track {
   background: #333333;
-  border: 0px none #ff4081;
+  border: 0px none var(--color5);
   border-radius: 3px;
 }
 
@@ -214,7 +214,9 @@ body {
   --color3: #808082;
   --color3-rgb: 128, 128, 130;
   --color4: #131A24;
+  --color4-trans: rgba(26, 25, 29, 0.35);
   --color5: #FF4081;
+  --color5-trans: rgba(255, 64, 129, 0.4);
   --color5-rgb: 255, 64, 129;
   --max-width: 1400px;
   --max-width-mobile: 97vw;

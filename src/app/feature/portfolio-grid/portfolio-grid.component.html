@@ -1,7 +1,7 @@
 <div class="portfolio-grid-container">
   <mat-grid-list [cols]="gridSize.col" [rowHeight]="gridSize.rowHeight" [gutterSize]="gridSize.gutterSize">
     <mat-grid-tile *ngFor="let tile of projectsList" [colspan]="tile.cols" [rowspan]="tile.rows"
-      [style.background]="tile.color">
+      class="card-background">
       <img class="screenshot" [src]="tile.image" alt="{{tile.title}} project screenshot"
         *ngIf="tile.image; else tileText" />
       <ng-template #tileText>

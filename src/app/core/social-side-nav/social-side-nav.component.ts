@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { cloudinarySvg } from 'src/assets/svg-cloudinary/svg-cloudinary';
 import { environment } from 'src/environments/environment';
 
@@ -6,7 +6,8 @@ import { environment } from 'src/environments/environment';
   selector: 'app-social-side-nav',
   templateUrl: './social-side-nav.component.html',
   styleUrls: ['./social-side-nav.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SocialSideNavComponent implements OnInit {
 
@@ -15,13 +16,15 @@ export class SocialSideNavComponent implements OnInit {
   svgLinkedin = cloudinarySvg.linkedin;
   github = cloudinarySvg.github;
 
-  constructor() { }
+  constructor(private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
 
   changeMenuState(): void {
     this.menuOpen = !this.menuOpen;
+    this.cdr.markForCheck();
   }
 
 }
+
