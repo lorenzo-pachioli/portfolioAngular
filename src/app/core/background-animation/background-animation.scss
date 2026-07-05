@@ -1,52 +1,50 @@
-.gradient-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-}
+// background-animation.scss
+//
+// Dos cambios críticos respecto a la versión original:
+//
+// 1. will-change: transform en .particle.dust
+//    Promueve cada partícula a su propia capa de compositor GPU antes
+//    de que empiece la animación. Sin esto, el browser crea la capa
+//    en el primer frame (jank visible). Con esto, la capa ya existe.
+//
+// 2. top: 0 / left: 0 fijos en .particle.dust
+//    El posicionamiento real lo hace translate3d en el TS.
+//    Si se dejaran top/left variables, el browser recalcularía el layout
+//    en cada frame (reflow). Así solo actualiza el compositor (sin reflow).
+//
+// 3. --particle-rgb como CSS custom property
+//    El box-shadow del shadow-particle usa rgba(var(--particle-rgb), opacity).
+//    Definir el color como RGB separado permite ajustar la opacidad del shadow
+//    de forma independiente al color base de la partícula.
+//    Setear este valor en el componente raíz o en styles.scss:
+//      :root { --particle-rgb: 255, 64, 129; }
 
-.gradient-background {
-    width: 100%;
-    height: 100%;
-
-    background: linear-gradient(180deg,
-            rgba(88, 23, 45, 1) 0%,
-            rgba(26, 25, 29, 1) 18%,
-            rgba(26, 25, 29, 1) 65%,
-            rgba(88, 23, 45, 1) 100%);
-}
-
-.particles-fixed-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 50;
-    pointer-events: none;
-    overflow: hidden;
+:host {
+  display: contents; // no genera caja en el layout, el contenedor es transparente
 }
 
 .particles-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden; // evita scrollbars si algún shadow desborda
+  z-index: 0;
 }
 
-:host ::ng-deep .particle {
-    position: absolute;
-    background: var(--color5);
-    opacity: 0.6;
-    border-radius: 50%;
-    pointer-events: none;
-}
+.particle.dust {
+  position: absolute;
 
-:host ::ng-deep .particle.dust {
-    background: var(--color5);
-    opacity: 0.9;
+  // Anclaje fijo en el origen — el movimiento lo maneja translate3d en TS
+  top: 0;
+  left: 0;
+
+  border-radius: 50%;
+  pointer-events: none;
+
+  // Pre-promoción a capa GPU individual.
+  // Con will-change, el browser asigna VRAM para esta capa durante el init,
+  // no durante el primer frame animado. Elimina el jank inicial.
+  // El box-shadow calculado en TS se incluye en esta misma capa: se mueve
+  // junto con el transform sin costo adicional de layout ni paint.
+  will-change: transform;
 }
