@@ -38,6 +38,20 @@
     height: 100%;
 }
 
+.particle.dust {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform; // Pre-promociona la partícula a su propia capa GPU
+                           // El browser la mueve sin tocar el layout del DOM
+}
+
+:host {
+  display: contents; // no agrega caja al layout
+}
+
 :host ::ng-deep .particle {
     position: absolute;
     background: var(--color5);

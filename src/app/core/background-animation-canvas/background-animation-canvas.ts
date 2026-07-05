@@ -1,189 +1,198 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit, NgZone, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component, OnDestroy, AfterViewInit,
+  ViewChild, ElementRef, ChangeDetectionStrategy, inject, NgZone
+} from '@angular/core';
+import { AnimationCoordinatorService } from 'src/app/services/animation-coordinator/animation-coordinator.service';
+
+// ─── Tipos ─────────────────────────────────────────────────────────────────────
 
 interface Particle3D {
-    x: number;
-    y: number;
-    z: number;
-    vx: number;
-    vy: number;
-    vz: number;
-    baseX: number;
-    baseY: number;
-    size: number;
-    opacity: number;
+  x: number; y: number; z: number;
+  vx: number; vy: number; vz: number;
+  baseX: number; baseY: number;
+  size: number;
+  opacity: number;
 }
 
+// ─── Constantes ────────────────────────────────────────────────────────────────
+const PARTICLE_COUNT = 500;
+const FOCAL_LENGTH = 400;
+const MAX_Z = 600;
+const MOUSE_RADIUS = 200;
+const MOUSE_RADIUS_SQ = MOUSE_RADIUS * MOUSE_RADIUS;
+
+
 @Component({
-    selector: 'app-background-animation-canvas',
-    standalone: true,
-    imports: [CommonModule],
-    templateUrl: './background-animation-canvas.html',
-    styleUrls: ['./background-animation-canvas.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-background-animation-canvas',
+  standalone: true,
+  templateUrl: './background-animation-canvas.html',
+  styleUrls: ['./background-animation-canvas.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BackgroundAnimationCanvas implements OnInit, AfterViewInit, OnDestroy {
-    @ViewChild('particleCanvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
+export class BackgroundAnimationCanvas implements AfterViewInit, OnDestroy {
 
-    private ctx!: CanvasRenderingContext2D;
-    private particles: Particle3D[] = [];
-    private particleCount = 800;
-    private animationId!: number;
-    private isDestroyed = false;
+  @ViewChild('particleCanvas', { static: true })
+  private readonly canvasRef!: ElementRef<HTMLCanvasElement>;
 
-    // Parámetros de la perspectiva
-    private focalLength = 400;
-    private minZ = 0;
-    private maxZ = 600;
+  private readonly ngZone = inject(NgZone);
+  private readonly coordinator = inject(AnimationCoordinatorService);
 
-    private mouseX = 0;
-    private mouseY = 0;
-    private mouseActive = false;
-    private mouseTimeout: any;
-    private particleColor = '#FF4081'; // Fallback
-    
-    private mouseMoveUnlisten?: () => void;
-    private resizeUnlisten?: () => void;
+  private ctx!: CanvasRenderingContext2D;
+  private particles: Particle3D[] = [];
+  private particleColor = '#FF4081';
 
-    constructor(private ngZone: NgZone) { }
+  private mouseX = 0;
+  private mouseY = 0;
+  private mouseActive = false;
+  private mouseTimeout: ReturnType<typeof setTimeout> | null = null;
 
-    ngOnInit(): void {
-        this.initParticles();
-    }
+  private unregisterTick!: () => void;
+  private cleanupMouse!: () => void;
+  private cleanupResize!: () => void;
 
-    ngAfterViewInit(): void {
-        const canvas = this.canvasRef.nativeElement;
-        this.ctx = canvas.getContext('2d')!;
+  // ─── Lifecycle ───────────────────────────────────────────────────────────────
 
-        // Obtener el color del CSS variable
-        const style = getComputedStyle(document.documentElement);
-        this.particleColor = style.getPropertyValue('--color5').trim() || '#FF4081';
+  ngAfterViewInit(): void {
+    const canvas = this.canvasRef.nativeElement;
+    this.ctx = canvas.getContext('2d')!;
 
-        this.resize();
+    const style = getComputedStyle(document.documentElement);
+    this.particleColor = style.getPropertyValue('--color5').trim() || '#FF4081';
 
-        this.ngZone.runOutsideAngular(() => {
-            this.animate();
+    this.resizeCanvas();
+    this.initParticles();
 
-            const mouseHandler = (event: MouseEvent) => {
-                this.mouseX = event.clientX;
-                this.mouseY = event.clientY;
-                this.mouseActive = true;
+    this.ngZone.runOutsideAngular(() => {
+      // Sin RAF propio: el coordinator llama a onTick() en cada frame del gsap.ticker
+      this.unregisterTick = this.coordinator.register(() => this.onTick());
 
-                if (this.mouseTimeout) clearTimeout(this.mouseTimeout);
-                this.mouseTimeout = setTimeout(() => {
-                    this.mouseActive = false;
-                }, 100);
-            };
-            document.addEventListener('mousemove', mouseHandler);
-            this.mouseMoveUnlisten = () => document.removeEventListener('mousemove', mouseHandler);
+      const mouseHandler = (e: MouseEvent) => {
+        this.mouseX = e.clientX;
+        this.mouseY = e.clientY;
+        this.mouseActive = true;
 
-            const resizeHandler = () => {
-                this.resize();
-            };
-            window.addEventListener('resize', resizeHandler);
-            this.resizeUnlisten = () => window.removeEventListener('resize', resizeHandler);
-        });
-    }
-
-    ngOnDestroy(): void {
-        this.isDestroyed = true;
-        cancelAnimationFrame(this.animationId);
         if (this.mouseTimeout) clearTimeout(this.mouseTimeout);
-        if (this.mouseMoveUnlisten) this.mouseMoveUnlisten();
-        if (this.resizeUnlisten) this.resizeUnlisten();
+        this.mouseTimeout = setTimeout(() => {
+          this.mouseActive = false;
+          this.mouseTimeout = null;
+        }, 150);
+      };
+      document.addEventListener('mousemove', mouseHandler);
+      this.cleanupMouse = () => document.removeEventListener('mousemove', mouseHandler);
+
+      const resizeHandler = () => this.resizeCanvas();
+      window.addEventListener('resize', resizeHandler);
+      this.cleanupResize = () => window.removeEventListener('resize', resizeHandler);
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.unregisterTick?.();
+    this.cleanupMouse?.();
+    this.cleanupResize?.();
+    if (this.mouseTimeout) clearTimeout(this.mouseTimeout);
+  }
+
+  // ─── Inicialización ───────────────────────────────────────────────────────────
+
+  private initParticles(): void {
+    this.particles = Array.from({ length: PARTICLE_COUNT }, () => {
+      const x = (Math.random() - 0.5) * 2000;
+      const y = (Math.random() - 0.5) * 2000;
+      return {
+        x, y,
+        z: Math.random() * MAX_Z,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        vz: (Math.random() - 0.1) * 0.3,
+        baseX: x, baseY: y,
+        size: Math.random() * 2 + 0.5,
+        opacity: Math.random() * 0.6 + 0.2
+      };
+    });
+  }
+
+  private resizeCanvas(): void {
+    const canvas = this.canvasRef.nativeElement;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  // ─── Tick coordinado ──────────────────────────────────────────────────────────
+
+  private onTick(): void {
+    const { canRender, frameRate } = this.coordinator.particlePermission();
+
+    if (!canRender) return;
+
+    if (frameRate === 'half' && this.coordinator.tickCount % 2 !== 0) return;
+
+    this.renderFrame();
+  }
+
+  // ─── Render ───────────────────────────────────────────────────────────────────
+
+  private renderFrame(): void {
+    const canvas = this.canvasRef.nativeElement;
+    const { width, height } = canvas;
+    const centerX = width / 2;
+    const centerY = height / 2;
+    const { mouseActive, mouseX, mouseY } = this;
+
+    this.ctx.clearRect(0, 0, width, height);
+    this.ctx.fillStyle = this.particleColor;
+
+    for (const p of this.particles) {
+      this.updateParticle(p, centerX, centerY, mouseActive, mouseX, mouseY);
+    }
+  }
+
+  private updateParticle(
+    p: Particle3D,
+    centerX: number, centerY: number,
+    mouseActive: boolean, mouseX: number, mouseY: number
+  ): void {
+    p.x += p.vx;
+    p.y += p.vy;
+    p.z += p.vz;
+
+    const scale = FOCAL_LENGTH / (FOCAL_LENGTH + p.z);
+    const px = centerX + p.x * scale;
+    const py = centerY + p.y * scale;
+
+    // Interacción mouse: distSq evita sqrt en partículas fuera del radio
+    if (mouseActive && p.z >= 0 && p.z <= 300) {
+      const dx = mouseX - px;
+      const dy = mouseY - py;
+      const distSq = dx * dx + dy * dy;
+
+      if (distSq < MOUSE_RADIUS_SQ) {
+        const dist = Math.sqrt(distSq); // solo cuando está dentro del radio
+        const angle = Math.atan2(dy, dx);
+        const force = (1 - dist / MOUSE_RADIUS) * 0.9 * 20;
+
+        p.x -= (Math.cos(angle) * force) / scale;
+        p.y -= (Math.sin(angle) * force) / scale;
+      }
     }
 
-    private resize(): void {
-        const canvas = this.canvasRef.nativeElement;
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
+    p.baseX += p.vx;
+    p.baseY += p.vy;
+    p.x += (p.baseX - p.x) * 0.001;
+    p.y += (p.baseY - p.y) * 0.001;
 
-    private initParticles(): void {
-        for (let i = 0; i < this.particleCount; i++) {
-            const x = (Math.random() - 0.5) * 2000;
-            const y = (Math.random() - 0.5) * 2000;
-            this.particles.push({
-                x: x,
-                y: y,
-                z: Math.random() * (this.maxZ - this.minZ) + this.minZ,
-                vx: (Math.random() - 0.5) * 0.4,
-                vy: (Math.random() - 0.5) * 0.4,
-                vz: (Math.random() - 0.1) * 0.3,
-                baseX: x,
-                baseY: y,
-                size: Math.random() * 2 + 0.5, // Más pequeñas
-                opacity: Math.random() * 0.6 + 0.2
-            });
-        }
-    }
+    if (p.z < 0) p.z = MAX_Z;
+    if (p.z > MAX_Z) p.z = 0;
 
-    private animate(): void {
-        if (this.isDestroyed) return;
+    if (p.baseX < -1500) p.baseX = 1500;
+    else if (p.baseX > 1500) p.baseX = -1500;
+    if (p.baseY < -1500) p.baseY = 1500;
+    else if (p.baseY > 1500) p.baseY = -1500;
 
-        this.ctx.clearRect(0, 0, this.canvasRef.nativeElement.width, this.canvasRef.nativeElement.height);
-        this.ctx.fillStyle = this.particleColor;
-
-        const centerX = this.canvasRef.nativeElement.width / 2;
-        const centerY = this.canvasRef.nativeElement.height / 2;
-
-        this.particles.forEach(p => {
-            // Movimiento natural
-            p.x += p.vx;
-            p.y += p.vy;
-            p.z += p.vz;
-
-            // Perspectiva
-            const scale = this.focalLength / (this.focalLength + p.z);
-            const px = centerX + p.x * scale;
-            const py = centerY + p.y * scale;
-
-            // Interacción con mouse para Z entre 0 y 300
-            if (this.mouseActive && p.z >= 0 && p.z <= 300) {
-                const dx = this.mouseX - px;
-                const dy = this.mouseY - py;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < 200) {
-                    const angle = Math.atan2(dy, dx);
-                    const force = (1 - distance / 200) * 0.9 * (2000 / 100);
-
-                    p.x -= (Math.cos(angle) * force) / scale;
-                    p.y -= (Math.sin(angle) * force) / scale;
-                }
-            }
-
-            // Viento continuo para las posiciones base
-            p.baseX += p.vx;
-            p.baseY += p.vy;
-
-            // Retorno suave a la "base" impulsada por el viento (0.001 como el original)
-            p.x += (p.baseX - p.x) * 0.001;
-            p.y += (p.baseY - p.y) * 0.001;
-
-            // Reaparecer si salen del rango Z
-            if (p.z < this.minZ) p.z = this.maxZ;
-            if (p.z > this.maxZ) p.z = this.minZ;
-
-            // Limites laterales (world wrapping local para el viento)
-            if (p.baseX < -1500) p.baseX = 1500;
-            if (p.baseX > 1500) p.baseX = -1500;
-            if (p.baseY < -1500) p.baseY = 1500;
-            if (p.baseY > 1500) p.baseY = -1500;
-
-            const pSize = p.size * scale;
-
-            // Opacidad basada en profundidad Z
-            let alpha = p.opacity * scale;
-            if (p.z < 0) alpha *= (1 - p.z / this.minZ);
-
-            this.ctx.globalAlpha = Math.max(0, Math.min(1, alpha));
-
-            this.ctx.beginPath();
-            this.ctx.arc(px, py, pSize, 0, Math.PI * 2);
-            this.ctx.fill();
-        });
-
-        this.animationId = requestAnimationFrame(() => this.animate());
-    }
+    const alpha = Math.max(0, Math.min(1, p.opacity * scale));
+    this.ctx.globalAlpha = alpha;
+    this.ctx.beginPath();
+    this.ctx.arc(px, py, Math.max(0.1, p.size * scale), 0, Math.PI * 2);
+    this.ctx.fill();
+  }
 }

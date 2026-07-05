@@ -1,72 +1,171 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, Renderer2, NgZone, ChangeDetectionStrategy } from '@angular/core';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import {
+  Component, OnDestroy, AfterViewInit,
+  ViewChild, ElementRef, Renderer2,
+  ChangeDetectionStrategy, inject, NgZone
+} from '@angular/core';
+import { AnimationCoordinatorService } from 'src/app/services/animation-coordinator/animation-coordinator.service';
 
+// ─── Tipos ─────────────────────────────────────────────────────────────────────
+
+/**
+ * Coordenadas en píxeles (no en porcentaje).
+ * El cambio de % a px es fundamental: permite usar translate3d
+ * en lugar de left/top, eliminando las operaciones de reflow.
+ */
 interface DustParticle {
-  element: HTMLDivElement;
-  x: number;
+  readonly element: HTMLDivElement;
+  x: number;          // posición actual en px
   y: number;
-  vx: number;
+  vx: number;         // velocidad en px/frame
   vy: number;
-  baseX: number;
+  baseX: number;      // posición base para la atracción de retorno
   baseY: number;
 }
+
+// ─── Constantes ────────────────────────────────────────────────────────────────
+
+const PARTICLE_COUNT = 300;
+
+/** Radio de influencia del mouse al cuadrado — evita Math.sqrt preventivo */
+const MOUSE_RADIUS = 200;
+const MOUSE_RADIUS_SQ = MOUSE_RADIUS * MOUSE_RADIUS;
+
+/** Velocidad máxima de retorno a la posición base por frame */
+const BASE_RETURN_FACTOR = 0.001;
 
 @Component({
   selector: 'app-background-animation',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './background-animation.html',
   styleUrls: ['./background-animation.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BackgroundAnimation implements OnInit, OnDestroy, AfterViewInit {
-  @ViewChild('particlesContainer', { static: true }) particlesContainer!: ElementRef<HTMLDivElement>;
-  @ViewChild('gradientWrapper', { static: true }) gradientWrapper!: ElementRef<HTMLDivElement>;
+export class BackgroundAnimation implements AfterViewInit, OnDestroy {
 
-  private particleCount = 450;
-  private isDestroyed = false;
-  private isScrolling = false;
-  private mouseInfluence = { x: 0, y: 0, active: false };
-  private dustParticles: Array<DustParticle> = [];
-  private mouseMoveUnlisten?: () => void;
+  @ViewChild('particlesContainer', { static: true })
+  private readonly particlesContainer!: ElementRef<HTMLDivElement>;
 
-  constructor(private renderer: Renderer2, private ngZone: NgZone) { }
+  @ViewChild('gradientWrapper', { static: true })
+  private readonly gradientWrapper!: ElementRef<HTMLDivElement>;
 
-  ngOnInit(): void {
-    for (let i = 0; i < this.particleCount; i++) {
-      this.createDustParticle();
-    }
-  }
+  // ─── DI vía inject() ────────────────────────────────────────────────────────
+
+  private readonly renderer = inject(Renderer2);
+  private readonly ngZone = inject(NgZone);
+  private readonly coordinator = inject(AnimationCoordinatorService);
+
+  // ─── Estado interno ──────────────────────────────────────────────────────────
+
+  private readonly dustParticles: DustParticle[] = [];
+
+  private mouseX = 0;
+  private mouseY = 0;
+  private mouseActive = false;
+  private mouseTimeout: ReturnType<typeof setTimeout> | null = null;
+
+  /** Dimensiones cacheadas para evitar lecturas de layout en cada frame */
+  private viewportW = 0;
+  private viewportH = 0;
+
+  // ─── Cleanup refs ────────────────────────────────────────────────────────────
+
+  private unregisterTick!: () => void;
+  private cleanupMouse!: () => void;
+  private cleanupResize!: () => void;
+
+  // ─── Lifecycle ───────────────────────────────────────────────────────────────
 
   ngAfterViewInit(): void {
+    this.cacheViewport();
+    this.initParticles();
+    this.moveGradientToBody();
+
     this.ngZone.runOutsideAngular(() => {
-      this.animateDustParticles();
+      // Se subscribe al tick coordinado: sin RAF propio
+      this.unregisterTick = this.coordinator.register(() => this.onTick());
 
-      ScrollTrigger.addEventListener("scrollStart", () => {
-        this.isScrolling = true;
-      });
+      // Mouse: clearTimeout antes de crear uno nuevo → un timer a la vez
+      const mouseHandler = (e: MouseEvent) => {
+        this.mouseX = e.clientX;
+        this.mouseY = e.clientY;
+        this.mouseActive = true;
 
-      ScrollTrigger.addEventListener("scrollEnd", () => {
-        this.isScrolling = false;
-      });
+        if (this.mouseTimeout) clearTimeout(this.mouseTimeout);
+        this.mouseTimeout = setTimeout(() => {
+          this.mouseActive = false;
+          this.mouseTimeout = null;
+        }, 150);
+      };
+      document.addEventListener('mousemove', mouseHandler);
+      this.cleanupMouse = () => document.removeEventListener('mousemove', mouseHandler);
 
-      this.mouseMoveUnlisten = this.renderer.listen('document', 'mousemove', (event: MouseEvent) => {
-        this.mouseInfluence = {
-          x: event.clientX,
-          y: event.clientY,
-          active: true
-        };
-
-        setTimeout(() => {
-          this.mouseInfluence.active = false;
-        }, 100);
-      });
+      const resizeHandler = () => this.cacheViewport();
+      window.addEventListener('resize', resizeHandler);
+      this.cleanupResize = () => window.removeEventListener('resize', resizeHandler);
     });
-    this.moveGradientToSmoothContent();
   }
 
-  private moveGradientToSmoothContent(): void {
+  ngOnDestroy(): void {
+    this.unregisterTick?.();
+    this.cleanupMouse?.();
+    this.cleanupResize?.();
+    if (this.mouseTimeout) clearTimeout(this.mouseTimeout);
+  }
+
+  // ─── Inicialización ───────────────────────────────────────────────────────────
+
+  /**
+   * Crea todas las partículas en un DocumentFragment y las inserta
+   * en un único appendChild.
+   */
+  private initParticles(): void {
+    const fragment = document.createDocumentFragment();
+    const w = this.viewportW;
+    const h = this.viewportH;
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      const el = this.renderer.createElement('div') as HTMLDivElement;
+      el.className = 'particle dust';
+
+      const size = Math.random() * 2 + 0.5;
+      const x = Math.random() * w;
+      const y = Math.random() * h;
+
+      // cssText: un solo string assignment
+      el.style.cssText = `
+        width:${size}px;
+        height:${size}px;
+        opacity:${Math.random() * 0.4 + 0.1};
+        transform:translate3d(${x}px,${y}px,0);
+      `;
+
+      fragment.appendChild(el);
+
+      this.dustParticles.push({
+        element: el,
+        x, y,
+        // Velocidad en px/frame 
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        baseX: x,
+        baseY: y
+      });
+    }
+
+    // Un único insert al DOM
+    this.particlesContainer.nativeElement.appendChild(fragment);
+  }
+
+  private cacheViewport(): void {
+    this.viewportW = window.innerWidth;
+    this.viewportH = window.innerHeight;
+  }
+
+  /**
+   * Mueve el gradient wrapper al body para asegurar el correcto
+   * apilamiento visual (z-index) independientemente del stacking context del componente.
+   */
+  private moveGradientToBody(): void {
     if (this.gradientWrapper) {
       document.body.insertBefore(
         this.gradientWrapper.nativeElement,
@@ -75,86 +174,83 @@ export class BackgroundAnimation implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  ngOnDestroy(): void {
-    this.isDestroyed = true;
-    if (this.mouseMoveUnlisten) {
-      this.mouseMoveUnlisten();
+  // ─── Tick coordinado ──────────────────────────────────────────────────────────
+
+  /**
+   * Llamado por el coordinator en cada tick de gsap.ticker.
+   * Implementa el protocolo del semáforo:
+   *   none → no renderiza
+   *   half → renderiza en frames pares (30 fps efectivos)
+   *   full → renderiza siempre (60 fps)
+   */
+  private onTick(): void {
+    const { canRender, frameRate } = this.coordinator.particlePermission();
+
+    if (!canRender) return;
+
+    if (frameRate === 'half' && this.coordinator.tickCount % 2 !== 0) return;
+
+    this.renderParticles();
+  }
+
+  // ─── Render ───────────────────────────────────────────────────────────────────
+
+  private renderParticles(): void {
+    const { mouseActive, mouseX, mouseY } = this;
+
+    for (const dust of this.dustParticles) {
+      this.updateParticle(dust, mouseActive, mouseX, mouseY);
     }
   }
 
-  private createDustParticle(): void {
-    const particle = document.createElement('div');
-    particle.className = 'particle dust';
-
-    const size = Math.random() * 2 + 0.5;
-    particle.style.width = `${size}px`;
-    particle.style.height = `${size}px`;
-    const x = Math.random() * 100;
-    const y = Math.random() * 100;
-
-    particle.style.left = `${x}%`;
-    particle.style.top = `${y}%`;
-    particle.style.opacity = `${Math.random() * 0.4 + 0.1}`;
-
-    this.particlesContainer.nativeElement.appendChild(particle);
-
-    this.dustParticles.push({
-      element: particle,
-      x: x,
-      y: y,
-      vx: (Math.random() - 0.5) * 0.02,
-      vy: (Math.random() - 0.5) * 0.02,
-      baseX: x,
-      baseY: y
-    });
-  }
-
-  private animateOneParticle(dust: DustParticle): void {
+  /**
+   * Actualiza posición de una partícula y escribe el transform.
+   *
+   * La escritura de transform es compositor-only: no invalida el layout,
+   * no dispara paint. El navegador delega el movimiento a la GPU.
+   */
+  private updateParticle(
+    dust: DustParticle,
+    mouseActive: boolean,
+    mouseX: number,
+    mouseY: number
+  ): void {
     dust.x += dust.vx;
     dust.y += dust.vy;
 
-    if (this.mouseInfluence.active) {
-      const particleX = (dust.x / 100) * window.innerWidth;
-      const particleY = (dust.y / 100) * window.innerHeight;
+    if (mouseActive) {
+      const dx = mouseX - dust.x;
+      const dy = mouseY - dust.y;
+      const distSq = dx * dx + dy * dy;
 
-      const dx = this.mouseInfluence.x - particleX;
-      const dy = this.mouseInfluence.y - particleY;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-
-      if (distance < 200) {
+      // Math.sqrt solo cuando la partícula está dentro del radio
+      if (distSq < MOUSE_RADIUS_SQ) {
+        const dist = Math.sqrt(distSq);
         const angle = Math.atan2(dy, dx);
-        const force = (1 - distance / 200) * 0.9;
+        const force = (1 - dist / MOUSE_RADIUS) * 0.9;
 
         dust.x -= Math.cos(angle) * force;
         dust.y -= Math.sin(angle) * force;
       }
     }
 
-    dust.x += (dust.baseX - dust.x) * 0.001;
-    dust.y += (dust.baseY - dust.y) * 0.001;
+    // Retorno suave a la posición base impulsada por el viento
+    dust.baseX += dust.vx;
+    dust.baseY += dust.vy;
+    dust.x += (dust.baseX - dust.x) * BASE_RETURN_FACTOR;
+    dust.y += (dust.baseY - dust.y) * BASE_RETURN_FACTOR;
 
-    if (dust.x < -5) dust.x = 105;
-    if (dust.x > 105) dust.x = -5;
-    if (dust.y < -5) dust.y = 105;
-    if (dust.y > 105) dust.y = -5;
+    // World wrapping: 5% de margen fuera de pantalla
+    const mx = this.viewportW * 0.05;
+    const my = this.viewportH * 0.05;
 
-    dust.element.style.left = `${dust.x}%`;
-    dust.element.style.top = `${dust.y}%`;
-  }
+    if (dust.x < -mx) { dust.x = this.viewportW + mx; dust.baseX = dust.x; }
+    else if (dust.x > this.viewportW + mx) { dust.x = -mx; dust.baseX = dust.x; }
 
-  private animateDustParticles(): void {
-    const animate = () => {
-      if (this.isDestroyed) return;
+    if (dust.y < -my) { dust.y = this.viewportH + my; dust.baseY = dust.y; }
+    else if (dust.y > this.viewportH + my) { dust.y = -my; dust.baseY = dust.y; }
 
-      if (!this.isScrolling) {
-        this.dustParticles.forEach(dust => {
-          this.animateOneParticle(dust);
-        });
-      }
-
-      requestAnimationFrame(animate);
-    };
-
-    requestAnimationFrame(animate);
+    // ← LA ÚNICA ESCRITURA: translate3d → compositor, sin reflow
+    dust.element.style.transform = `translate3d(${dust.x}px,${dust.y}px,0)`;
   }
 }
