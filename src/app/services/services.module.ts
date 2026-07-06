@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from './language/language.service';
+import { AnimationCoordinatorService } from './animation-coordinator/animation-coordinator.service';
 
 
 
@@ -13,7 +14,8 @@ import { LanguageService } from './language/language.service';
   exports: [
   ],
   providers: [
-    LanguageService
+    LanguageService,
+    AnimationCoordinatorService
   ]
 })
 export class ServicesModule { }
